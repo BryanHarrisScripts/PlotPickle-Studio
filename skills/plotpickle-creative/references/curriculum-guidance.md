@@ -1,0 +1,13 @@
+# Source-grounded PlotPickle curriculum guidance (v0.8.0)
+
+The full canonical archive is bundled with the plugin. Start with `python3 scripts/curriculum-bridge.py verify`. The verifier checks exact Git blob identity plus twelve topic files, global lesson numbers 1–81, unique lesson/source IDs, schema and nonempty imported source texts. This is the required readiness gate. Do not mistake hash validity for proof of artistic truth, legal accuracy or current market conditions.
+
+Use `search` to identify relevant lessons, then `lesson --topic TOPIC --lesson-id LESSON_ID` to read the complete lesson text and preserved teaching source records. Cite the exact topic, title, stable lesson ID, global number and relevant section heading. If a lesson's source text contradicts updated teaching, report the discrepancy as historical; do not treat imported historical material as evergreen current authority. Full section text, not only the title/overview, should inform the recommendation.
+
+The curriculum contains 81 archived lessons and 95 source records grouped into 12 canonical topics. Its separate 24-course journey and expanded Foundations/presentation layers are views and mappings; they do not change the source archive counts. The completion manifest marks Foundations complete and eleven topics source-imported, and a guided learning path is advisory, not a lock on creativity.
+
+Use actual screenplay evidence for each diagnosis: source passage IDs, observed action or dialogue, interpretation/uncertainty, lesson section and a proposed experiment. The evidence binder checks section hashes and source text, not whether a creative interpretation is the only correct one. Human author choices and original screenplay remain authority. A lesson may justify a question, not automatically canonize an event or prescribe a rewrite.
+
+For project-based reviews, use `scripts/craft-review.py` with the current pinned project and a finding plan, then `scripts/decision-preview.py` with the output and proposed disposition. Review packets are read-only. After explicit adoption, use the prior guarded story-change workflows and verify durable storage. Report pending reviews and downstream continuity/media impacts.
+
+Default proof exercise: Brotherly Love opening, revision 539 (historical checkpoint only; locate the latest saved snapshot for actual current work), with structure lesson 24b-dynamic-scenes / The dynamic scene chain, character lesson characters-choice-proof / Build the evidence chain, and dialogue lesson dialogue-subtext / The pressure system. Do not embed the project or test findings inside the published plugin.

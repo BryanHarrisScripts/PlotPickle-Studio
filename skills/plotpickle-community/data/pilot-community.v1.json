@@ -1,0 +1,68 @@
+{
+  "schemaVersion": "1.0",
+  "communityId": "plotpickle-community",
+  "name": "PlotPickle Community",
+  "mode": "invitation-only",
+  "frontDoor": "ChatGPT PlotPickle → Connected Services → BUZZ → PlotPickle Community",
+  "backend": "BUZZ Web and relay (to be hosted and verified)",
+  "status": "pilot-prepared-not-deployed",
+  "inviteRequestsEnabled": false,
+  "inviteMintingVerified": false,
+  "browserJoinVerified": false,
+  "liveMessagingVerified": false,
+  "elaraAgentVerified": false,
+  "browserUrl": null,
+  "relayUrl": null,
+  "inviteUrl": null,
+  "credentialsStoredByPlotPickle": false,
+  "rooms": [
+    {
+      "id": "home",
+      "name": "HOME",
+      "purpose": "Welcome, introductions, announcements and rules",
+      "access": "members"
+    },
+    {
+      "id": "chat",
+      "name": "CHAT",
+      "purpose": "Member chat and creative discussion",
+      "access": "members"
+    },
+    {
+      "id": "elara",
+      "name": "ELARA",
+      "purpose": "Future moderated AI-assisted creative conversations; bot not connected",
+      "access": "members"
+    },
+    {
+      "id": "show",
+      "name": "SHOW",
+      "purpose": "Artwork, storyboards and finished creative work",
+      "access": "members"
+    }
+  ],
+  "actions": [
+    {
+      "id": "view-rooms",
+      "label": "View rooms",
+      "mode": "read-only-preview"
+    },
+    {
+      "id": "prepare-join-request",
+      "label": "Prepare invitation request",
+      "mode": "intent-only-not-submitted"
+    },
+    {
+      "id": "how-to-join",
+      "label": "How to join when available",
+      "mode": "explanation-only"
+    }
+  ],
+  "acceptance": [
+    "owner-creates-hosted-BUZZ-Web-and-relay",
+    "authenticated-invite-minted-by-BUZZ",
+    "browser-only-member-join",
+    "real-CHAT-message-delivered-and-readback",
+    "unauthorized-visitor-denied"
+  ]
+}

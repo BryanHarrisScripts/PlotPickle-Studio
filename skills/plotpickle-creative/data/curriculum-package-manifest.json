@@ -1,0 +1,122 @@
+{
+  "schemaVersion": "1.0",
+  "source": "BryanHarrisScripts/PlotPickle",
+  "canonicalArchive": true,
+  "topicCount": 12,
+  "lessonCount": 81,
+  "sourceCount": 95,
+  "sourceFiles": {
+    "foundations": {
+      "file": "foundations.json",
+      "sha256": "ee6b7de0cfdde10d5907732c671e5fc148125ddd55c422bb5b4c323e49786ab0",
+      "gitBlobSha1": "59cba5f6e7829cb1e10f18fe1abf00ccb05c45f2",
+      "sizeBytes": 69259,
+      "lessons": 4,
+      "sources": 7,
+      "curationStatus": "complete"
+    },
+    "industry": {
+      "file": "industry.json",
+      "sha256": "251905b95c08605bfd1652962e1883192c622e90a8831a89d8d90063c43c27f1",
+      "gitBlobSha1": "0fdc45101ee070f124d9891aecc9a5bc01703574",
+      "sizeBytes": 23333,
+      "lessons": 2,
+      "sources": 2,
+      "curationStatus": "source-imported"
+    },
+    "theme": {
+      "file": "theme.json",
+      "sha256": "189d426eb9f6040abda6af339a5ba17642962614cd91a41be6b1b7c6a3f40643",
+      "gitBlobSha1": "050c8abf38012fe16bbe00a758446603cfa49a2a",
+      "sizeBytes": 31736,
+      "lessons": 5,
+      "sources": 2,
+      "curationStatus": "source-imported"
+    },
+    "character": {
+      "file": "character.json",
+      "sha256": "1d962f8ce3b241f5d8fb7ae329a8c65b8a58fe16cde9beb4f5878373c65330cd",
+      "gitBlobSha1": "b3311924643bcd8663722cb1103bab3baad00dff",
+      "sizeBytes": 152667,
+      "lessons": 10,
+      "sources": 14,
+      "curationStatus": "source-imported"
+    },
+    "world": {
+      "file": "world.json",
+      "sha256": "5d3efed23ca959c3a71e96bad41e5b76b0e98ca61a9bac16c6b8456331c6135c",
+      "gitBlobSha1": "5de96caac66896ebf3e96a77a5a51af2202f04a7",
+      "sizeBytes": 42012,
+      "lessons": 5,
+      "sources": 4,
+      "curationStatus": "source-imported"
+    },
+    "structure": {
+      "file": "structure.json",
+      "sha256": "207576f3358c098fd44684e734798782bbfd220e71c0391575156347bb1c2b22",
+      "gitBlobSha1": "4c456ea30b0d8e6a3cd857d92d6ee748f31f2759",
+      "sizeBytes": 107574,
+      "lessons": 11,
+      "sources": 11,
+      "curationStatus": "source-imported"
+    },
+    "dialogue": {
+      "file": "dialogue.json",
+      "sha256": "5d2bf2fc864c98ca36acc5510bd1844e9bdc2951566b467cfa95063b87ed1277",
+      "gitBlobSha1": "c63fc76a5e77bc3f2fad54f9caa25f7a0a28042c",
+      "sizeBytes": 66593,
+      "lessons": 10,
+      "sources": 13,
+      "curationStatus": "source-imported"
+    },
+    "visual-storytelling": {
+      "file": "visual-storytelling.json",
+      "sha256": "5b0f6388100bee120f65079a11921bc12dbc59deee243808d907666a47abef56",
+      "gitBlobSha1": "e1ea67d68c2b36a040ab2d0f3434b465d415e52f",
+      "sizeBytes": 55005,
+      "lessons": 3,
+      "sources": 3,
+      "curationStatus": "source-imported"
+    },
+    "drafting": {
+      "file": "drafting.json",
+      "sha256": "3547061dcf26e1541670fefc8039ac554a994997823865cbfe64f703ad382f20",
+      "gitBlobSha1": "f327188c6396fda8a963e0a3df3cf3be17f0db86",
+      "sizeBytes": 82913,
+      "lessons": 8,
+      "sources": 8,
+      "curationStatus": "source-imported"
+    },
+    "revision": {
+      "file": "revision.json",
+      "sha256": "a5f98ed11c341f4771bf4257fd1b8423f85f7fe7fe000c19fd816ba0eec4767b",
+      "gitBlobSha1": "fa679444e5cb994b6184d2c6d7f5f3e68d296ef3",
+      "sizeBytes": 68953,
+      "lessons": 8,
+      "sources": 5,
+      "curationStatus": "source-imported"
+    },
+    "responsible-ai": {
+      "file": "responsible-ai.json",
+      "sha256": "eddb257b8598338918feb7eac9d4aad7e9ea05f62f2ce591589ab2be0898bfd4",
+      "gitBlobSha1": "e40b4654f0cffd50978e60133e092c44f93d5999",
+      "sizeBytes": 66869,
+      "lessons": 3,
+      "sources": 8,
+      "curationStatus": "source-imported"
+    },
+    "collaboration": {
+      "file": "collaboration.json",
+      "sha256": "13c3f288ee6cb23242349ed42c69e3f3294d99eb87c10e909b74d993ba495a5e",
+      "gitBlobSha1": "1aa4f0b33704a95569940ec57cc5d612c8fab907",
+      "sizeBytes": 211349,
+      "lessons": 12,
+      "sources": 18,
+      "curationStatus": "source-imported"
+    }
+  },
+  "validation": "canonical-Git-blob-plus-schema-count-ID-and-source-content",
+  "declaration": "Byte and structural integrity only, not automatic pedagogical quality certification",
+  "sourceCommit": "72e6f9e141b7a7c6b1ed3302bca49b16b1c060e8",
+  "bundlingProvenance": "GitHub Actions repomix diagnostic artifact: source reconstructed from numbered XML lines, each file verified against original Git blob SHA-1"
+}

@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PlotPickle | Creative Editor</title><link rel="stylesheet" href="/style.css"></head>
+<body>
+<header class="top"><div class="brand"><span class="logo">P</span><span>PLOTPICKLE</span><span class="crumb">/</span><span id="storyTitle">Creative Editor</span></div><div class="nav">PRE-PRODUCTION <span>·</span> LOCAL PREVIEW</div><div id="badge" class="badge">Checking local engine</div></header>
+<main>
+  <section class="workbench">
+    <aside class="panel script"><div class="panel-title">Script Preview <span id="revision">rev —</span></div><div class="tabline"><b>Review</b><span>Source-linked</span></div><div class="script-scroll" id="scriptScroll"><div class="placeholder">Loading screenplay references…</div></div><div class="tip">Source screenplay stays read-only. Edit cues in the timeline and Inspector.</div></aside>
+    <section class="panel player"><div class="panel-title">Primary Playback Preview <span id="playerStatus">Awaiting verified media</span></div><div class="screen" id="screen"><video id="video" playsinline preload="metadata" controls></video><div id="missing" class="missing"><div class="film">▣</div><div>Shot 01 · The Third Bell</div><small>Download the original fal result to the local media vault to preview the shot.</small></div></div><div class="controls"><button class="primary" id="transfer">Import fal Shot 01</button><button id="render">Render Picture + Sound</button><a class="download-link" id="downloadDraft" style="display:none" href="#" download>Download Mix</a><button id="undo">Undo</button><div class="tc" id="timecode">00:00:00:00</div></div><div class="notice" id="notice">Loading the local draft…</div></section>
+    <aside class="panel inspector"><div class="panel-title">Inspector <span id="selectedTrack">No selection</span></div><div id="inspectorBody" class="inspector-body"><div class="placeholder">Click a timeline clip to inspect and edit timing.</div></div></aside>
+  </section>
+  <section class="timeline panel"><div class="timeline-header"><strong>Timeline</strong><span id="rulerInfo">24 FPS · Non-destructive draft</span><div class="addmenu"><button data-track="dialogue">+ Dialogue</button><button data-track="foley">+ Foley</button><button data-track="ambience">+ Ambience</button><button data-track="music">+ Music</button></div></div><div class="timeline-scroll" id="timelineScroll"><div id="timelineGrid"></div></div><div class="foot"><span>Video · Dialogue · Action · Foley · Ambience · Music</span><span>48 kHz WAV mixing is enabled. Sample ocean/gulls sounds are synthetic placeholders; dialogue lip-sync is not yet enabled.</span></div></section>
+</main>
+<script src="/app.js" defer></script>
+</body></html>
