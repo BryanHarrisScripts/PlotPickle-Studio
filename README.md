@@ -13,12 +13,12 @@ The live ChatGPT plugin is not automatically updated by changes to this reposito
 ## Repository boundaries
 
 - **PlotPickle Studio**: ChatGPT plugin UI, Elara guidance, REEL and ONCE, story navigation, connected services, creative and media-production workflow sources.
-- **PlotPickle (original)**: legacy desktop app, Windows execution, Software Factory and prior historical development records.
+- **PlotPickle (original)**: legacy desktop app, Windows execution, Software Factory, prior historical development records, and all original PlotPickle logos, images, diagrams and brand assets. None of these visual assets are being migrated to Studio.
 - **Interoperability**: use explicit, versioned PPF and media contracts rather than implicit shared directories or duplicate private story stores.
 
 ## Release discipline
 
-1. Import and verify all distributable release assets and the canonical reader bundle.
+1. Create and approve Studio-specific icon/logo assets, verify them, and restore the canonical reader bundle. Do not copy original PlotPickle branding.
 2. Remove sample private media references and reconcile manifests to this repository.
 3. Run skill/script tests and full package build from a clean checkout.
 4. Compare the built package with the intended release manifest and verify ChatGPT host acceptance.
