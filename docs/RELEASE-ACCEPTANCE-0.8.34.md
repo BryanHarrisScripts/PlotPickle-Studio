@@ -15,7 +15,7 @@ Source authority: November 8, 2026 Studio engineering briefs in `docs/direction/
 - A different library PPF failed `RAW_STRUCTURE_UNVERIFIABLE`; do not silently repair/relax the canonical reader for that source.
 - No private story project, real screenplay passages, asset URLs, or project hashes are recorded in this public repository.
 
-This acceptance proves native reader execution inside a ChatGPT tool environment against one real saved project. It does NOT establish ChatGPT sidebar/plugin host execution, account-authorized durable reopen across devices, native PPF persistence, or real media-byte recovery. A synthetic end-to-end import -> reader -> Studio projection test is included for source integration; it cannot substitute for real host acceptance.
+The real saved project was ALSO processed through the actual Studio `createProjectLoader` and read-only `projectStudio` adapter using the exact native reader in the ChatGPT execution environment. It returned `status=source-backed`, correct source identity/hash and revision 539, 383 passages, 16 source scenes, 10 people cues, 16 distinct places, 125 storyboard positions, 300 evidence relationships, and `readonly=true`. The source hash stayed unchanged. This establishes source-level Studio loader integration with a real saved PPF, **not** official ChatGPT sidebar/plugin-host execution, account-authorized durable reopen across devices, native PPF persistence, or real media-byte recovery. A synthetic end-to-end import -> reader -> Studio projection test is included for source integration; it cannot substitute for real host acceptance.
 
 ## Studio identity
 
@@ -28,11 +28,13 @@ This acceptance proves native reader execution inside a ChatGPT tool environment
 - [x] Source merged to Studio GitHub and exact canonical reader hash verified (PR #3).
 - [x] Real private ChatGPT Library PPF read, fail-closed identity, source paging, 25 shots and nonmutation verified.
 - [x] Public test story synthetic; private creator The Third Bell seed not published to GitHub.
-- [ ] Studio branding PNGs built, committed and CI verified.
-- [ ] Exact updated plugin full archive prepared from GitHub source/owned original release with all needed assets.
+- [x] Studio branding PNGs built, committed to the release branch and CI verified (reproducible SVG sources retained).
+- [x] A **private, unpublished** v0.8.34 candidate archive assembled in the ChatGPT tool environment by overlaying release manifests and new Studio assets on the owner-supplied v0.8.33 backup, retaining the original private The Third Bell seed and exact reader. The original logo/icon are excluded from the candidate.
 - [ ] Validate 0.8.34's plug-in packaging against real Plugin Creator host acceptance.
 - [ ] Confirm real ChatGPT plugin UI integration including real read-only PPF reopen and private media provenance.
-- [ ] Recheck privately retained 0.8.33 archive checksum and confirm safe rollback is possible.
+- [ ] Original private v0.8.33 archive checksum rechecked (SHA-256 `5838a10ec530959635c787d6dd0391c7aabcf740e0e6870950cff103dc4c7dc3`); rollback under the actual Plugin Creator host is **not** yet verified.
 - [ ] Publish guarded 0.8.34 update only after independent acceptance; verify returned release ID and current version.
+
+Local private candidate passed all 13 existing Studio pilot tests and syntax checks. Synthetic native importer → canonical reader → Studio projection integration also passed the GitHub Actions source workflow. The private candidate must be reconciled against the final GitHub-generated branding PNG bytes before publication. When calling Plugin Creator's overlay update, explicitly list the original `assets/composer-icon.png` and `assets/plotpickle-logo.png` in `delete_paths`, since omission from an overlay archive does not delete old plugin files. **Do not** delete the private `the-third-bell-seed.json` as part of public source cleanup.
 
 Passing source tests or rendering assets is NOT deployment; never claim this is a release-ready user experience until the actual Plugin Creator install/verification succeeds.
