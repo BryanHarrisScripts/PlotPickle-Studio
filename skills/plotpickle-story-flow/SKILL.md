@@ -13,6 +13,20 @@ PlotPickle is an on-demand creative production system. Preserve four HOME choice
 4. Use specialized skills: navigator, design, assets, animatic, fal-production, reports and pitch-deck. The source screenplay and independently verified media outrank any illustrative plan.
 5. After an action return actual source revision/artifact, plus Continue / Review / Revise options. Any script or image change triggers only affected downstream validation, never an automatic overwrite or paid re-generation.
 
+## Resume a saved story from ChatGPT files (v0.8.34)
+
+Start in the existing conversation, not a new Sidebar App. On "continue", "reopen", "what's next" or equivalent, locate the latest authorized PPF in the current ChatGPT Project or the creator's Library. Compare the real project identity, revision and source SHA with any supplied checkpoint; do not silently prefer a cached draft. Where both a saved PPF and its portable media ZIP are accessible, use the read-only `scripts/verify-portable-package.py` to confirm the image variations' exact bytes and content hashes. It reads ZIP members in place without extracting them, modifying sources, or relying on Windows. When possible, independently pin the project first with `../read-plotpickle-project/scripts/inspect-project.mjs`; the portable-media helper **does not** replace or certify that canonical reader.
+
+Example of an internal host-side verification (not a setup command for a phone creator):
+
+```sh
+python3 scripts/verify-portable-package.py --project /authorized/story.ppf.json --assets-zip /authorized/story-media.zip --expected-revision 539
+```
+
+Use the revision above only when it matches the actually selected saved story; it is not a universal default. The report distinguishes `PORTABLE_MEDIA_VERIFIED_ONLY` from incomplete/unverifiable media. Never infer the storyboard mapping is ready solely from a fully verified asset registry: image variations and authored 25-shot mappings are separate records. Run `story-flow.py` for selected Mini-Block screenplay/shot readiness and exact recorded Save/Lock states, then show one grounded next step. Media bytes verified in ChatGPT's private tool execution do not automatically establish that an installed Plugin Creator skill invoked the workflow, that a phone sidebar hosted it, or that native Save/Lock can be committed across chats.
+
+Keep creator-facing output brief: current story and revision, verified media count (or unknown), current stage, and one practical Next action. Do not ask them to install an app, unpack ZIPs, connect GitHub, or provide a provider login. If authoritative files are unavailable, explain what is missing without inventing a project state; continue story discussion if requested.
+
 ## Four gates
 
 **Script → Storyboard:** real screenplay passages and stable source identity when present; proposal must be labelled as such.
