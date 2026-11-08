@@ -1,7 +1,7 @@
 name: PlotPickle Studio source candidate
 on:
   push:
-    branches: [main, 'migration/**']
+    branches: [main, 'migration/**', 'maintenance/**']
   pull_request:
 permissions:
   contents: read
@@ -19,6 +19,9 @@ jobs:
           node-version: '22'
       - name: Check Studio source candidate
         run: python scripts/verify_source.py --phase source
+      - name: Validate isolated synthetic editor seed
+        working-directory: skills/plotpickle-editor/windows
+        run: python -m unittest -v test_seed_fixture.py
       - name: Check Studio pilot syntax
         working-directory: skills/plotpickle-studio/pilot
         run: npm run check
