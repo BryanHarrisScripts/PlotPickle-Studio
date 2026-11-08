@@ -54,7 +54,7 @@ class TestPortableMediaReopen(unittest.TestCase):
 
     def run_check(self, ppf=None, **kw):
         payload = json.dumps(self.ppf if ppf is None else ppf).encode()
-        return m.audit(payload, self.zip, **kw)
+        return m.inspect(payload, self.zip, **kw)
 
     def test_verified_only_not_plugin_or_save_lock(self):
         r = self.run_check()
@@ -62,8 +62,8 @@ class TestPortableMediaReopen(unittest.TestCase):
         self.assertEqual(r["media"]["mediaHashVerified"], 1)
         self.assertEqual(r["media"]["mediaVerifiedBytes"], len(FRAME))
         self.assertFalse(r["safety"]["canonicalReaderAccepted"])
-        self.assertFalse(r["safety"]["chatgptInstalledPluginReopenedProject"])
-        self.assertFalse(r["safety"]["savedLockedAndAcceptedStatesVerified"])
+        self.assertFalse(r["safety"]["pluginHostReopenedProject"])
+        self.assertFalse(r["safety"]["savedLockedAndAcceptedVerified"])
 
     def test_missing_archive_asset_fails_closed(self):
         archive(self.zip, [("assets/not-the-shot.webp", FRAME)])
@@ -74,7 +74,7 @@ class TestPortableMediaReopen(unittest.TestCase):
     def test_tampered_asset_hash_fails_closed(self):
         archive(self.zip, [(PATH, FRAME[:-1] + b"?")])
         r = self.run_check()
-        self.assertEqual(r["media"]["sha256Mismatch"], 1)
+        self.assertEqual(r["media"]["hashMismatch"], 1)
 
     def test_incorrect_declared_size_fails_closed(self):
         self.ppf["assetRegistry"]["assets"][0]["variations"][0]["bytes"] += 1
@@ -87,25 +87,25 @@ class TestPortableMediaReopen(unittest.TestCase):
         self.assertEqual(self.run_check()["media"]["invalidWebpSignature"], 1)
 
     def test_stale_revision_fails_closed(self):
-        with self.assertRaisesRegex(m.InvalidPackage, "PROJECT_REVISION_CHANGED"):
+        with self.assertRaisesRegex(m.ReopenBlocked, "PROJECT_REVISION_CHANGED"):
             self.run_check(expected_revision=3)
 
     def test_changed_sha_fails_closed(self):
-        with self.assertRaisesRegex(m.InvalidPackage, "PROJECT_SHA256_CHANGED"):
+        with self.assertRaisesRegex(m.ReopenBlocked, "PROJECT_SHA256_CHANGED"):
             self.run_check(expected_sha256="0" * 64)
 
     def test_wrong_project_id_fails_closed(self):
-        with self.assertRaisesRegex(m.InvalidPackage, "PROJECT_ID_CHANGED"):
+        with self.assertRaisesRegex(m.ReopenBlocked, "PROJECT_ID_CHANGED"):
             self.run_check(expected_id="another-project")
 
     def test_zip_traversal_rejected_without_extraction(self):
         archive(self.zip, [("../outside.webp", FRAME)])
-        with self.assertRaisesRegex(m.InvalidPackage, "UNSAFE_ZIP_MEMBER_PATH"):
+        with self.assertRaisesRegex(m.ReopenBlocked, "UNSAFE_ZIP_PATH"):
             self.run_check()
 
     def test_duplicate_zip_member_rejected(self):
         archive(self.zip, [(PATH, FRAME), (PATH, FRAME)])
-        with self.assertRaisesRegex(m.InvalidPackage, "DUPLICATE_ZIP_MEMBERS"):
+        with self.assertRaisesRegex(m.ReopenBlocked, "DUPLICATE_ZIP_MEMBER"):
             self.run_check()
 
     def test_duplicate_variation_path_not_double_counted(self):
@@ -118,7 +118,7 @@ class TestPortableMediaReopen(unittest.TestCase):
 
     def test_no_registry_fails_closed(self):
         self.ppf.pop("assetRegistry")
-        with self.assertRaisesRegex(m.InvalidPackage, "ASSET_REGISTRY_MISSING_OR_INVALID"):
+        with self.assertRaisesRegex(m.ReopenBlocked, "MISSING_ASSET_REGISTRY"):
             self.run_check()
 
     def test_file_count_requires_actual_media(self):
