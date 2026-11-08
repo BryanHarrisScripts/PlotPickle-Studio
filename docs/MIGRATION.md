@@ -19,7 +19,7 @@ The public GitHub tree is not a byte-for-byte copy of the published plugin until
 
 ## Code and release authority
 
-- The two plugin manifests in this import are preserved from the published v0.8.33 source and still point to the original repository. Repoint both to PlotPickle-Studio for the **next** versioned release after package acceptance, not by rewriting the historical published snapshot.
+- The first import commit preserved the published v0.8.33 manifests verbatim. A second, separate candidate commit sets both manifest versions to **0.8.34** and changes their repository URL to **PlotPickle-Studio**; this 0.8.34 candidate has **not** been published to ChatGPT. The historical source state is preserved by the earlier commit.
 - Existing open PRs #3412, #3413 and #3414 in the original repo are **historical source/evidence candidates**, not additional files silently merged into this repository.
 - Do not merge or close original desktop PRs or issues merely because Studio imports some code.
 - Keep original Windows-only Factory, Windows launcher and unrelated app code in the original repository.
@@ -31,10 +31,10 @@ The public GitHub tree is not a byte-for-byte copy of the published plugin until
 - [ ] Exact binary icon and logo imported, hashes checked against the published release
 - [ ] Bundled project inspector restored and test-built from a traceable source
 - [ ] Editor seed replaced with sanitized synthetic media data, or the code updated to require a creator-provided seed
-- [ ] Both plugin manifests' repository references changed to the new repository in a new release version
+- [x] Both plugin manifests' repository references changed to the new repository in unpublished v0.8.34 candidate
 - [ ] Full test suite and package/archive comparison pass in a clean environment
 - [ ] ChatGPT host smoke test and source-linked persisted-project read test pass
 - [ ] GitHub commit / tagged release -> Plugin Creator update -> deployed release ID independently verified
 - [ ] Public-source privacy and dependency licence audit completed
 
-GitHub alone does not automatically synchronize ChatGPT conversations, private projects, user-generated images, cloud-provider assets or plugin publications.
+A source-only GitHub Actions check now runs the standalone Studio pilot syntax/tests and source-manifest audit. Passing this is NOT proof of a complete plugin build, media integrity, authenticated ChatGPT host install or published release. GitHub alone does not automatically synchronize ChatGPT conversations, private projects, user-generated images, cloud-provider assets or plugin publications.
