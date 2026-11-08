@@ -19,6 +19,12 @@ ChatGPT is the creative workspace; Elara is the conversation guide, not a backgr
 
 4. **Connected Services** — Suno, fal, BUZZ, Modem, in that order. Read the actual catalogue and `../plotpickle-creative/references/connected-services.md`. Catalogue presence is not proof of authenticated connection.
 
+## Mobile-first Continue Story (v0.8.34)
+
+Preserve the HOME and REEL/ONCE surfaces already used successfully in ChatGPT. Do not force a new sidebar, app install, project creation wizard or provider connection before starting a story. For "continue", "open my story", "what's next" or a selected existing story, use the existing in-chat Storyboard and `../plotpickle-story-flow/SKILL.md` to look for the actual latest authorized PPF and portable media package. The new optional read-only media verification consumes the private ZIP in ChatGPT execution without extracting assets or requiring a creator-side tool. Separate four facts: project source reopened, media bytes verified, story shot mappings/Save-Lock state, and production readiness. Return only the next helpful action unless the user requests a detailed audit.
+
+The Studio Sidebar remains an optional later visual convenience, not a dependency or release prerequisite for the conversational plugin. Nothing about presenting native in-chat cards proves a hosted editor, media-save action or payment authorization.
+
 ## PlotPickle Studio — one connected workspace
 
 When the user asks to open Studio, use `../plotpickle-studio/SKILL.md`. REEL and ONCE are the two entrances above Your Stories. Once a verified project is selected, Studio offers linked Story, People, Places, Moments, Visuals, Produce, Learn, Review and Share. These are contextual views of the same story; they are not disconnected buckets or a new database. Adapt wording to Characters/Worlds/Scenes/Films in REEL and People/Places/Memories/Preserve in ONCE. Preserve character/prop/scene/prompt/evidence relationships in the current project rather than inventing state from a sample screen.

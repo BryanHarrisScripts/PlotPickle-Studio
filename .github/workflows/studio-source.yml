@@ -22,6 +22,10 @@ jobs:
       - name: Validate isolated synthetic editor seed
         working-directory: skills/plotpickle-editor/windows
         run: python -m unittest -v test_seed_fixture.py
+      - name: Verify conversational story handoffs (synthetic source)
+        run: python skills/plotpickle-story-flow/scripts/test-story-flow.py
+      - name: Verify portable PPF archive recovery (synthetic files)
+        run: python skills/plotpickle-story-flow/scripts/test-verify-portable-package.py
       - name: Check Studio pilot syntax
         working-directory: skills/plotpickle-studio/pilot
         run: npm run check
