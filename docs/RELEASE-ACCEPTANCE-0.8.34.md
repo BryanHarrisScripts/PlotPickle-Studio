@@ -17,6 +17,14 @@ Source authority: November 8, 2026 Studio engineering briefs in `docs/direction/
 
 The real saved project was ALSO processed through the actual Studio `createProjectLoader` and read-only `projectStudio` adapter using the exact native reader in the ChatGPT execution environment. It returned `status=source-backed`, correct source identity/hash and revision 539, 383 passages, 16 source scenes, 10 people cues, 16 distinct places, 125 storyboard positions, 300 evidence relationships, and `readonly=true`. The source hash stayed unchanged. This establishes source-level Studio loader integration with a real saved PPF, **not** official ChatGPT sidebar/plugin-host execution, account-authorized durable reopen across devices, native PPF persistence, or real media-byte recovery. A synthetic end-to-end import -> reader -> Studio projection test is included for source integration; it cannot substitute for real host acceptance.
 
+## Independent Library media recovery in a fresh conversation (2026-11-08)
+
+This is **new evidence beyond the earlier native reader / source projection tests**. In a fresh ChatGPT conversation, the owner-authorized `brotherly-love.ppf.json` and its separately stored `Brotherly-Love-New-Artwork-Storyboard.zip` were materialized from the user's private ChatGPT Library into an isolated execution environment, without modifying their originals or publishing them to GitHub. The saved PPF parsed at revision 539 (1,468,305 bytes). Its asset registry identified 131 WebP image variations with portable paths, recorded byte lengths and SHA-256 content hashes.
+
+All 131 corresponding WebP files were independently located in the owner archive and read byte-for-byte. Each file matched its recorded byte length and SHA-256 hash, and its RIFF/WEBP signature was checked. The total validated image payload was **190,630,642 bytes**; there were **zero missing or mismatched files**. The source PPF remained byte-identical after verification. A detailed machine-readable verification receipt was returned privately to the owner, not committed.
+
+**Scope limitation:** this proves cross-conversation Library file retrieval and authentic image-byte correspondence to one real PPF/portable asset package. It does **not** prove that the published v0.8.33 plugin itself reopened the project, that the v0.8.34 Studio sidebar is installed, that mobile host transport works, that native Save/Lock has persisted, that fal MP4s are recovered, or that the Plugin Creator backup/archive and rollback have been independently validated. Those release gates remain open.
+
 ## Studio identity
 
 - New, independently authored Studio composer icon and wordmark in `assets/studio-composer-icon.svg` and `assets/studio-logo.svg`, rendered to PNG using pinned CairoSVG.
