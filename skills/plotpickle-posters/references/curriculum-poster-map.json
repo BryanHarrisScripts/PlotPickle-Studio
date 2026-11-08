@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0",
+  "curriculumSnapshot": "81 lessons, 12 topic files; verify against embedded archive before use",
+  "references": [
+    {"topic":"foundations","lessonId":"pitch","number":1,"title":"The Pitch","section":"Build the pitch in useful layers","posterApplication":"Define the project promise, intended audience and campaign invitation rather than inventing story claims."},
+    {"topic":"foundations","lessonId":"loglines-that-carry-the-movie","number":15,"title":"Loglines That Carry the Movie","section":"One sentence, different jobs","posterApplication":"Distinguish the approved logline, teaser and tagline; create purpose-labelled promotional copy variants without overwriting primary story copy."},
+    {"topic":"theme","lessonId":"mood-colour-visual-language","number":16,"title":"Mood, Colour and Visual Language","section":"Mood, tone and visual ingredients","posterApplication":"Translate approved mood, palette, contrast, typography and visual motif into a campaign art direction."},
+    {"topic":"visual-storytelling","lessonId":"early-visual-development","number":17,"title":"From Concept Card to Storyboard Frame","section":"Four different visual jobs","posterApplication":"Separate exploratory campaign key art from a canonical storyboard frame or approved production image."},
+    {"topic":"revision","lessonId":"ai-revision-pitch-audience-language","number":42,"title":"Pitch, synopsis and audience-language pass","section":"Recognize predictable AI failure modes","posterApplication":"Review teaser, headline, tagline and call to action for unsupported hype, accidental spoilers and invented accolades."},
+    {"topic":"industry","lessonId":"collaboration-ownership-sharing","number":46,"title":"Ownership, Licences and Sharing Choices","section":"Document collaboration before publication","posterApplication":"Check rights, image/likeness permissions, contributor credit and distribution before external publishing."}
+  ],
+  "usageRule":"Read the exact full embedded lesson text and section after a successful curriculum-bridge.py verify; map metadata does not itself prove lesson validity."
+}

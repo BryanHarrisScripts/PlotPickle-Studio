@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://plotpickle.local/schemas/poster-pack.v1.schema.json",
+  "title": "PlotPickle Poster Pack v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "status",
+    "campaignId",
+    "brief",
+    "source",
+    "curriculumReferences",
+    "outputs",
+    "rightsReview",
+    "marketingReview"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0"
+    },
+    "status": {
+      "enum": [
+        "planned",
+        "candidates-verified",
+        "approved"
+      ]
+    },
+    "campaignId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "brief": {
+      "type": "object"
+    },
+    "source": {
+      "type": "object"
+    },
+    "curriculumReferences": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object"
+      }
+    },
+    "rightsReview": {
+      "type": "string"
+    },
+    "marketingReview": {
+      "type": "string"
+    },
+    "outputs": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "width",
+          "height",
+          "filename",
+          "status",
+          "compositionNotes",
+          "copySafeArea"
+        ],
+        "properties": {
+          "id": {
+            "enum": [
+              "theatrical",
+              "square",
+              "portrait-feed",
+              "story-reel"
+            ]
+          },
+          "width": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "height": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "filename": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "enum": [
+              "planned",
+              "bytes-verified",
+              "approved"
+            ]
+          },
+          "compositionNotes": {
+            "type": "string"
+          },
+          "copySafeArea": {
+            "type": "object"
+          },
+          "printReady": {
+            "type": "boolean"
+          },
+          "verifiedSha256": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "curriculumVerification": {
+      "type": "string"
+    },
+    "exportsArePrintReady": {
+      "type": "boolean"
+    }
+  }
+}

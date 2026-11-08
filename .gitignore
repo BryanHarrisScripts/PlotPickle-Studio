@@ -1,0 +1,24 @@
+# Credentials, local personal projects and production media
+.env
+.env.*
+!.env.example
+*.ppf.json
+*.mp4
+*.mov
+*.wav
+*.m4a
+*.flac
+*.sqlite
+*.sqlite3
+*.db
+**/secrets/**
+**/private/**
+# Build caches and local dependencies
+node_modules/
+__pycache__/
+*.pyc
+.pytest_cache/
+dist/
+build/
+*.log
+.DS_Store

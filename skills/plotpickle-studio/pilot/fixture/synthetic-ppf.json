@@ -1,0 +1,13 @@
+{
+  "id":"synthetic-studio-demo","title":"Example Film — Synthetic Data","revision":1,
+  "sourceEvidence":{"screenplay":{"passages":[
+    {"id":"p1","type":"scene-heading","text":"EXT. LIGHTHOUSE - DAWN","blockNumber":1,"miniBlockNumber":1},
+    {"id":"p2","type":"action","text":"A small boat approaches the shore.","blockNumber":1,"miniBlockNumber":1},
+    {"id":"p3","type":"character","text":"MARA","blockNumber":1,"miniBlockNumber":1},
+    {"id":"p4","type":"dialogue","text":"I remember the sound of the bell.","blockNumber":1,"miniBlockNumber":1},
+    {"id":"p5","type":"scene-heading","text":"INT. CABIN - MORNING","blockNumber":1,"miniBlockNumber":1},
+    {"id":"p6","type":"character","text":"MARA","blockNumber":1,"miniBlockNumber":1}
+  ]}},
+  "assetRegistry":{"extensions":{"storyWorkflow":{"plans":[{"address":{"blockNumber":1,"miniBlockNumber":1},"shots":[{"shotNumber":1,"state":"PLANNED","passageIds":["p1","p2"],"narrativePurpose":"Establish the lighthouse","composition":"Wide shot","prompt":"Wide shot of lighthouse at dawn, distant boat approaching"}]}]}}},
+  "production":{"storyboardImagePrompts":[{"anchorRef":"storyboard-anchor:block:block-01:mini-1","position":1,"prompt":"Wide shot of lighthouse at dawn, distant boat approaching"}]}
+}

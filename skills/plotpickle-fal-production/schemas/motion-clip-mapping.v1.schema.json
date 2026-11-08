@@ -1,0 +1,189 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/BryanHarrisScripts/PlotPickle/blob/main/schemas/motion-clip-mapping.v1.schema.json",
+  "title": "PlotPickle Motion Clip Mapping v1 \u2014 verified draft bytes",
+  "type": "object",
+  "required": [
+    "schema",
+    "spanId",
+    "project",
+    "sourceManifestSha256",
+    "motionPlanSha256",
+    "portablePath",
+    "sha256",
+    "mediaProbe",
+    "editorialUse",
+    "provider",
+    "verification",
+    "review",
+    "renderClass"
+  ],
+  "properties": {
+    "schema": {
+      "const": "plotpickle.motion-clip-mapping.v1"
+    },
+    "spanId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "project": {
+      "type": "object",
+      "required": [
+        "id",
+        "revision",
+        "sha256"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      }
+    },
+    "sourceManifestSha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "motionPlanSha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "portablePath": {
+      "type": "string",
+      "pattern": "^assets/motion/[A-Za-z0-9_.-]+\\.mp4$"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "mediaProbe": {
+      "type": "object",
+      "required": [
+        "durationSeconds",
+        "width",
+        "height",
+        "decodedFrames"
+      ],
+      "properties": {
+        "durationSeconds": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "width": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "decodedFrames": {
+          "type": "string"
+        }
+      }
+    },
+    "editorialUse": {
+      "type": "object",
+      "required": [
+        "inFrame",
+        "outFrameExclusive",
+        "editorialFrames"
+      ],
+      "properties": {
+        "inFrame": {
+          "const": 0
+        },
+        "outFrameExclusive": {
+          "type": "integer",
+          "minimum": 72,
+          "maximum": 360
+        },
+        "editorialFrames": {
+          "type": "integer",
+          "minimum": 72,
+          "maximum": 360
+        }
+      }
+    },
+    "provider": {
+      "type": "object",
+      "required": [
+        "name",
+        "source"
+      ],
+      "properties": {
+        "name": {
+          "const": "fal"
+        },
+        "jobIdReported": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "modelEndpoint": {
+          "type": "string"
+        },
+        "source": {
+          "enum": [
+            "host-retrieved-verified-media",
+            "user-supplied-local-media-not-provider-attested"
+          ]
+        }
+      }
+    },
+    "verification": {
+      "type": "object",
+      "required": [
+        "bytesPresent",
+        "hashVerified",
+        "decodeVerified",
+        "sourceBindingVerified"
+      ],
+      "properties": {
+        "bytesPresent": {
+          "const": true
+        },
+        "hashVerified": {
+          "const": true
+        },
+        "decodeVerified": {
+          "const": true
+        },
+        "sourceBindingVerified": {
+          "const": true
+        }
+      }
+    },
+    "review": {
+      "type": "object",
+      "required": [
+        "state",
+        "savedMarkerPresent",
+        "locked"
+      ],
+      "properties": {
+        "state": {
+          "const": "unreviewed"
+        },
+        "savedMarkerPresent": {
+          "const": false
+        },
+        "locked": {
+          "const": false
+        }
+      }
+    },
+    "renderClass": {
+      "const": "draft-candidate"
+    }
+  }
+}

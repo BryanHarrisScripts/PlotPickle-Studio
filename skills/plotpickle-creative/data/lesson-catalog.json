@@ -1,0 +1,494 @@
+{
+  "schemaVersion": "1.0",
+  "origin": "BryanHarrisScripts/PlotPickle canonical learn/*.json metadata at 2026-11-06; catalogue only, not full lesson text",
+  "lessonTextEmbedded": false,
+  "lessonCount": 81,
+  "lessons": [
+    {
+      "topic": "foundations",
+      "id": "pitch",
+      "number": 1,
+      "title": "The Pitch"
+    },
+    {
+      "topic": "foundations",
+      "id": "loglines-that-carry-the-movie",
+      "number": 15,
+      "title": "Loglines That Carry the Movie"
+    },
+    {
+      "topic": "foundations",
+      "id": "why-plotpickle-works-in-layers",
+      "number": 18,
+      "title": "Why PlotPickle Works in Layers"
+    },
+    {
+      "topic": "foundations",
+      "id": "essentials-experience",
+      "number": 73,
+      "title": "Build the Story Experience"
+    },
+    {
+      "topic": "industry",
+      "id": "industry",
+      "number": 13,
+      "title": "The Film Industry"
+    },
+    {
+      "topic": "industry",
+      "id": "collaboration-ownership-sharing",
+      "number": 46,
+      "title": "Ownership, Licences and Sharing Choices"
+    },
+    {
+      "topic": "theme",
+      "id": "mood-colour-visual-language",
+      "number": 16,
+      "title": "Mood, Colour and Visual Language"
+    },
+    {
+      "topic": "theme",
+      "id": "ai-revision-theme-motif-foreshadowing",
+      "number": 38,
+      "title": "Theme, motif and foreshadowing pass"
+    },
+    {
+      "topic": "theme",
+      "id": "essentials-tone",
+      "number": 75,
+      "title": "Design Tone Without Monotony"
+    },
+    {
+      "topic": "theme",
+      "id": "essentials-theme",
+      "number": 76,
+      "title": "Make Theme a Dramatic Argument"
+    },
+    {
+      "topic": "theme",
+      "id": "essentials-motif",
+      "number": 79,
+      "title": "Build Motifs, Symbols and Echoes"
+    },
+    {
+      "topic": "character",
+      "id": "character-bible",
+      "number": 7,
+      "title": "Story Bible: Character"
+    },
+    {
+      "topic": "character",
+      "id": "ai-revision-character-choice-arc",
+      "number": 31,
+      "title": "Character choice and arc audit"
+    },
+    {
+      "topic": "character",
+      "id": "characters-engine",
+      "number": 57,
+      "title": "Build the Character Engine"
+    },
+    {
+      "topic": "character",
+      "id": "characters-choice-proof",
+      "number": 58,
+      "title": "Prove Character Through Choice"
+    },
+    {
+      "topic": "character",
+      "id": "characters-inner-journey",
+      "number": 59,
+      "title": "Map the Inner Journey Without Forcing It"
+    },
+    {
+      "topic": "character",
+      "id": "characters-conflict",
+      "number": 60,
+      "title": "Join Inner and Outer Conflict"
+    },
+    {
+      "topic": "character",
+      "id": "characters-opposition",
+      "number": 61,
+      "title": "Build Opposition as a Competing Worldview"
+    },
+    {
+      "topic": "character",
+      "id": "characters-relationships",
+      "number": 62,
+      "title": "Design Relationships That Change Both People"
+    },
+    {
+      "topic": "character",
+      "id": "characters-voiceprint",
+      "number": 63,
+      "title": "Give Every Character a Playable Voice"
+    },
+    {
+      "topic": "character",
+      "id": "characters-cast-system",
+      "number": 64,
+      "title": "Design the Cast as a Dramatic System"
+    },
+    {
+      "topic": "world",
+      "id": "genres",
+      "number": 2,
+      "title": "Tropes and Genres"
+    },
+    {
+      "topic": "world",
+      "id": "world-building",
+      "number": 6,
+      "title": "World-Building"
+    },
+    {
+      "topic": "world",
+      "id": "story-bible",
+      "number": 8,
+      "title": "The Story Bible"
+    },
+    {
+      "topic": "world",
+      "id": "ai-revision-genre-world-continuity",
+      "number": 39,
+      "title": "Genre, world and continuity pass"
+    },
+    {
+      "topic": "world",
+      "id": "ai-revision-representation-research",
+      "number": 40,
+      "title": "Representation and research-question pass"
+    },
+    {
+      "topic": "structure",
+      "id": "structures",
+      "number": 3,
+      "title": "Story Structures: Screenplays to Improv"
+    },
+    {
+      "topic": "structure",
+      "id": "24b-new-spin",
+      "number": 19,
+      "title": "Why 24 Blocks Work"
+    },
+    {
+      "topic": "structure",
+      "id": "24b-structure-guide",
+      "number": 20,
+      "title": "The Grid Is a Guide, Not a Cage"
+    },
+    {
+      "topic": "structure",
+      "id": "24b-structures-role",
+      "number": 21,
+      "title": "Structure Creates Pressure and Choice"
+    },
+    {
+      "topic": "structure",
+      "id": "24b-story-beats",
+      "number": 22,
+      "title": "From Beat to Act"
+    },
+    {
+      "topic": "structure",
+      "id": "24b-principle-three",
+      "number": 23,
+      "title": "Promise, Progress, Pressure, Payoff"
+    },
+    {
+      "topic": "structure",
+      "id": "24b-dramatic-question",
+      "number": 24,
+      "title": "Questions That Pull the Story Forward"
+    },
+    {
+      "topic": "structure",
+      "id": "24b-structure-diversity",
+      "number": 25,
+      "title": "One Grid, Many Story Shapes"
+    },
+    {
+      "topic": "structure",
+      "id": "24b-reflection",
+      "number": 26,
+      "title": "Setup, Payoff and the Closing Image"
+    },
+    {
+      "topic": "structure",
+      "id": "24b-dynamic-scenes",
+      "number": 28,
+      "title": "Scenes That Turn and Hand Off"
+    },
+    {
+      "topic": "structure",
+      "id": "essentials-pacing",
+      "number": 74,
+      "title": "Control Pacing Through Change"
+    },
+    {
+      "topic": "dialogue",
+      "id": "ai-revision-dialogue-voiceprint",
+      "number": 34,
+      "title": "Dialogue and Voiceprint pass"
+    },
+    {
+      "topic": "dialogue",
+      "id": "ai-revision-subtext-status-silence",
+      "number": 35,
+      "title": "Subtext, status and silence pass"
+    },
+    {
+      "topic": "dialogue",
+      "id": "dialogue-action",
+      "number": 65,
+      "title": "Dialogue Is Action"
+    },
+    {
+      "topic": "dialogue",
+      "id": "dialogue-voiceprint",
+      "number": 66,
+      "title": "Build a Playable Voiceprint"
+    },
+    {
+      "topic": "dialogue",
+      "id": "dialogue-subtext",
+      "number": 67,
+      "title": "Write Subtext and Withheld Information"
+    },
+    {
+      "topic": "dialogue",
+      "id": "dialogue-conflict",
+      "number": 68,
+      "title": "Create Conflict Without Constant Arguments"
+    },
+    {
+      "topic": "dialogue",
+      "id": "dialogue-speech-silence-action",
+      "number": 69,
+      "title": "Balance Speech, Silence and Physical Action"
+    },
+    {
+      "topic": "dialogue",
+      "id": "dialogue-exposition-genre",
+      "number": 70,
+      "title": "Handle Exposition, World and Genre"
+    },
+    {
+      "topic": "dialogue",
+      "id": "dialogue-exchange-turn",
+      "number": 71,
+      "title": "Shape the Exchange and Scene Turn"
+    },
+    {
+      "topic": "dialogue",
+      "id": "dialogue-revision",
+      "number": 72,
+      "title": "Revise for Voice, Purpose and Performance"
+    },
+    {
+      "topic": "visual-storytelling",
+      "id": "early-visual-development",
+      "number": 17,
+      "title": "From Concept Card to Storyboard Frame"
+    },
+    {
+      "topic": "visual-storytelling",
+      "id": "ai-revision-visual-pageflow",
+      "number": 37,
+      "title": "Visual action and PageFlow pass"
+    },
+    {
+      "topic": "visual-storytelling",
+      "id": "essentials-screen-evidence",
+      "number": 78,
+      "title": "Turn Inner Meaning Into Screen Evidence"
+    },
+    {
+      "topic": "drafting",
+      "id": "writing-process",
+      "number": 4,
+      "title": "The Writing Process"
+    },
+    {
+      "topic": "drafting",
+      "id": "concept-to-draft",
+      "number": 5,
+      "title": "Concept to Final Draft"
+    },
+    {
+      "topic": "drafting",
+      "id": "pickle-draft",
+      "number": 9,
+      "title": "The Pickle Draft"
+    },
+    {
+      "topic": "drafting",
+      "id": "formatting",
+      "number": 10,
+      "title": "Script Formatting"
+    },
+    {
+      "topic": "drafting",
+      "id": "books-scripts",
+      "number": 11,
+      "title": "Books, Screenplays and Deliberate Study"
+    },
+    {
+      "topic": "drafting",
+      "id": "challenges",
+      "number": 12,
+      "title": "Screenplay Challenges Guide"
+    },
+    {
+      "topic": "drafting",
+      "id": "essentials-scene",
+      "number": 77,
+      "title": "Write Scenes That Change Conditions"
+    },
+    {
+      "topic": "drafting",
+      "id": "essentials-formatting",
+      "number": 80,
+      "title": "Use Advanced Screenplay Forms Clearly"
+    },
+    {
+      "topic": "revision",
+      "id": "ai-revision-diagnose-only",
+      "number": 29,
+      "title": "Diagnose without rewriting"
+    },
+    {
+      "topic": "revision",
+      "id": "ai-revision-structure-causality",
+      "number": 30,
+      "title": "Structure and causality audit"
+    },
+    {
+      "topic": "revision",
+      "id": "ai-revision-scene-purpose-turn",
+      "number": 32,
+      "title": "Scene purpose and turn audit"
+    },
+    {
+      "topic": "revision",
+      "id": "ai-revision-conflict-stakes-escalation",
+      "number": 33,
+      "title": "Conflict, stakes and escalation audit"
+    },
+    {
+      "topic": "revision",
+      "id": "ai-revision-pacing-repetition",
+      "number": 36,
+      "title": "Pacing and repetition pass"
+    },
+    {
+      "topic": "revision",
+      "id": "ai-revision-formatting-readability",
+      "number": 41,
+      "title": "Formatting and readability pass"
+    },
+    {
+      "topic": "revision",
+      "id": "ai-revision-pitch-audience-language",
+      "number": 42,
+      "title": "Pitch, synopsis and audience-language pass"
+    },
+    {
+      "topic": "revision",
+      "id": "essentials-audit",
+      "number": 81,
+      "title": "Run the Essential Craft Audit"
+    },
+    {
+      "topic": "responsible-ai",
+      "id": "responsible-ai",
+      "number": 14,
+      "title": "Responsible AI-Assisted Writing"
+    },
+    {
+      "topic": "responsible-ai",
+      "id": "24b-ai",
+      "number": 27,
+      "title": "AI at Every Structural Level"
+    },
+    {
+      "topic": "responsible-ai",
+      "id": "collaboration-ai-github-publishing",
+      "number": 47,
+      "title": "AI, GitHub and Public Publishing as Optional Tools"
+    },
+    {
+      "topic": "collaboration",
+      "id": "collaboration-choose-workflow",
+      "number": 43,
+      "title": "Choose Your PlotPickle Workflow"
+    },
+    {
+      "topic": "collaboration",
+      "id": "collaboration-source-of-truth",
+      "number": 44,
+      "title": "Collaborate Without Losing the Source of Truth"
+    },
+    {
+      "topic": "collaboration",
+      "id": "collaboration-formats-that-travel",
+      "number": 45,
+      "title": "Formats That Travel"
+    },
+    {
+      "topic": "collaboration",
+      "id": "working-together-model",
+      "number": 48,
+      "title": "Choose the Collaboration Model"
+    },
+    {
+      "topic": "collaboration",
+      "id": "working-together-authority",
+      "number": 49,
+      "title": "Define Roles and Decision Authority"
+    },
+    {
+      "topic": "collaboration",
+      "id": "working-together-brief",
+      "number": 50,
+      "title": "Create a Contribution Brief"
+    },
+    {
+      "topic": "collaboration",
+      "id": "working-together-canon",
+      "number": 51,
+      "title": "Start From the Approved Story"
+    },
+    {
+      "topic": "collaboration",
+      "id": "working-together-proposal",
+      "number": 52,
+      "title": "Submit a Reviewable Proposal"
+    },
+    {
+      "topic": "collaboration",
+      "id": "working-together-review",
+      "number": 53,
+      "title": "Review the Change, Not the Person"
+    },
+    {
+      "topic": "collaboration",
+      "id": "working-together-disagreements",
+      "number": 54,
+      "title": "Decide, Disagree and Record Canon"
+    },
+    {
+      "topic": "collaboration",
+      "id": "working-together-rights",
+      "number": 55,
+      "title": "Record Credit, Ownership and Permissions"
+    },
+    {
+      "topic": "collaboration",
+      "id": "working-together-scale",
+      "number": 56,
+      "title": "Protect Privacy and Scale the Review Queue"
+    }
+  ]
+}

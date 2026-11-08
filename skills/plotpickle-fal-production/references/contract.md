@@ -1,0 +1,7 @@
+# fal provider handoff contract v1
+
+Input: saved PPF source revision / raw SHA-256, same-mini-block ordered shot addresses, screenplay provenance, first-frame image media hash, review states, author motion direction. A single storyboard editorial position is nominally 72 frames @ 24 fps; 1–5 positions cover 72–360 frames, or 3–15s. These times are editorial, not a promise about a fal model's generated duration. Do not infer approval from metadata.
+
+Output from offline handoff: `plotpickle.fal-motion-brief.v1`, `status: draft-unsubmitted` or `blocked-media-unverified`, `provider: fal`, `generationSubmitted:false`, `costApproved:false`, `providerAccountVerified:false`, `videoBytesVerified:false`, and explicit `modelSelection:pending-connected-model-discovery`. No API keys, bearer tokens or pre-filled provider URLs.
+
+Before real generation: connected fal identity/permissions; selected compatible model, reference-image upload, duration and output specification; actual quote for this job; exact shot image hash and continuity; user's informed per-job approval. Never multiply by 25 implicitly. If native duration differs from edit duration, use separate editorial conversion only after download/decode. Returned provider receipt is not verified media. Import preserves source provenance, output video hash, frame-count validation, source and accepted/draft separation. Any mismatch blocks further action.

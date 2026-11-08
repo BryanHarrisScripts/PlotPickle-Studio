@@ -1,0 +1,170 @@
+{
+  "schemaVersion": "1.1",
+  "purpose": "Static creative-service catalogue; never a credential store or proof of connection",
+  "selectionPolicy": "ChatGPT native production and still-animatic first. For requested paid video, prefer the independently hosted fal ChatGPT plugin and require per-job spend approval.",
+  "connectionTruth": "Read real authorized provider tool/account state in the current chat; a catalogue name is never proof of authentication.",
+  "services": [
+    {
+      "id": "suno",
+      "name": "Suno",
+      "category": "Music and sound",
+      "summary": "Create original music from approved story briefs through an authorized Suno ChatGPT account.",
+      "kind": [
+        "music",
+        "song",
+        "audio"
+      ],
+      "catalogState": "setup-available",
+      "status": "not-confirmed-connected",
+      "connection": "host-managed-provider-authorization",
+      "mcpServerUrl": "https://api.suno.com/mcp",
+      "officialSetupUrl": "https://help.suno.com/en/articles/14551425",
+      "secureSignIn": "host-provider-oauth-only",
+      "credentialsStoredByPlotPickle": false,
+      "billing": "Suno plan credits; verify current availability",
+      "projectTruth": "external song remains unapproved until downloaded and verified",
+      "actions": [
+        {
+          "id": "prepare-music-brief",
+          "label": "Prepare music brief",
+          "kind": "local-preview",
+          "requiresProvider": false,
+          "usesCredits": false,
+          "prompt": "Prepare a source-linked music brief for my current PlotPickle story. Do not invoke Suno or spend credits."
+        },
+        {
+          "id": "open-suno",
+          "label": "Open Suno",
+          "kind": "external-link",
+          "url": "https://suno.com/",
+          "requiresProvider": false,
+          "usesCredits": false,
+          "prompt": "Open provider dashboard directly in the browser; do not submit a chat turn or collect credentials."
+        },
+        {
+          "id": "create-music",
+          "label": "Create approved music",
+          "kind": "provider-generation",
+          "requiresProvider": true,
+          "usesCredits": true,
+          "prompt": "Check my connected Suno account, quote the action if possible, and ask explicit approval for this song generation."
+        },
+        {
+          "id": "check-credits",
+          "label": "Check credits",
+          "kind": "provider-read",
+          "requiresProvider": true,
+          "usesCredits": false,
+          "prompt": "Check available Suno credits with an authenticated Suno tool only; no generation."
+        }
+      ]
+    },
+    {
+      "id": "fal",
+      "name": "fal",
+      "category": "Video generation and motion",
+      "summary": "Generate story image-to-video using a verified, separately connected fal ChatGPT service; per-model pricing, duration and credit approval.",
+      "kind": [
+        "image-to-video",
+        "video",
+        "motion"
+      ],
+      "catalogState": "setup-available",
+      "status": "not-confirmed-connected",
+      "connection": "separately-installed-and-authorized-ChatGPT-plugin",
+      "officialSetupUrl": "https://chatgpt.com/plugins",
+      "secureSignIn": "ChatGPT-hosted-provider-connection-only; no PlotPickle secrets",
+      "credentialsStoredByPlotPickle": false,
+      "billing": "model-specific pay-per-use subject to provider account balance and quote",
+      "outputDestination": "fal provider result; source-linked project import only after retrievable video bytes and hash verification",
+      "projectTruth": "source-pinned-draft-needs-downloaded-verified-media-and-review",
+      "actions": [
+        {
+          "id": "prepare-fal-motion",
+          "label": "Prepare fal motion brief",
+          "kind": "local-preview",
+          "requiresProvider": false,
+          "usesCredits": false,
+          "prompt": "Prepare a PlotPickle source-pinned image-to-video motion brief for fal from real storyboard evidence; no provider calls or spending."
+        },
+        {
+          "id": "open-fal",
+          "label": "Open fal",
+          "kind": "external-link",
+          "url": "https://fal.ai/dashboard",
+          "requiresProvider": false,
+          "usesCredits": false,
+          "prompt": "Open provider dashboard directly in the browser; do not submit a chat turn or collect credentials."
+        },
+        {
+          "id": "check-fal",
+          "label": "Verify fal connection",
+          "kind": "provider-read",
+          "requiresProvider": true,
+          "usesCredits": false,
+          "prompt": "Verify fal is actually installed and authenticated, discover available image-to-video models and current pricing without submitting generation."
+        },
+        {
+          "id": "generate-fal-clip",
+          "label": "Generate approved video",
+          "kind": "provider-generation",
+          "requiresProvider": true,
+          "usesCredits": true,
+          "prompt": "Review PlotPickle saved+locked first-frame evidence and fal-supported model/duration/cost. Show one per-job quote and request explicit approval before generating; retrieve and verify returned video bytes before marking it usable."
+        }
+      ]
+    },
+    {
+      "id": "buzz",
+      "name": "BUZZ",
+      "category": "Community and collaboration",
+      "summary": "Invitation-only HOME CHAT ELARA SHOW pilot; not verified deployed",
+      "kind": [
+        "community"
+      ],
+      "catalogState": "planned",
+      "status": "planned-unavailable",
+      "connection": "none-in-current-release",
+      "secureSignIn": "not-implemented",
+      "credentialsStoredByPlotPickle": false,
+      "billing": "none",
+      "projectTruth": "community discussion cannot alter project canon",
+      "actions": [
+        {
+          "id": "explore-buzz",
+          "label": "Explore BUZZ",
+          "kind": "local-concept",
+          "requiresProvider": false,
+          "usesCredits": false,
+          "prompt": "Show the BUZZ HOME, CHAT, ELARA, SHOW proposed pilot, without claiming deployment or sending invitations."
+        }
+      ]
+    },
+    {
+      "id": "modem",
+      "name": "Modem",
+      "category": "Product feedback and engineering",
+      "summary": "Proposed feedback capability; not connected",
+      "kind": [
+        "feedback"
+      ],
+      "catalogState": "planned",
+      "status": "planned-unavailable",
+      "connection": "none-in-current-release",
+      "secureSignIn": "not-implemented",
+      "credentialsStoredByPlotPickle": false,
+      "billing": "none",
+      "projectTruth": "feedback does not change story canon",
+      "actions": [
+        {
+          "id": "explore-modem",
+          "label": "Explore Modem",
+          "kind": "local-concept",
+          "requiresProvider": false,
+          "usesCredits": false,
+          "prompt": "Describe the proposed Modem feedback workflow; do not claim a live integration."
+        }
+      ]
+    }
+  ]
+}

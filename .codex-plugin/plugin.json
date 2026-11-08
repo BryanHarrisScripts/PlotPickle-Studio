@@ -1,0 +1,61 @@
+{
+  "interface": {
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "category": "Creativity",
+    "defaultPrompt": [
+      "Open PlotPickle Storyboard and show REEL and ONCE, each with its short description.",
+      "Choose REEL. Help me develop an idea or screenplay into a movie using PlotPickle.",
+      "Choose ONCE. Let me tell a real memory by voice and help preserve it as an illustrated life story.",
+      "Meet Elara and explore PlotPickle.",
+      "Explore the PlotPickle storytelling lessons.",
+      "Open the PlotPickle Creative Editor for The Third Bell: inspect source-linked Shot 01 and the timeline, and report whether the Windows media receiver is actually connected.",
+      "Start a new story in Storyboard and ask whether to create a ChatGPT Project folder for it.",
+      "Open Story Explorer from a saved PlotPickle .ppf project and inspect a selected shot in ChatGPT.",
+      "Show the graphical, clickable Story Explorer inside ChatGPT, then navigate Act 1 > Sequence 1 > Block 1 > Mini-Block 1 > Shot 07 to inspect the screenplay evidence, beat, exact image prompt, candidate image and Save/Lock status.",
+      "Open the graphical mobile-friendly Story Explorer for my saved PlotPickle .ppf project and inspect its source-linked storyboard shots.",
+      "Group 1\u20135 consecutive storyboard positions into a 3\u201315 second Motion Span and prepare a source-pinned fal brief without spending credits.",
+      "Save and lock all verified initial storyboard images, then show only the shots needing revision.",
+      "Review the latest PlotPickle OSS Radar findings.",
+      "Open PlotPickle Connected Services and check fal account status without spending credits.",
+      "Prepare a source-linked image-to-video shot for fal, compare suitable eligible models and show model cost before any generation.",
+      "Submit my previously approved PlotPickle fal Shot 01 job once, check its progress, and show the finished video in this chat. Do not resubmit a job already queued.",
+      "Open PlotPickle Community. Show the invitation-only BUZZ Web pilot and four rooms: HOME, CHAT, ELARA, SHOW.",
+      "Continue Film through Script, Storyboard, Visuals and Produce with source-pinned truth and no automatic paid generation.",
+      "Process my completed PlotPickle fal clip end to end: inspect, conform to 24 fps, verify 72 frames, and register a draft without changing native Save/Lock.",
+      "Prepare a revision-safe PlotPickle timeline edit patch for The Third Bell without changing native PPF Save/Lock or spending credits.",
+      "Open the PlotPickle Creative Editor audio timeline for The Third Bell Shot 01. Help adjust ocean and gull cue volume, attach WAVs, and render a 24 fps picture-and-sound draft on my local Windows editor without spending fal credits."
+    ],
+    "developerName": "Bryan Harris",
+    "displayName": "PlotPickle Story Reader",
+    "shortDescription": "REEL films and ONCE life stories",
+    "longDescription": "PlotPickle is an on-demand creative production system guided by Elara in ChatGPT. HOME offers Meet Elara, Learn, Storyboard and Connected Services. Within Storyboard, REEL means make a movie from ideas and screenplays; ONCE means tell a life story, visualize memories and preserve them for family. Both paths use exactly the same underlying PlotPickle story, visual, audio and media tools; ONCE is a gentle conversational framing rather than a separate engine. Storyboard offers Continue Film: a source-pinned Script \u2192 Storyboard \u2192 Visuals \u2192 Produce flow grounded in actual PPF screenplay, shot mappings, selected images, Save/Lock and verified media. The creator chooses when to review, revise and advance. Character and World Builders, Layout Sheets, Assets, Reports, Pitch Deck, Posters, animatic and draft assembly, and the 81-lesson curriculum remain. fal is the preferred external image-to-video provider through the separately installed and authenticated fal ChatGPT plugin, not a bundled API key or embedded MCP server. After confirming a particular source image, eligible model, duration and cost, the user may approve a single job and type Submit to call a connected fal tool, check status and display the returned video in the same chat turn if the job completes and the host supports preview. This is not an unattended background process and does not silently authorize retries. The 1\u20135 shot 3\u201315 second Motion Span is editorial timing at 24 fps, not a promise of native generation duration. Test previews from user-supplied composite images are noncanonical until native project bytes and Save/Lock are independently verified. After a completed fal video the in-chat intake attempts verified source-backed 24fps conversion and draft sidecar registration when original video bytes and FFmpeg are accessible; runtime media transport may block and no native PPF import is implied. No automatic cross-chat routing, credential collection, paid generation from an unapproved command, native Save/Lock in an unverified app or finished MP4 is claimed. BUZZ community pilot and Modem remain planned. Editor Phase 1 bundles a portable six-track draft timeline, a local-only Windows media receiver and FFmpeg video verification with undoable edits. ChatGPT cannot yet directly control the Windows process through an installed editor MCP action; the Windows companion must be installed and launched by the creator, and the first browser editor runs locally. Full embedded ChatGPT editing and secure outbound editor tunnel remain unverified. The Windows editor audio phase provides local WAV attachment, synthetic demo ocean/gull cues, gain and mute, exact frame-timed 48 kHz mix, and verified draft playback. These features require the installed local Windows editor and do not establish a live ChatGPT-to-Windows control bridge or native PPF Save/Lock.",
+    "brandColor": "#6346B8",
+    "brandColorDark": "#AC9AF6",
+    "composerIcon": "./assets/composer-icon.png",
+    "logo": "./assets/plotpickle-logo.png"
+  },
+  "extensions": {
+    "com.openai": {
+      "onboardingSkill": "./skills/plotpickle-welcome/SKILL.md"
+    }
+  },
+  "name": "plotpickle-story-reader",
+  "version": "0.8.33",
+  "description": "PlotPickle storytelling engine with REEL for movies and ONCE for life stories, preserving all existing creative and production workflows.",
+  "author": {
+    "name": "Bryan Harris",
+    "email": "bryan@bryanharris.ca"
+  },
+  "keywords": [
+    "storyboard",
+    "filmmaking",
+    "image-to-video",
+    "fal"
+  ],
+  "repository": "https://github.com/BryanHarrisScripts/PlotPickle",
+  "license": "AGPL-3.0-or-later",
+  "skills": "./skills"
+}
