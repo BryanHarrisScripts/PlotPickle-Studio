@@ -1,13 +1,8 @@
 #!/usr/bin/env python3
-"""Verify a saved PPF's portable media archive for ChatGPT story reopening.
-
-Read-only utility. The PPF is the authority, ZIP is an untrusted collection of
-candidate bytes. This does NOT replace the canonical native reader, establish
-native Save/Lock, validate MP4 provenance or claim ChatGPT plugin persistence.
-No files are extracted, no network or provider calls are made.
+"""Read-only PPF + portable ZIP media byte audit for ChatGPT continuation.
+This does not replace the native reader and does not certify Save/Lock or videos.
 """
 from __future__ import annotations
-
 import argparse
 import hashlib
 import json
@@ -16,211 +11,154 @@ import re
 import sys
 import zipfile
 
-HEX = re.compile(r"^(?:sha256:)?([0-9a-fA-F]{64})$")
-MAX_REFERENCES = 5000
+HASH = re.compile(r"^(?:sha256:)?([a-fA-F0-9]{64})$")
+MAX_ITEMS = 5000
 MAX_FILE_BYTES = 128 * 1024 * 1024
 MAX_TOTAL_BYTES = 8 * 1024 * 1024 * 1024
 CHUNK = 1024 * 1024
 
-
-class InvalidPackage(ValueError):
+class ReopenBlocked(ValueError):
     pass
 
+def digest(data):
+    return hashlib.sha256(data).hexdigest()
 
-def sha256(raw: bytes) -> str:
-    return hashlib.sha256(raw).hexdigest()
+def safe_path(s):
+    return isinstance(s, str) and bool(s) and not s.startswith("/") and "\\\\" not in s and "\\0" not in s and all(x not in ("", ".", "..") for x in s.split("/")) and not PurePosixPath(s).is_absolute()
 
-
-def safe_path(path: object) -> bool:
-    if not isinstance(path, str) or not path or path.startswith("/") or "\\" in path or "\x00" in path:
-        return False
-    if any(part in ("", ".", "..") for part in path.split("/")):
-        return False
-    return not PurePosixPath(path).is_absolute()
-
-
-def refs(project: dict) -> list[dict]:
-    registry = project.get("assetRegistry")
+def inspect(raw, zip_path, expected_id=None, expected_revision=None, expected_sha256=None):
+    source_hash = digest(raw)
+    if expected_sha256 is not None and expected_sha256.lower().removeprefix("sha256:") != source_hash:
+        raise ReopenBlocked("PROJECT_SHA256_CHANGED")
+    try:
+        p = json.loads(raw)
+    except (ValueError, UnicodeDecodeError) as exc:
+        raise ReopenBlocked("INVALID_PPF_JSON") from exc
+    if not isinstance(p, dict) or not isinstance(p.get("id"), str) or not p["id"]:
+        raise ReopenBlocked("MISSING_PROJECT_ID")
+    revision = p.get("revision")
+    if type(revision) is not int or revision < 0:
+        raise ReopenBlocked("INVALID_REVISION")
+    if expected_id is not None and expected_id != p["id"]:
+        raise ReopenBlocked("PROJECT_ID_CHANGED")
+    if expected_revision is not None and expected_revision != revision:
+        raise ReopenBlocked("PROJECT_REVISION_CHANGED")
+    registry = p.get("assetRegistry")
     if not isinstance(registry, dict) or not isinstance(registry.get("assets"), list):
-        raise InvalidPackage("ASSET_REGISTRY_MISSING_OR_INVALID")
-    found = []
+        raise ReopenBlocked("MISSING_ASSET_REGISTRY")
+    variations = []
     for asset in registry["assets"]:
-        if not isinstance(asset, dict):
-            raise InvalidPackage("INVALID_ASSET_RECORD")
-        variations = asset.get("variations")
-        if not isinstance(variations, list):
-            raise InvalidPackage("INVALID_VARIATION_COLLECTION")
-        for variation in variations:
-            if not isinstance(variation, dict):
-                raise InvalidPackage("INVALID_VARIATION_RECORD")
-            found.append(variation)
-            if len(found) > MAX_REFERENCES:
-                raise InvalidPackage("TOO_MANY_MEDIA_REFERENCES")
-    return found
-
-
-def audit(project_bytes: bytes, archive: Path,
-          expected_id: str | None = None,
-          expected_revision: int | None = None,
-          expected_sha256: str | None = None) -> dict:
-    raw_hash = sha256(project_bytes)
-    if expected_sha256 and expected_sha256.lower().removeprefix("sha256:") != raw_hash:
-        raise InvalidPackage("PROJECT_SHA256_CHANGED")
-    try:
-        project = json.loads(project_bytes)
-    except (UnicodeDecodeError, json.JSONDecodeError) as exc:
-        raise InvalidPackage("INVALID_PROJECT_JSON") from exc
-    if not isinstance(project, dict) or not isinstance(project.get("id"), str) or not project["id"]:
-        raise InvalidPackage("MISSING_PROJECT_ID")
-    rev = project.get("revision")
-    if type(rev) is not int or rev < 0:
-        raise InvalidPackage("INVALID_PROJECT_REVISION")
-    if expected_id is not None and expected_id != project["id"]:
-        raise InvalidPackage("PROJECT_ID_CHANGED")
-    if expected_revision is not None and expected_revision != rev:
-        raise InvalidPackage("PROJECT_REVISION_CHANGED")
-    entries = refs(project)
-    totals = {
-        "recordedVariations": len(entries),
-        "mediaHashVerified": 0,
-        "mediaVerifiedBytes": 0,
-        "missingMedia": 0,
-        "unsafePaths": 0,
-        "missingOrInvalidDeclaredHash": 0,
-        "missingOrInvalidDeclaredBytes": 0,
-        "bytesMismatch": 0,
-        "sha256Mismatch": 0,
-        "invalidWebpSignature": 0,
-        "archiveMemberRejected": 0,
-        "duplicateReferences": 0,
-    }
-    if not archive.is_file():
-        raise InvalidPackage("ARCHIVE_NOT_ACCESSIBLE")
-    seen_paths = set()
-    try:
-        with zipfile.ZipFile(archive, "r") as z:
-            index = {}
-            duplicate_members = set()
-            for info in z.infolist():
-                if info.is_dir():
-                    continue
-                if not safe_path(info.filename):
-                    raise InvalidPackage("UNSAFE_ZIP_MEMBER_PATH")
-                if info.filename in index:
-                    duplicate_members.add(info.filename)
-                index[info.filename] = info
-            if duplicate_members:
-                raise InvalidPackage("DUPLICATE_ZIP_MEMBERS")
-
-            for item in entries:
-                path = item.get("portablePath")
-                if not safe_path(path):
-                    totals["unsafePaths"] += 1
-                    continue
-                if path in seen_paths:
-                    totals["duplicateReferences"] += 1
-                    continue
-                seen_paths.add(path)
-                expected = item.get("contentHash")
-                matcher = HEX.fullmatch(expected) if isinstance(expected, str) else None
-                if not matcher:
-                    totals["missingOrInvalidDeclaredHash"] += 1
-                    continue
-                declared_bytes = item.get("bytes")
-                if type(declared_bytes) is not int or declared_bytes < 0:
-                    totals["missingOrInvalidDeclaredBytes"] += 1
-                    continue
-                info = index.get(path)
-                if info is None:
-                    totals["missingMedia"] += 1
-                    continue
-                # Unix ZIP member type: regular file or unspecified only.
-                file_type = (info.external_attr >> 16) & 0o170000
-                if file_type not in (0, 0o100000) or info.file_size > MAX_FILE_BYTES:
-                    totals["archiveMemberRejected"] += 1
-                    continue
-                if info.file_size != declared_bytes:
-                    totals["bytesMismatch"] += 1
-                    continue
-                if totals["mediaVerifiedBytes"] + info.file_size > MAX_TOTAL_BYTES:
-                    raise InvalidPackage("PACKAGE_SIZE_LIMIT")
-                h = hashlib.sha256()
-                size = 0
-                header = b""
-                with z.open(info) as stream:
-                    while True:
-                        chunk = stream.read(CHUNK)
-                        if not chunk:
-                            break
-                        if size == 0:
-                            header = chunk[:12]
-                        size += len(chunk)
-                        if size > MAX_FILE_BYTES or size > declared_bytes:
-                            break
-                        h.update(chunk)
-                if size != declared_bytes:
-                    totals["bytesMismatch"] += 1
-                    continue
-                if h.hexdigest() != matcher.group(1).lower():
-                    totals["sha256Mismatch"] += 1
-                    continue
-                if item.get("mediaType") == "image/webp" and not (
-                    len(header) >= 12 and header[:4] == b"RIFF" and header[8:12] == b"WEBP"
-                ):
-                    totals["invalidWebpSignature"] += 1
-                    continue
+        if not isinstance(asset, dict) or not isinstance(asset.get("variations"), list):
+            raise ReopenBlocked("INVALID_ASSET_VARIATIONS")
+        variations.extend(asset["variations"])
+        if len(variations) > MAX_ITEMS:
+            raise ReopenBlocked("TOO_MANY_MEDIA_VARIATIONS")
+    totals = {k: 0 for k in ("recordedVariations", "mediaHashVerified", "mediaVerifiedBytes",
+        "missingMedia", "duplicateReferences", "unsafePaths", "invalidDeclaredHash",
+        "invalidDeclaredBytes", "bytesMismatch", "hashMismatch",
+        "invalidWebpSignature", "archiveMemberRejected")}
+    totals["recordedVariations"] = len(variations)
+    with zipfile.ZipFile(zip_path) as z:
+        members = {}
+        for info in z.infolist():
+            if info.is_dir():
+                continue
+            if not safe_path(info.filename):
+                raise ReopenBlocked("UNSAFE_ZIP_PATH")
+            if info.filename in members:
+                raise ReopenBlocked("DUPLICATE_ZIP_MEMBER")
+            members[info.filename] = info
+        seen = set()
+        for v in variations:
+            if not isinstance(v, dict):
+                raise ReopenBlocked("INVALID_VARIATION")
+            path = v.get("portablePath")
+            if not safe_path(path):
+                totals["unsafePaths"] += 1
+                continue
+            if path in seen:
+                totals["duplicateReferences"] += 1
+                continue
+            seen.add(path)
+            h = v.get("contentHash")
+            match = HASH.fullmatch(h) if isinstance(h, str) else None
+            if match is None:
+                totals["invalidDeclaredHash"] += 1
+                continue
+            length = v.get("bytes")
+            if type(length) is not int or length < 0:
+                totals["invalidDeclaredBytes"] += 1
+                continue
+            info = members.get(path)
+            if info is None:
+                totals["missingMedia"] += 1
+                continue
+            mode = (info.external_attr >> 16) & 0o170000
+            if mode not in (0, 0o100000) or info.file_size > MAX_FILE_BYTES:
+                totals["archiveMemberRejected"] += 1
+                continue
+            if length != info.file_size:
+                totals["bytesMismatch"] += 1
+                continue
+            if totals["mediaVerifiedBytes"] + info.file_size > MAX_TOTAL_BYTES:
+                raise ReopenBlocked("MAX_TOTAL_BYTES_EXCEEDED")
+            computed = hashlib.sha256()
+            size = 0
+            signature = b""
+            with z.open(info) as stream:
+                while chunk := stream.read(CHUNK):
+                    if size == 0:
+                        signature = chunk[:12]
+                    size += len(chunk)
+                    if size > length or size > MAX_FILE_BYTES:
+                        break
+                    computed.update(chunk)
+            if size != length:
+                totals["bytesMismatch"] += 1
+            elif computed.hexdigest() != match.group(1).lower():
+                totals["hashMismatch"] += 1
+            elif v.get("mediaType") == "image/webp" and not (
+                len(signature) >= 12 and signature[:4] == b"RIFF" and signature[8:12] == b"WEBP"
+            ):
+                totals["invalidWebpSignature"] += 1
+            else:
                 totals["mediaHashVerified"] += 1
                 totals["mediaVerifiedBytes"] += size
-    except (zipfile.BadZipFile, RuntimeError, OSError) as exc:
-        raise InvalidPackage("UNREADABLE_OR_CORRUPT_ARCHIVE") from exc
-
-    errors = sum(totals[k] for k in (
-        "missingMedia", "unsafePaths", "missingOrInvalidDeclaredHash",
-        "missingOrInvalidDeclaredBytes", "bytesMismatch", "sha256Mismatch",
-        "invalidWebpSignature", "archiveMemberRejected", "duplicateReferences"
-    ))
-    verified = bool(entries) and totals["mediaHashVerified"] == len(entries) and errors == 0
+    problems = sum(totals[k] for k in totals if k not in ("recordedVariations","mediaHashVerified","mediaVerifiedBytes"))
+    ready = len(variations) > 0 and totals["mediaHashVerified"] == len(variations) and problems == 0
     return {
         "schema": "plotpickle.portable-media-reopen.v1",
-        "status": "PORTABLE_MEDIA_VERIFIED_ONLY" if verified else "MEDIA_INCOMPLETE_OR_UNVERIFIABLE",
-        "project": {"id": project["id"], "revision": rev, "rawSha256": raw_hash},
+        "status": "PORTABLE_MEDIA_VERIFIED_ONLY" if ready else "MEDIA_INCOMPLETE_OR_UNVERIFIABLE",
+        "project": {"id": p["id"], "revision": revision, "rawSha256": source_hash},
         "media": totals,
-        "safety": {
-            "originalPPFModified": False,
-            "archiveExtracted": False,
-            "providerInvoked": False,
-            "canonicalReaderAccepted": False,
-            "chatgptInstalledPluginReopenedProject": False,
-            "savedLockedAndAcceptedStatesVerified": False,
-            "videoProvenanceVerified": False,
-            "mediaVerifiedDoesNotImplyProductionReadiness": True
-        }
+        "safety": {"originalPPFModified": False, "archiveExtracted": False,
+                   "canonicalReaderAccepted": False, "pluginHostReopenedProject": False,
+                   "savedLockedAndAcceptedVerified": False, "MP4Verified": False,
+                   "paidProviderInvoked": False}
     }
 
-
-def main(argv=None) -> int:
-    p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument("--project", type=Path, required=True)
-    p.add_argument("--assets-zip", type=Path, required=True)
-    p.add_argument("--expected-id")
-    p.add_argument("--expected-revision", type=int)
-    p.add_argument("--expected-sha256")
-    p.add_argument("--out", type=Path, help="private output; must not already exist")
-    a = p.parse_args(argv)
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--project", type=Path, required=True)
+    parser.add_argument("--assets-zip", type=Path, required=True)
+    parser.add_argument("--expected-id")
+    parser.add_argument("--expected-revision", type=int)
+    parser.add_argument("--expected-sha256")
+    parser.add_argument("--out", type=Path)
+    a = parser.parse_args(argv)
     try:
-        report = audit(a.project.read_bytes(), a.assets_zip,
-                       a.expected_id, a.expected_revision, a.expected_sha256)
-        output = json.dumps(report, indent=2, sort_keys=True) + "\n"
+        result = inspect(a.project.read_bytes(), a.assets_zip,
+                         a.expected_id, a.expected_revision, a.expected_sha256)
+        data = json.dumps(result, indent=2, sort_keys=True) + "\\n"
         if a.out:
-            with a.out.open("x", encoding="utf-8") as dest:
-                dest.write(output)
+            with a.out.open("x", encoding="utf8") as dest:
+                dest.write(data)
         else:
-            sys.stdout.write(output)
-        return 0 if report["status"] == "PORTABLE_MEDIA_VERIFIED_ONLY" else 1
-    except (InvalidPackage, OSError) as exc:
-        sys.stderr.write("REOPEN_BLOCKED: " + str(exc) + "\n")
+            sys.stdout.write(data)
+        return 0 if result["status"] == "PORTABLE_MEDIA_VERIFIED_ONLY" else 1
+    except (ValueError, OSError, zipfile.BadZipFile, RuntimeError) as exc:
+        sys.stderr.write("REOPEN_BLOCKED: " + str(exc) + "\\n")
         return 1
-
 
 if __name__ == "__main__":
     raise SystemExit(main())
