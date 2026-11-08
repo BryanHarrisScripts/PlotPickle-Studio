@@ -12,6 +12,7 @@ import gzip
 import hashlib
 import io
 import json
+import subprocess
 from pathlib import Path, PurePosixPath
 import tarfile
 import zipfile
@@ -120,6 +121,30 @@ def source_files(root: Path) -> dict[str, bytes]:
     return result
 
 
+def verify_clean_checkout(root: Path, packaged_paths: set[str]) -> None:
+    """The public input must be clean and exactly versioned in Git."""
+    if not (root / ".git").exists():
+        raise ReleaseBlocked("release source must be a checked-out Git repository")
+    opts = {"capture_output": True, "check": False}
+    status = subprocess.run(
+        ["git", "-C", str(root), "status", "--porcelain", "--untracked-files=all",
+         "--", "skills", "assets", "plugin.json", ".codex-plugin/plugin.json", "LICENSE"],
+        **opts,
+    )
+    if status.returncode or status.stdout.strip():
+        raise ReleaseBlocked("release source contains modified or untracked plugin files")
+    tracked = subprocess.run(
+        ["git", "-C", str(root), "ls-files", "-z", "--",
+         "skills", "assets", "plugin.json", ".codex-plugin/plugin.json", "LICENSE"],
+        **opts,
+    )
+    if tracked.returncode:
+        raise ReleaseBlocked("could not audit tracked public plugin inputs")
+    actual = {p.decode("utf-8") for p in tracked.stdout.split(b"\x00") if p}
+    if packaged_paths.difference(actual):
+        raise ReleaseBlocked("release input contains files not tracked in Git")
+
+
 def parse_manifest(blob: bytes, label: str, version: str) -> dict:
     try:
         doc = json.loads(blob.decode("utf-8"))
@@ -139,7 +164,8 @@ def verify_reader(files: dict[str, bytes], label: str, sha: str, size: int) -> N
 def stage(backup_path: Path, source_root: Path, output_path: Path,
           *, expected_backup_sha: str = PINNED_BACKUP_SHA256,
           reader_sha: str = PINNED_READER_SHA256,
-          reader_size: int = PINNED_READER_SIZE) -> dict:
+          reader_size: int = PINNED_READER_SIZE,
+          require_clean_git: bool = False) -> dict:
     if backup_path.resolve() == output_path.resolve():
         raise ReleaseBlocked("candidate output must not overwrite backup")
     initial_sha = digest(backup_path.read_bytes())
@@ -147,6 +173,8 @@ def stage(backup_path: Path, source_root: Path, output_path: Path,
         raise ReleaseBlocked("private backup SHA-256 is not the pinned v0.8.33 archive")
     backup = read_archive(backup_path)
     source = source_files(source_root)
+    if require_clean_git:
+        verify_clean_checkout(source_root, set(source))
     for manifest in MANIFESTS:
         parse_manifest(backup.get(manifest, b""), f"backup {manifest}", "0.8.33")
         parsed = parse_manifest(source[manifest], f"source {manifest}", VERSION)
@@ -219,7 +247,7 @@ def main() -> int:
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     try:
-        report = stage(args.backup, args.source, args.output)
+        report = stage(args.backup, args.source, args.output, require_clean_git=True)
     except (ReleaseBlocked, FileNotFoundError, OSError) as exc:
         print(json.dumps({"status": "BLOCKED", "reason": str(exc)}, sort_keys=True))
         return 1
