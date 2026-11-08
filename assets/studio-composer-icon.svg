@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="PlotPickle Studio icon">
+<defs>
+  <linearGradient id="field" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#1B1529"/><stop offset="1" stop-color="#0E1020"/></linearGradient>
+  <linearGradient id="glyph" x1=".14" y1=".1" x2=".9" y2="1"><stop stop-color="#D8B2FF"/><stop offset=".5" stop-color="#A274F9"/><stop offset="1" stop-color="#7048E8"/></linearGradient>
+</defs>
+<rect width="512" height="512" rx="108" fill="url(#field)"/>
+<rect x="14" y="14" width="484" height="484" rx="96" fill="none" stroke="#8062BA" stroke-opacity=".32" stroke-width="2"/>
+<path d="M129 398 V113 Q129 91 151 91 H277 Q393 91 393 207 Q393 326 277 326 H232 V398 Q232 420 210 420 H151 Q129 420 129 398 Z" fill="url(#glyph)"/>
+<path d="M248 158 L337 212 Q348 219 337 226 L248 280 Q237 288 237 275 V163 Q237 152 248 158 Z" fill="#211B36"/>
+<circle cx="395" cy="391" r="11" fill="#D9AFFB" opacity=".86"/>
+</svg>
