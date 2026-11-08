@@ -1,5 +1,24 @@
 # PlotPickle Studio v0.8.34 — release acceptance
 
+## Installed conversational plugin acceptance — verified after publication, 2026-11-08
+
+This section is the current release record. The remainder of this document records earlier pre-release investigation and MUST NOT be interpreted as today's plugin version.
+
+- Released the existing private USER plugin **v0.8.34**, same backend identity `plugins_6aedd4f5ac1481919653cf6110d565ba`. Verified release ID: `pluginrel_6af102a657b08191b07da5b8d64be07b`. Not a second or replacement plugin.
+- Retrieved Plugin Creator's live plugin manifests after publication. Both report `0.8.34`, display name `PlotPickle Studio`. The new in-chat continuation skill and read-only portable ZIP media verifier are present, and the existing private The Third Bell seed is still readable. Older v0.8.33 remains in release history.
+- The owner reported **"tested and good"** after ChatGPT testing. This is affirmative user-reported acceptance of the working conversational plugin experience, NOT independent proof that the graphical sidebar has an authenticated host, that mobile media recovery and native Save/Lock work, or that a finished MP4 is stored.
+- A source CI replay found one specific **v0.8.34 known defect** in the published portable-media CLI: with `--out`, its JSON receipt appends the two literal characters `\\n` rather than a newline. The asset verification and 131/131 real-image integrity result still passed; the file-receipt JSON reader fails on the extra characters. Retain the exact installed file in this historical sync and mark the strict JSON parsing regression as an expected failure until a subsequent version fixes the installed helper. Do not claim unattended machine-readable output is fully working in v0.8.34.
+- Source and release have a focused difference: the published overlay included the new `skills/plotpickle-chat-first/SKILL.md` and a smaller installed portable-media verifier. This sync change records those **exact installed text bytes** and aligns synthetic test calls; `plugin.json` in GitHub was already byte-identical to its installed counterpart. It does not add private story media.
+- Initial private media acceptance (131/131 images from a real saved Brotherly Love PPF + portable ZIP) was verified in ChatGPT execution outside the installed plugin host; it does not certify plugin-host media loading. No provider spend is implied.
+- Sidebar hosting, cross-device persistent reopening, native Save→Lock writes and MP4 provenance remain **separate feature-specific acceptance gates**. The optional sidebar is not a release gate for a working conversational plugin.
+- Prior v0.8.33 history and source backup should remain available. A listed historical release is a recovery option, but rollback was not exercised during this successful update.
+
+### Release disposition
+
+**Conversational plugin v0.8.34: PUBLISHED AND USER-TESTED. Optional hosted sidebar: NOT VERIFIED. Native storage/media/Save-Lock features: ONLY as separately demonstrated.**
+
+---
+
 Source authority: November 8, 2026 Studio engineering briefs in `docs/direction/`. The original desktop PlotPickle remains separate. The live ChatGPT plugin v0.8.33 remains published until Plugin Creator accepts a verified replacement.
 
 ## Actual saved creator story: private ChatGPT Library acceptance (2026-11-08)

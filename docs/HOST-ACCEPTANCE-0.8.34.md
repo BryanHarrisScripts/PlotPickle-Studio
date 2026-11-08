@@ -1,5 +1,13 @@
 # PlotPickle Studio v0.8.34: guarded private release staging
 
+## Current outcome — private skills plugin released, sidebar still optional
+
+The original private Plugin Creator plugin was updated to v0.8.34, release `pluginrel_6af102a657b08191b07da5b8d64be07b`. Installed manifests, the private The Third Bell seed and newly installed in-chat continuation files were read back; the owner subsequently reported successful ChatGPT testing. This supersedes earlier statements below that v0.8.33 remains current or that the **conversational skills-only release** is blocked. They are retained as historical preflight notes.
+
+The authenticated hosted MCP Apps global Sidebar App, multi-device source-file persistence, native Save/Lock writes and independently verified MP4s are NOT established by that update and remain separately blocked. An installed skills plugin is not automatically an authenticated hosted Sidebar App.
+
+--- 
+
 This is a release procedure, not a claim that v0.8.34 is deployed, that the MCP sidebar is hosted, or that private media is recoverable. The controlling source is the November 8 engineering discussion and `docs/direction/`.
 
 ## Recovered current host state, November 8
