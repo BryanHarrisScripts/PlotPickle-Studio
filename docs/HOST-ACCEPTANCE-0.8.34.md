@@ -13,6 +13,10 @@ This is a release procedure, not a claim that v0.8.34 is deployed, that the MCP 
 - `get_owned_plugin_archive` returned a current-release download reference. A reference is not a verified, durable backup.
 - The published plugin manifest describes a **skills plugin**, not an authenticated deployed MCP Apps transport. Studio `mcp-server.mjs` source intentionally refuses standalone startup absent an authenticated project loader. The global sidebar is not host-accepted.
 
+## New private recovery result (fresh ChatGPT conversation, 2026-11-08)
+
+The authorized Brotherly Love PPF (revision 539) was opened from the user's ChatGPT Library, and its separate WebP archive was independently materialized. All **131 of 131** image assets, totaling **190,630,642 bytes**, matched the source PPF's SHA-256 content hashes and recorded sizes, with no missing images; the original PPF bytes were not changed. This is verified Library PPF/media recovery **outside** the installed plugin host. It is real recovery evidence, but is **not** the outstanding installed-sidebar, mobile, Save/Lock, MP4, rollback, or Plugin Creator archive-checksum acceptance.
+
 ## Private staging command (offline, never in public CI)
 
 Obtain the exact approved v0.8.33 archive and keep it in private owner-controlled storage. From a clean checked-out `PlotPickle-Studio` source tree:
