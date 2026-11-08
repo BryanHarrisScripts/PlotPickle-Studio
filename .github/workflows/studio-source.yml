@@ -1,0 +1,27 @@
+name: PlotPickle Studio source candidate
+on:
+  push:
+    branches: [main, 'migration/**']
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  source:
+    name: Source-only checks (not a release gate)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check Studio source candidate
+        run: python scripts/verify_source.py --phase source
+      - name: Check Studio pilot syntax
+        working-directory: skills/plotpickle-studio/pilot
+        run: npm run check
+      - name: Test read-only Studio pilot
+        working-directory: skills/plotpickle-studio/pilot
+        run: npm test

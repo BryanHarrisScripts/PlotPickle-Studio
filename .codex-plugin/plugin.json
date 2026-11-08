@@ -43,7 +43,7 @@
     }
   },
   "name": "plotpickle-story-reader",
-  "version": "0.8.33",
+  "version": "0.8.34",
   "description": "PlotPickle storytelling engine with REEL for movies and ONCE for life stories, preserving all existing creative and production workflows.",
   "author": {
     "name": "Bryan Harris",
@@ -55,7 +55,7 @@
     "image-to-video",
     "fal"
   ],
-  "repository": "https://github.com/BryanHarrisScripts/PlotPickle",
+  "repository": "https://github.com/BryanHarrisScripts/PlotPickle-Studio",
   "license": "AGPL-3.0-or-later",
   "skills": "./skills"
 }
