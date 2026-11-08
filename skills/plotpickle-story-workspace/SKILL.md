@@ -7,6 +7,10 @@ description: At the start of any new PlotPickle story, ask once whether to organ
 
 A ChatGPT Project is the preferred conversation-and-file home for each distinct story. Do not confuse it with a local output directory, a GitHub repository, a PlotPickle PPF snapshot or the PlotPickle plugin itself. No GitHub account is required. Maintain existing top-level choices (Meet Elara, Learn, Storyboard, Connected Services). This workflow is invoked from Storyboard when a user starts or resumes a named story; it is not a fifth home tab.
 
+## Zero-friction continuation (v0.8.34)
+
+When a named story already has an accessible saved source or existing ChatGPT Project, resume directly and do not ask to create a new Project or repeat a setup choice. ChatGPT Projects are helpful organization, never mandatory storage or a startup requirement. If a user asks to continue from a phone, the plugin should inspect the actual authorized PPF and optional portable ZIP using `../plotpickle-story-flow/SKILL.md`, preserve the source identity, and state unknowns plainly. Do not make the creator unpack ZIPs or install software. Ask the one Project-organization question only at an appropriate moment for a genuinely new story, not before a user can begin expressing an idea.
+
 ## First-time story flow
 
 When a user starts a new story and a matching ChatGPT Project has not been established in the current context, ask *one brief question before building substantial material*:
