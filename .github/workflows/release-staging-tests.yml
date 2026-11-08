@@ -24,6 +24,6 @@ jobs:
         with:
           python-version: '3.13'
       - name: Exercise private-preservation, hash and path safety guards
-        run: python -m unittest -v discover -s scripts -p 'test_stage_plugin_release.py'
+        run: python -m unittest discover -v -s scripts -p 'test_stage_plugin_release.py'
       - name: Check release staging syntax
         run: python -m py_compile scripts/stage_plugin_release.py
