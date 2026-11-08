@@ -1,0 +1,61 @@
+{
+  "schema": "plotpickle.editor-seed.v1",
+  "title": "Synthetic Editor Test — No Creator Project or Media",
+  "source": {
+    "projectId": "synthetic-local-test-only",
+    "revision": 0,
+    "rawSha256": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "script": [
+    {
+      "id": "synthetic-shot-01",
+      "text": "A folded paper plane rests on a table beside a blue notebook.",
+      "shot": 1
+    },
+    {
+      "id": "synthetic-shot-02",
+      "text": "A hand opens the notebook to an empty page.",
+      "shot": 2
+    },
+    {
+      "id": "synthetic-shot-03",
+      "text": "The camera holds on the blank page in quiet light.",
+      "shot": 3
+    }
+  ],
+  "media": [],
+  "clips": [
+    {
+      "id": "demo-video-placeholder-01",
+      "track": "video",
+      "label": "No media attached — draft placeholder",
+      "startFrame": 0,
+      "durationFrames": 72,
+      "mediaId": null,
+      "sourceShot": 1,
+      "note": "No video URL, no provider request, no verified media"
+    },
+    {
+      "id": "demo-ambience-cue-01",
+      "track": "ambience",
+      "label": "Unbound ambience marker",
+      "startFrame": 0,
+      "durationFrames": 72,
+      "mediaId": null,
+      "sourceShot": 1,
+      "note": "Cue only; no WAV file",
+      "gainDb": -12
+    },
+    {
+      "id": "demo-foley-cue-01",
+      "track": "foley",
+      "label": "Unbound paper rustle marker",
+      "startFrame": 24,
+      "durationFrames": 24,
+      "mediaId": null,
+      "sourceShot": 2,
+      "note": "Cue only; no WAV file",
+      "gainDb": -6
+    }
+  ]
+}

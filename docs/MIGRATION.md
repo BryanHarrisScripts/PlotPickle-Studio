@@ -38,3 +38,22 @@ The public GitHub tree is intentionally NOT a byte-for-byte copy of the publishe
 - [ ] Public-source privacy and dependency licence audit completed
 
 A source-only GitHub Actions check now runs the standalone Studio pilot syntax/tests and source-manifest audit. Passing this is NOT proof of a complete plugin build, media integrity, authenticated ChatGPT host install or published release. GitHub alone does not automatically synchronize ChatGPT conversations, private projects, user-generated images, cloud-provider assets or plugin publications.
+
+## Owner-confirmed execution priority (November 8, 2026)
+
+1. **Restore and verify the native story reader first.** The published ChatGPT v0.8.33 plugin still contains the generated inspector bundle, but the public GitHub Studio source does not. It is not valid to claim native PPF read/Save/Lock verification until the exact reader is restored or reproducibly rebuilt and tested against canonical project fixtures.
+2. **Preserve The Third Bell and cleanly separate test fixtures.** The real `the-third-bell-seed.json` in the published ChatGPT v0.8.33 plugin includes screenplay shot links and a concrete fal Shot 01 media URL/request ID. It is not disposable test data and must remain intact as creator project evidence. Public Studio tests use `skills/plotpickle-editor/windows/fixtures/editor-seed.synthetic.json` instead; the public fixture contains no real story, provider URL, request ID or media bytes. Never remove the original from the live plugin as part of source cleanup; first migrate actual user project data into authenticated private story storage with verified reopen.
+3. **Create independent Studio branding last.** New Studio-specific logo and composer icon; original PlotPickle logos, illustrations and diagrams stay in the desktop PlotPickle project. No new logo or icon has been approved yet.
+
+## ChatGPT build, backup and integration gate
+
+The owner specifies that the **full plugin build and update are done within ChatGPT using the Plugin Creator workflow**, not by claiming that a GitHub source test publishes or installs a plugin. GitHub stores auditable source, history, fixtures and source-only CI tests. Before publishing any new version:
+
+- Pin the current ChatGPT plugin ID and release ID; verify the current published version still matches the intended backup (v0.8.33 as of this record).
+- Retrieve the complete current-release Plugin Creator archive and create a **durable, private, checksum-verified backup** outside the public source repository. A successful archive-URL lookup or retained historical release ID alone does **not** establish durable backup verification.
+- Keep The Third Bell project seed and generated fal media references in appropriate private storage. Preserve historical release access; never expose media URLs/creator assets in public source.
+- Build and publish the next plugin archive through ChatGPT Plugin Creator with its expected-release guard. Check asset inclusion, native reader integrity and ChatGPT interface from the actual returned deployed release, not simply from GitHub tests.
+- Read back exact installed version and release ID, verify critical files and real PPF/project reopen and editor handoffs. Verify rollback from the privately retained pre-update archive and documented history.
+- Do not call GitHub and ChatGPT auto-synchronized until an actual secure publish workflow is wired and tested. A PR merge only updates GitHub.
+
+As of this record, ChatGPT Plugin Creator listed v0.8.33 as current (`pluginrel_6af0b8fb4dec819181b70bcd777f9963`) and its archive retrieval endpoint was available. **A private downloaded backup and restore test have not yet been completed.** A full v0.8.34 ChatGPT build, publication and integration test have not been completed.

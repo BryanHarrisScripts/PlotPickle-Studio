@@ -15,13 +15,15 @@ SOURCE_REQUIRED = (
     "skills/plotpickle-creative/data/lesson-catalog.json",
     "skills/plotpickle-editor/windows/editor_server.py",
     "skills/plotpickle-animatic/scripts/animatic-bridge.py",
+    "skills/plotpickle-editor/windows/fixtures/editor-seed.synthetic.json",
+    "skills/plotpickle-editor/windows/test_seed_fixture.py",
     "docs/MIGRATION.md",
 )
 RELEASE_REQUIRED = (
-    "assets/composer-icon.png",
-    "assets/plotpickle-logo.png",
+    "assets/studio-composer-icon.png",
+    "assets/studio-logo.png",
     "skills/read-plotpickle-project/scripts/inspect-project.mjs",
-    "skills/plotpickle-editor/windows/the-third-bell-seed.example.json",
+    "skills/plotpickle-editor/windows/fixtures/editor-seed.synthetic.json",
 )
 
 def verify(phase: str) -> None:
@@ -43,6 +45,15 @@ def verify(phase: str) -> None:
     if (ROOT / "skills/plotpickle-editor/windows/the-third-bell-seed.json").exists():
         errors.append("creator-specific editor seed is not permitted in public source")
     if phase == "release":
+        for name in MANIFESTS:
+            try:
+                manifest_text = (ROOT / name).read_text(encoding="utf-8")
+                if "assets/composer-icon.png" in manifest_text or "assets/plotpickle-logo.png" in manifest_text:
+                    errors.append(f"{name}: still points to original PlotPickle branding")
+                if "assets/studio-composer-icon.png" not in manifest_text or "assets/studio-logo.png" not in manifest_text:
+                    errors.append(f"{name}: must reference approved Studio branding")
+            except FileNotFoundError:
+                pass
         for name in RELEASE_REQUIRED:
             if not (ROOT / name).is_file():
                 errors.append(f"release input not yet recovered: {name}")
