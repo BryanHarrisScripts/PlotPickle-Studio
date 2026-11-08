@@ -7,6 +7,10 @@ description: Open PlotPickle Studio's connected, read-only story workspace in Ch
 
 This skill extends the installed PlotPickle Story Reader; it does not create a competing story engine, cloud backend, storage account or separate product. The November 8 engineering brief in `references/engineering-direction.md` governs Studio design. The Home screen remains **Meet Elara**, **Learn**, **Storyboard**, **Connected Services**. Inside Storyboard and Studio, present **REEL** and **ONCE** prominently above the story list. REEL = turn an idea or screenplay into a visual movie. ONCE = tell a real life story and preserve memories. Both are entry modes over the same source-of-truth PPF; selecting a mode cannot automatically reclassify a saved screenplay as autobiography or imply approval.
 
+## Primary experience: existing ChatGPT conversation (v0.8.34)
+
+The existing mobile-tested in-chat navigation is the primary Studio experience. Preserve all working HOME, REEL, ONCE and Connected Services interactions. Do not launch or require a separate visual app for ordinary script, storyboard, image or production guidance. Resolve the actual saved PPF and portable files using `../plotpickle-story-flow/SKILL.md`; when available, verify real media bytes with its reusable read-only package checker. One project and one source authority remain unchanged. An optional graphical sidebar can be developed later without preventing a safe conversational plugin update. Never present its unfinished hosted transport as a requirement to use REEL or ONCE.
+
 ## Open and navigate
 
 In ChatGPT, when someone asks for Studio or connected workspace, present responsive working navigation in the current chat: REEL, ONCE, Your Stories and the linked views Story, People, Places, Moments, Visuals, Produce, Learn, Review, Share. For REEL, adapt labels to Characters, Worlds, Scenes and Films. For ONCE, adapt to People, Places, Memories and Preserve. HOME remains four choices, not an additional duplicate menu. Do not imply that an installed Explore sidebar entry or separately hosted MCP App exists unless the actual host reports one.
