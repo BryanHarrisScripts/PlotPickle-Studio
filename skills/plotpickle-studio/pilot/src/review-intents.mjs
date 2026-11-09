@@ -44,7 +44,7 @@ export function prepareReviewIntent({projection,request}) {
   const mediaOk=candidate.mediaBytesVerifiedThisSession===true &&
     candidate.verifiedSha256===candidate.recordedHash &&
     candidate.mediaDecoded===true;
-  if(request.action!=='regenerate' && !mediaOk) stop('MEDIA_NOT_INDEPENDENTLY_VERIFIED');
+  if((request.action==='approve' || request.action==='lock') && !mediaOk) stop('MEDIA_NOT_INDEPENDENTLY_VERIFIED');
   if(request.action==='unlock') {
     if(!candidate.locked || !candidate.savedMarkerPresent) stop('NOT_SAVED_AND_LOCKED');
     if(reason.length<3) stop('UNLOCK_REASON_REQUIRED');
