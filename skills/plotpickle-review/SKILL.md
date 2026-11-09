@@ -1,29 +1,33 @@
 ---
 name: plotpickle-review
 version: 0.8.35
-summary: Source-backed storyboard image approval, regeneration, Save, Lock and Unlock in ChatGPT.
+summary: Review and source-pin individual PlotPickle storyboard images in ChatGPT, with honest separation of human approval, Save, Lock, Unlock and regeneration.
 ---
 
-# PlotPickle Studio — Review
+# PlotPickle Studio — Storyboard Review
 
-This is the primary ChatGPT conversational review path for REEL or ONCE. Preserve the existing HOME, REEL, ONCE and mobile interactions. The optional MCP Apps graphical sidebar is not deployed just because this skill is installed. A standalone HTML preview or locally retained review draft is not native project persistence.
+When the creator asks to open Review or approve, regenerate, lock or unlock a storyboard image, preserve HOME/REEL/ONCE and use the current ChatGPT conversation as the primary entry. The optional hosted MCP Apps sidebar is NOT automatically available merely because this skill is installed. Never claim a local HTML preview is the official ChatGPT sidebar.
 
-## Locate and verify the correct source
+## Source-backed loading
 
-For Review, Approve, Regenerate, Lock or Unlock, locate the latest owner-authorized PPF in ChatGPT Project files or the personal Library and any accompanying portable ZIP or image files. Do not infer saved source from memory, a screenshot, a project title or a stale UI card. Pin the PPF project ID, revision and exact raw SHA-256; independently validate it with the canonical native reader when available. Read real shot-to-screenplay mapping records, exact candidate IDs and prompt provenance. Check actual image bytes, recorded SHA-256 and decoder, not just a URL or a concept contact sheet. Distinguish a historical PPF concept crop from a separately generated ChatGPT candidate. A verified portable ZIP is not proof of a saved or locked shot.
+Locate the latest authorized saved PPF in current ChatGPT Project files or personal Library, plus any accompanying native portable ZIP/images. Pin the exact project ID, revision and raw SHA-256; check it against the canonical inspector when available. Inspect stored shot addresses and exact image-to-passage mappings. Read actual image bytes and verify SHA-256, file size, dimensions, and decoded image; do not use a contact sheet as proof that a particular source image exists. Keep image originality, full-resolution quality, candidate selection, native Save/Lock and human approval separate.
 
-Present an easy source-linked 25-shot review selector and the selected image, with four independent properties: exact visual candidate and human review decision; native Save marker; native Lock marker; independently verified media bytes. Unavailable state must say “not verified,” never “complete.”
+Display the 25-position Mini-Block with source-linked candidate previews where possible and clearly distinguish the actual 25 original portable images from newer ChatGPT-generated images that have not yet been imported. Offer one active shot's Approve, Regenerate, Lock and Unlock decisions with their actual conditions. A disabled/blocked operation must say why. Show any pending action as a review draft until committed.
 
-## Action rules
+## User actions
 
-- **Approve:** the author must explicitly choose a specific candidate. Record shot coordinates, project ID/revision/raw SHA-256, artwork hash and identifier, source passage IDs and explicit human choice. Approval alone is not a native PPF Save/Lock. Never infer which PPF artwork was approved from earlier general “approved” messages.
-- **Regenerate:** record a reason, preserve prior candidate and prompt, and prepare a new image proposal. If the image is locked, require Unlock first. Generate new ChatGPT imagery only on the creator's request; chargeable fal/Suno jobs require separate exact-job approval. A replacement starts unlocked and requires its own review.
-- **Save:** verify exact image bytes and source mapping, use the existing native project Save operation, persist a new owner-scoped snapshot with a compare-and-swap source guard, and reopen the saved artifact. The user must never be told Save succeeded on a queued intent or browser-only draft.
-- **Lock:** requires an independently verified prior Save, author approval, correct current decoded image, exact pinned PPF and successful new revision/readback. The existing `read-plotpickle-project/scripts/default-save-lock.py` can perform exported native Save→Lock operations when the canonical inspector and files are available; it is not itself an authenticated ChatGPT Library writer.
-- **Unlock:** requires a saved+locked source candidate and an explicit review reason. Use a guarded native Unlock revision and readback. Do not overwrite or silently revive a retired candidate.
+- Approve: require the author's explicit selection of a specific image candidate; record the exact shot address, source passage references, candidate ID (if known), media SHA-256, project ID, revision and PPF SHA-256. The human visual review is not automatically a native Save or Lock.
+- Regenerate: preserve the selected source and prompt and record a revision reason. Request or perform image creation only when explicitly requested by the creator; never overwrite the locked image, generate on a stale source, or spend fal/Suno credits without separate authorization. The replacement remains a new candidate requiring its own review.
+- Save: verify the actual selected media and source relationship before updating an exported project. Use the installed/native `read-plotpickle-project/scripts/default-save-lock.py` or source-governed workflow where present, with current project revision/hash guard; reopen and verify the saved marker. A queued request or browser-only change is not Save.
+- Lock: only after a successful Save, native readback, and current decoded media verification; use the native source project operation, persist a new owner-scoped project snapshot, then independently reopen PPF and media. Never claim native Lock from a chat approval, sidecar event or disabled preview button.
+- Unlock: require a currently saved and locked source candidate plus a human reason; source-guard and commit a new revision, then reopen to confirm. This retains prior candidates and audit history. Regeneration of a locked shot requires Unlock first.
 
-Never report a durable project edit until its actual owner-authorized file write succeeded and the new PPF and portable media were reopened and verified. When host-side native write or readback is unavailable, create a private `plotpickle.review-draft.v1` intent explicitly marked `REVIEW_DRAFT_NOT_PPF_COMMITTED`, with all current source/media pins. Save that draft to Library only if an actual file write returns success. Offer to copy/export decisions from the portable HTML Review workspace.
+For a true commit, all mutations need an owner-authorized durable file writer and compare-and-swap against the current project version. If current tools cannot perform native file-level Save/Lock and independent post-write readback, prepare a private structured `plotpickle.review-draft.v1` event instead, explicitly marked `REVIEW_DRAFT_NOT_PPF_COMMITTED`. Put it in the creator's authorized Project/Library only with an actual successful file operation; never change the original PPF on speculative authority. Do not invent missing reader, write, upload, or image-generation connections.
 
-An existing privately owned The Third Bell ZIP was recovered with 25 original 1280×720 WebP shots and matching SHA-256 records at PPF revision 0; in that snapshot none was saved or locked. This is historic source verification, not a current cross-chat or hosted UI guarantee. Do not place user-owned PPFs, source passages, media, IDs or SHA-256 in public GitHub.
+Do not assume earlier conversational approvals selected a specific existing PPF image. Older PPF concept crops and newer ChatGPT renders are different candidates. Present the selection to the author.
 
-If the creator requests a genuine sidebar, say that official hosted MCP Apps entrypoint and owner-scoped storage connection remain separate unverified deployment gates. The in-chat review workflow can work now without a compulsory Windows app, extra database or GitHub story account.
+## Current reviewed reference milestone
+
+A privately authorized The Third Bell project ZIP can be read in ChatGPT Library. A verified recovery pass found 25 original 1280×720 WebP shots matching the source PPF revision 0 and image hashes. This establishes byte recovery only; the initial PPF saved/locked flags are false, and the package's original concept crops are distinct from later ChatGPT image candidates. Use the actual latest files rather than treating this historical receipt as always current. The portable review HTML can collect local approval and regeneration requests for export, but it is not a native write endpoint, authenticated MCP Apps sidebar, or a file-service synchronization mechanism.
+
+If author asks where to find the sidebar, state that the official hosted entrypoint needs deployment and authenticated owner-scoped project loading. The in-chat review workflow can operate today; do not introduce a mandatory Windows installation or second storage database.
