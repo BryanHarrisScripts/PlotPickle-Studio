@@ -17,6 +17,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Install image decoder for verification tests
+        run: python -m pip install Pillow
       - name: Check Studio source candidate
         run: python scripts/verify_source.py --phase source
       - name: Validate isolated synthetic editor seed
