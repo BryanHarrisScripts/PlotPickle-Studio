@@ -31,8 +31,8 @@ def verify(phase: str) -> None:
     for name in MANIFESTS:
         try:
             manifest = json.loads((ROOT / name).read_text(encoding="utf-8"))
-            if manifest.get("version") != "0.8.34":
-                errors.append(f"{name}: expected unpublished candidate version 0.8.34")
+            if manifest.get("version") != "0.8.35":
+                errors.append(f"{name}: expected candidate version 0.8.35")
             if manifest.get("repository") != REPOSITORY:
                 errors.append(f"{name}: wrong repository")
             if manifest.get("license") != "AGPL-3.0-or-later":
