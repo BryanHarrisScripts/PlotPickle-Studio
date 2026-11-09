@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "plotpickle-story-reader",
-  "version": "0.8.34",
+  "version": "0.8.35",
   "description": "PlotPickle storytelling engine with REEL for movies and ONCE for life stories, preserving all existing creative and production workflows.",
   "author": {
     "name": "Bryan Harris",
@@ -29,6 +29,7 @@
           "Choose ONCE. Let me tell a real memory by voice and help preserve it as an illustrated life story.",
           "Meet Elara and explore PlotPickle.",
           "Explore the PlotPickle storytelling lessons.",
+          "Open PlotPickle Studio Review for my saved story. Show actual shot images and separate Approve, Regenerate, Lock and Unlock from verified PPF Save/Lock state.",
           "Continue my saved PlotPickle story in ChatGPT. Reopen the latest authorized PPF, verify available media, and show one source-backed next step without changing or generating anything.",
           "Start a new story in Storyboard and ask whether to create a ChatGPT Project folder for it.",
           "Open Story Explorer from a saved PlotPickle .ppf project and inspect a selected shot in ChatGPT.",
