@@ -1,5 +1,13 @@
 # v0.8.35 — in-chat Review controls and portable workspace
 
+## Published plugin verification — 2026-11-08
+
+The existing private USER-scope plugin `plugins_6aedd4f5ac1481919653cf6110d565ba` was guardedly updated from v0.8.34 to **v0.8.35**, installed release ID `pluginrel_6af12750a7248191956e65aa2c2f53a7`. Plugin Creator readback verified two v0.8.35 manifests, 22 prompts and the installed `skills/plotpickle-review/SKILL.md`; the private The Third Bell editor seed remained present. The >1 MiB native reader was size-limited during live text reading, not reported missing. Historical v0.8.34 release remains available. This parity PR mirrors the exact installed release text to public source (no private media).
+
+The actual ChatGPT mobile Review user acceptance is still pending; the official hosted graphical sidebar and native PPF Save/Lock Library write endpoint remain unverified. The locally browsable 25-shot Review board supports verifiable source image selection and uncommitted review draft export only.
+
+---
+
 Owner accepted the dark Shot Review design and authorized implementation on November 8, 2026.
 
 ## Proven private project recovery
