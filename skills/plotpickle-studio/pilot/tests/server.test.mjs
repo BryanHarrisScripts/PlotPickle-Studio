@@ -18,7 +18,7 @@ test('HTTP preview blocks writes and does not imply saved story state',async()=>
     const bad=await fetch(root+'/api/studio',{method:'POST',body:'{"change":"yes"}'});
     assert.equal(bad.status,405);
     const app=await fetch(root+'/');assert.equal(app.status,200);
-    const html=await app.text();assert.match(html,/REEL/);assert.match(html,/ONCE/);
+    const html=await app.text();assert.match(html,/REEL/);assert.match(html,/ONCE/);assert.match(html,/Review/);assert.match(html,/Approve/);assert.match(html,/Regenerate/);assert.match(html,/authenticated project writer/);
     assert.match(html,/https:\/\/fal.ai\/dashboard/);assert.match(html,/https:\/\/suno.com\//);
     assert.equal((await fetch(root+'/etc/passwd')).status,404);
   } finally {child.kill('SIGTERM');await once(child,'exit').catch(()=>{});}
