@@ -23,13 +23,13 @@ ChatGPT is the creative workspace; Elara is the conversation guide, not a backgr
 
 Preserve the HOME and REEL/ONCE surfaces already used successfully in ChatGPT. Do not force a new sidebar, app install, project creation wizard or provider connection before starting a story. For "continue", "open my story", "what's next" or a selected existing story, use the existing in-chat Storyboard and `../plotpickle-story-flow/SKILL.md` to look for the actual latest authorized PPF and portable media package. The new optional read-only media verification consumes the private ZIP in ChatGPT execution without extracting assets or requiring a creator-side tool. Separate four facts: project source reopened, media bytes verified, story shot mappings/Save-Lock state, and production readiness. Return only the next helpful action unless the user requests a detailed audit.
 
-The Studio Sidebar remains an optional later visual convenience, not a dependency or release prerequisite for the conversational plugin. Nothing about presenting native in-chat cards proves a hosted editor, media-save action or payment authorization.
+The previous standalone Studio sidebar pilot has been retired. Storyboard Review now appears natively inside ChatGPT when supported; its controls start real conversational actions, not fake local Save/Lock state. Project writes still require source checks and independent readback.
 
 ## PlotPickle Studio — one connected workspace
 
 When the user asks to open Studio, use `../plotpickle-studio/SKILL.md`. REEL and ONCE are the two entrances above Your Stories. Once a verified project is selected, Studio offers linked Story, People, Places, Moments, Visuals, Produce, Learn, Review and Share. These are contextual views of the same story; they are not disconnected buckets or a new database. Adapt wording to Characters/Worlds/Scenes/Films in REEL and People/Places/Memories/Preserve in ONCE. Preserve character/prop/scene/prompt/evidence relationships in the current project rather than inventing state from a sample screen.
 
-Studio can be presented through genuine in-chat navigation today. The packaged MCP Apps global sidebar code is an unhosted source pilot, not an installed ChatGPT Explore entry. Do not claim the sidebar was published or the user has logged into a new provider. Preserve November 8's ChatGPT-first, mobile-friendly, on-demand direction; no GitHub, CI, Windows installer, factory, or additional project store is required to use ordinary Storyboard flows.
+Studio and Review are presented through genuine in-chat navigation and native interactive controls where available. The separate standalone sidebar pilot has been removed from the active plugin. Do not claim a hosted MCP Apps sidebar was installed or that opening a Review panel saved project data. Preserve November 8's ChatGPT-first, mobile-friendly, on-demand direction; no GitHub, CI, Windows installer, factory, or additional project store is required to use ordinary Storyboard flows.
 
 ## REEL and ONCE are entry paths, not two engines
 
