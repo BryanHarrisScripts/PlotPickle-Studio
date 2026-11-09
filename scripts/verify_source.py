@@ -10,8 +10,8 @@ MANIFESTS = ("plugin.json", ".codex-plugin/plugin.json")
 SOURCE_REQUIRED = (
     "skills/plotpickle-welcome/SKILL.md",
     "skills/plotpickle-review/SKILL.md",
-    "skills/plotpickle-studio/pilot/src/projection.mjs",
-    "skills/plotpickle-studio/pilot/tests/projection.test.mjs",
+    "skills/plotpickle-studio/SKILL.md",
+    "skills/read-plotpickle-project/scripts/default-save-lock.py",
     "skills/plotpickle-fal-production/scripts/fal-handoff.py",
     "skills/plotpickle-creative/data/lesson-catalog.json",
     "skills/plotpickle-editor/windows/editor_server.py",
@@ -32,8 +32,8 @@ def verify(phase: str) -> None:
     for name in MANIFESTS:
         try:
             manifest = json.loads((ROOT / name).read_text(encoding="utf-8"))
-            if manifest.get("version") != "0.8.35":
-                errors.append(f"{name}: expected candidate version 0.8.35")
+            if manifest.get("version") != "0.8.36":
+                errors.append(f"{name}: expected candidate version 0.8.36")
             if manifest.get("repository") != REPOSITORY:
                 errors.append(f"{name}: wrong repository")
             if manifest.get("license") != "AGPL-3.0-or-later":
