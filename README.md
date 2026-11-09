@@ -15,9 +15,11 @@ PlotPickle Studio is the ChatGPT-native creative production plugin for REEL, ONC
 
 ## Current published release
 
-**v0.8.36** — Plugin Creator release `pluginrel_6af12eac3bfc8191bcf844e1c4719aac`, published 2026-11-09 UTC.
+**v0.8.39** — Plugin Creator release `pluginrel_6af22335cf948191a60264f0b542c4c9`, published 2026-11-09 19:47 UTC. The current public text-source archive is [dcba2d5](https://github.com/BryanHarrisScripts/PlotPickle-Studio/commit/dcba2d5a74f76b580d53a9304da329c77f6115f4), created only *after* Plugin Creator publication. It includes the cumulative source changes introduced by published v0.8.37–v0.8.39.
 
-The preceding GitHub source mirror is commit [9f46cfb](https://github.com/BryanHarrisScripts/PlotPickle-Studio/commit/9f46cfb29e3b0bf7d6deccf6b5dd0cdee014029b). This historical commit is retained for recovery. Its exact byte-for-byte equality to the Plugin Creator archive has not been re-audited by this policy change.
+A source audit compared 142 readable installed UTF-8 text files with GitHub MAIN: 124 were already identical and 18 were mirrored exactly in the archive commit. This is a **public text-source mirror**, not a complete byte-for-byte copy of the private plugin archive. The private creator story seed, original nonpublic artwork, generated assets and a Python bytecode cache remain outside GitHub. The installed Studio logo PNG differs from the historical GitHub logo PNG and is not declared reconciled; the 1.36 MB canonical inspector was not re-read through the 1 MiB Plugin Creator text API during this audit. Original Plugin Creator archives retain release-specific binary data. See [the reconciliation record](docs/archive/2026-11-09-v0.8.37-v0.8.39.md).
+
+Historical v0.8.37 and v0.8.38 release IDs are recorded in [RELEASES.md](RELEASES.md), with exact release timestamps and an explicit distinction between their retained private archives and this cumulative v0.8.39 GitHub source snapshot. The preceding [v0.8.36 archive](https://github.com/BryanHarrisScripts/PlotPickle-Studio/commit/9f46cfb29e3b0bf7d6deccf6b5dd0cdee014029b) remains in Git history.
 
 See [RELEASES.md](RELEASES.md) for release-to-archive references. Future source snapshots should be appended only after publishing through Plugin Creator.
 
