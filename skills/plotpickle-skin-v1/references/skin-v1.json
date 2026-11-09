@@ -1,0 +1,415 @@
+{
+  "schema": "plotpickle.skin.v1",
+  "skinVersion": "1.0.1",
+  "pluginRelease": "0.8.38",
+  "approvalDate": "2026-11-09",
+  "source": "Approved Library design contracts (public generic layout only)",
+  "mode": "authoritative-reusable-design-contract-not-hosted-app",
+  "colors": {
+    "theme": "premium-matte-black",
+    "foreground": "off-white",
+    "accent": "restrained-purple",
+    "secondary": "muted-gray",
+    "positive": "meaningful-success-only",
+    "border": "subtle-single-stroke"
+  },
+  "spacing": {
+    "basePx": 4,
+    "density": "compact",
+    "radius": "small-to-medium-consistent"
+  },
+  "typography": {
+    "dominantPageHeading": 1,
+    "microMetadata": "small-consistent",
+    "longTitles": "wrap-normal-words"
+  },
+  "shell": {
+    "sections": [
+      "brand-header",
+      "breadcrumb-and-back",
+      "project-source-context-when-applicable",
+      "page-title-and-one-line-purpose",
+      "surface-body",
+      "read-only-or-operation-footer"
+    ],
+    "brandText": "PLOTPICKLE STUDIO",
+    "homePrimary": [
+      "Meet Elara",
+      "Learn",
+      "Storyboard",
+      "Connected Services"
+    ],
+    "breadcrumbRule": "show validated hierarchy; active story pin must survive navigation",
+    "sourcePin": [
+      "projectId",
+      "revision",
+      "rawSha256",
+      "location",
+      "verificationLevel"
+    ],
+    "statusRule": "state as text plus a symbol, never color alone; Unknown is not success",
+    "mobile": {
+      "homeColumns": 1,
+      "homeColumnsOnWide": 2,
+      "sequenceColumns": 1,
+      "actTabColumns": 4,
+      "miniTabColumns": 4,
+      "shotGridColumns": 5
+    }
+  },
+  "approvedSurfaces": [
+    "HOME",
+    "STORYBOARD",
+    "STORY_MAP",
+    "MINI_BLOCK_SHOT_GRID",
+    "IMAGE_REVIEW"
+  ],
+  "approvedDesignGate": "SAVE_LOCK_TRANSACTIONS",
+  "notApproved": [
+    "PRODUCTION_HANDOFF",
+    "CONNECTED_SERVICES",
+    "EDITOR",
+    "ONCE_MEMORY_CAPTURE",
+    "CHARACTER_BUILDER",
+    "WORLD_BUILDER",
+    "POSTERS",
+    "REPORTS",
+    "other inventory surfaces"
+  ],
+  "states": {
+    "humanApproved": "independent",
+    "ppfSaved": "independent",
+    "ppfLocked": "independent",
+    "mediaVerified": "independent",
+    "sourceVerified": "independent",
+    "draft": "not final"
+  },
+  "truth": {
+    "readOnlyNavigation": true,
+    "noSyntheticProjectList": true,
+    "noAutoApprovals": true,
+    "noPaidJobsOnView": true,
+    "writesNeedVersionGuardsAndReadback": true,
+    "noPrivateStoryDataInPlugin": true
+  },
+  "fixedSurfaceLayouts": {
+    "HOME": {
+      "heading": "What will you create today?",
+      "order": [
+        "brand-header",
+        "home-breadcrumb",
+        "heading",
+        "four-primary-cards",
+        "continue-creating-if-current-source-verified",
+        "quiet-status-footer"
+      ],
+      "primaryCards": [
+        {
+          "title": "Meet Elara",
+          "icon": "messages-square",
+          "route": "MEET_ELARA"
+        },
+        {
+          "title": "Learn",
+          "icon": "graduation-cap",
+          "route": "LEARN"
+        },
+        {
+          "title": "Storyboard",
+          "icon": "clapperboard",
+          "route": "STORYBOARD"
+        },
+        {
+          "title": "Connected Services",
+          "icon": "plug",
+          "route": "CONNECTED_SERVICES"
+        }
+      ],
+      "noFifthPrimaryTile": true,
+      "continueCreating": "only verified current story; otherwise empty/no source"
+    },
+    "STORYBOARD": {
+      "heading": "Storyboard",
+      "subtitle": "Choose how to tell your story.",
+      "order": [
+        "brand-header",
+        "breadcrumb",
+        "heading",
+        "equal-reel-once-cards",
+        "selected-path-details-if-requested",
+        "your-verified-stories",
+        "quiet-create-story",
+        "source-footer"
+      ],
+      "paths": [
+        {
+          "id": "REEL",
+          "title": "REEL",
+          "description": "Turn an idea or screenplay into a visual story and movie.",
+          "labels": [
+            "Characters",
+            "Worlds",
+            "Scenes",
+            "Visuals",
+            "Produce"
+          ]
+        },
+        {
+          "id": "ONCE",
+          "title": "ONCE",
+          "description": "Tell a life story, bring memories to life and preserve them for family.",
+          "labels": [
+            "People",
+            "Places",
+            "Memories",
+            "Illustrations",
+            "Preserve"
+          ]
+        }
+      ],
+      "yourStories": "actual authorized stories only; revision/location/verification visible",
+      "newStory": "conversational; no fake Project/PPF creation"
+    },
+    "STORY_MAP": {
+      "heading": "Story Map",
+      "order": [
+        "brand-header",
+        "breadcrumb",
+        "project-source-bar",
+        "heading",
+        "4-act-tab-rail",
+        "3-sequence-groups",
+        "2-global-blocks-each",
+        "selected-block-summary",
+        "4-mini-block-entries",
+        "source-status-footer"
+      ],
+      "acts": 4,
+      "sequencesPerAct": 3,
+      "blocksPerSequence": 2,
+      "blocksTotal": 24,
+      "globalBlockNumbering": true,
+      "selection": "read-only: switching Act changes subordinate view only; does not change story source",
+      "noInventedTitles": true
+    },
+    "MINI_BLOCK_SHOT_GRID": {
+      "heading": "Mini-Block Storyboard",
+      "order": [
+        "brand-header",
+        "breadcrumb",
+        "project-source-bar",
+        "block-summary",
+        "4-mini-selector",
+        "25-slot-evidence-summary",
+        "5x5-shot-grid",
+        "status-legend",
+        "selected-shot-inspector",
+        "footer"
+      ],
+      "miniSelectors": 4,
+      "shotGrid": {
+        "rows": 5,
+        "columns": 5
+      },
+      "shotInspectorTabs": [
+        "Script",
+        "Beat",
+        "Prompt",
+        "Image",
+        "Continuity",
+        "Save/Lock"
+      ],
+      "distinguish": {
+        "position": "planned slot",
+        "authoredShot": "real mapping",
+        "image": "verified actual bytes",
+        "accepted": "separate review and lock evidence"
+      },
+      "missing": "Not authored / Not verified"
+    },
+    "IMAGE_REVIEW": {
+      "heading": "Image Review",
+      "order": [
+        "brand-header",
+        "breadcrumb",
+        "project-source-bar",
+        "shot-title",
+        "real-exact-selected-image-or-honest-placeholder",
+        "candidate-variant-selector",
+        "4-independent-status-rows",
+        "source-and-prompt-tabs",
+        "disabled-operation-preview-unless-verified-backend",
+        "footer"
+      ],
+      "statusRows": [
+        "Human Approved",
+        "PPF Saved",
+        "PPF Locked",
+        "Media Verified"
+      ],
+      "evidenceTabs": [
+        "Script",
+        "Prompt",
+        "Continuity",
+        "Audit"
+      ],
+      "candidateChoice": "show actual provenance, dimensions, hash, original/concept distinctions",
+      "noFakeWrites": true
+    },
+    "REEL_WORKSPACE_ENTRY": {
+      "heading": "REEL",
+      "subtitle": "From screenplay to screen.",
+      "parent": "STORYBOARD",
+      "approvedAs": "Nested REEL entry workspace, not another primary HOME tile or top-level approval unit",
+      "order": [
+        "brand-header",
+        "breadcrumb",
+        "reel-heading-and-intro",
+        "four-starting-options",
+        "verified-your-stories",
+        "script-storyboard-visuals-produce-strip",
+        "read-only-footer"
+      ],
+      "startingOptions": [
+        {
+          "id": "NEW_IDEA",
+          "title": "New Idea",
+          "description": "Develop a concept into a screenplay"
+        },
+        {
+          "id": "IMPORT_SCRIPT",
+          "title": "Import Script",
+          "description": "Work from an existing screenplay"
+        },
+        {
+          "id": "CONTINUE_FILM",
+          "title": "Continue Film",
+          "description": "Resume a saved film project"
+        },
+        {
+          "id": "EXPLORE_TOOLS",
+          "title": "Explore Tools",
+          "description": "Discover the creative production workflow"
+        }
+      ],
+      "yourStories": "Only stories verified from accessible, authorized saved sources; show revision/location and unverified media caveat. Never embed example user project names, revision numbers or IDs.",
+      "workflowStrip": [
+        "Script",
+        "Storyboard",
+        "Visuals",
+        "Produce"
+      ],
+      "noAutomaticCreationImportOrGeneration": true,
+      "mobileColumns": 2,
+      "exclusions": [
+        "Continue Film detailed screen",
+        "ONCE workspace",
+        "actual writer mutations or provider charges"
+      ]
+    },
+    "MOBILE_STORYBOARD_REVIEW": {
+      "heading": "Mobile Storyboard Review",
+      "parent": [
+        "MINI_BLOCK_SHOT_GRID",
+        "IMAGE_REVIEW"
+      ],
+      "approvedAs": "Responsive nested treatment of approved Grid and Image Review, not a hosted sidebar or new separately approved surface",
+      "order": [
+        "brand + HOME/Storyboard breadcrumbs",
+        "story title, verified source identity and canonical address",
+        "summary counts with truth labels (planned positions, real byte-verified images, actual locked positions)",
+        "Mini-Block selection (four selectors per Block)",
+        "25-shot 5x5 touch grid, one selected shot",
+        "selected-shot detail with full real image when bytes accessible",
+        "horizontal/swipeable evidence tabs: Script, Beat, Prompt, Image, Continuity, Save/Lock",
+        "four independently labelled states: Human Approved / PPF Saved / PPF Locked / Media Verified",
+        "inactive production controls unless verified write tools available",
+        "graphic-novel reading link: five-page edition of corresponding Mini-Block"
+      ],
+      "shotGrid": {
+        "rows": 5,
+        "columns": 5,
+        "positions": 25,
+        "touchTargets": "legible, no clipped numeric labels"
+      },
+      "miniBlockSelectors": 4,
+      "statusRows": [
+        "Human Approved",
+        "PPF Saved",
+        "PPF Locked",
+        "Media Verified"
+      ],
+      "shotInspectorTabs": [
+        "Script",
+        "Beat",
+        "Prompt",
+        "Image",
+        "Continuity",
+        "Save/Lock"
+      ],
+      "productionActions": [
+        "Approve",
+        "Regenerate",
+        "Lock",
+        "Unlock"
+      ],
+      "actionState": "Disabled unless a real tool-backed guarded PPF operation and readback can execute; previews never mutate status",
+      "realImagePolicy": "Render exact source-selected candidate only when verified bytes accessible; otherwise honest placeholder",
+      "responsive": "Stack navigation/header/counts/shot-grid/inspector/image/status/action pane vertically on phones; desktop may group in columns",
+      "legacyReference": "Creator-approved historical three-column dark sidebar screenshot saved privately in Design Library; reference only",
+      "graphicNovelLink": "Offer existing verified five-page reading edition when authorized; never invent completed pages",
+      "persistentHostedSidebar": false
+    }
+  },
+  "designApprovalIDs": [
+    "PP-SKIN-V1-SHELL-APPROVAL-2026-11-09-01",
+    "PP-SKIN-V1-HOME-APPROVAL-2026-11-09-01",
+    "PP-SKIN-V1-STORYBOARD-APPROVAL-2026-11-09-01",
+    "PP-SKIN-V1-STORY-MAP-APPROVAL-2026-11-09-01",
+    "PP-SKIN-V1-MINI-SHOT-APPROVAL-2026-11-09-01",
+    "PP-SKIN-V1-IMAGE-REVIEW-APPROVAL-2026-11-09-01",
+    "PP-SKIN-V1-SAVE-LOCK-APPROVAL-2026-11-09-01",
+    "PP-SKIN-V1-REEL-WORKSPACE-APPROVAL-2026-11-09-01",
+    "PP-SKIN-V1-MOBILE-REVIEW-APPROVAL-2026-11-09-01"
+  ],
+  "approvedNestedLayouts": [
+    "REEL_WORKSPACE_ENTRY",
+    "MOBILE_STORYBOARD_REVIEW"
+  ],
+  "graphicNovelReadingFormat": {
+    "title": "Five-panel mini-block edition",
+    "miniBlockShotPositions": 25,
+    "pagesPerMiniBlock": 5,
+    "panelsPerPage": 5,
+    "positionCoverage": [
+      [
+        1,
+        5
+      ],
+      [
+        6,
+        10
+      ],
+      [
+        11,
+        15
+      ],
+      [
+        16,
+        20
+      ],
+      [
+        21,
+        25
+      ]
+    ],
+    "blocks": 24,
+    "miniBlocksPerBlock": 4,
+    "plannedPagesForFullScaffold": 480,
+    "narrativeAuthority": "Latest authorized screenplay and shot mapping; not technical preview screenshot",
+    "artDirection": "Use creator-supplied/approved reference style and character/world continuity as guidance; do not copy specific protected film characters; do not substitute unrelated art",
+    "releaseBehavior": "Render/link verified existing reader pages from authorized Library; generate new panels only on creator request and with real output; no background batch process",
+    "writeBehavior": "Keep graphic novel sidecar separate from canonical PPF until explicit verified import; never automatically save, lock or overwrite original images",
+    "privacy": "Never bundle an individual creator’s story images, text or media in plugin"
+  }
+}

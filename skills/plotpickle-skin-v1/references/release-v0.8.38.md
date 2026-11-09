@@ -1,0 +1,3 @@
+# PlotPickle Studio v0.8.38 — Published Layout Additions
+
+Owner approval date: 2026-11-09. This patch adds two approved nested layouts to the already published Skin V1 system: (1) REEL workspace start options and (2) mobile Storyboard Review inspired by the retired three-column desktop design. It also formalizes the five pages × five panels graphic-novel reader format. Private illustrated pages stay in the user's Library, not in the distributed plugin. No new hosted sidebar, image generation, native PPF writes, Save/Lock runtime permissions, hidden background jobs or provider charges are created. All original installed files and binary assets are preserved by overlay publication. Production Handoff and other individually pending surface designs remain pending.

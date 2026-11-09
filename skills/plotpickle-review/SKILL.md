@@ -1,29 +1,18 @@
 ---
 name: plotpickle-review
-version: 0.8.36
-description: Review real source-backed PlotPickle storyboard images in ChatGPT and route explicit approval, Save, Lock, Unlock and regeneration through verified project operations.
+version: 0.8.38
+description: Review exact source-backed PlotPickle storyboard image candidates in the approved Skin V1 Image Review presentation, with honest guarded Save/Lock/Unlock support.
 ---
+# Image Review — published Skin V1
 
-# PlotPickle Studio — ChatGPT-native Storyboard Review
+**Presentation:** render Image Review strictly from `../plotpickle-skin-v1/references/skin-v1.json` → `fixedSurfaceLayouts.IMAGE_REVIEW`. Reuse the approved shared matte-black PLOTPICKLE STUDIO header, breadcrumb, pinned source bar, real selected shot image/candidate distinctions, separate Human Approved / PPF Saved / PPF Locked / Media Verified rows, Script/Prompt/Continuity/Audit tabs and clear read-only/operation footer. The approved Save/Lock transaction *design* is in `../plotpickle-skin-v1/references/save-lock-transaction.v1.json`. No other unauthorised operation buttons or invented persistent layout.
 
-The owner retired the standalone sidebar. When asked to Review or approve, regenerate, lock or unlock an image, keep HOME, REEL and ONCE as the fast entry points. Display a compact Review panel inside a normal ChatGPT reply where native response controls are supported; otherwise offer concise conversational actions. Do not open an external app, iframe or hosted sidebar, and do not require credentials, a Windows installation or a new project store. ChatGPT response controls are rendered by the host, not shipped from this skill as a fixed JavaScript app.
+**Source evidence:** open the latest authorized actual saved PPF in ChatGPT Project/Library and matching portable media. Pin project ID, revision, SHA-256, exact candidate/shot, screenplay passages. Use canonical inspector and independently verify actual image bytes, SHA-256, dimensions and decoded content. Source concept art, later generated variations and finally selected candidates remain different assets. If bytes unavailable or project state uncertain, show `Unknown` / `Not Verified`; never fabricate an image or infer Lock from a filename.
 
-## Source and evidence
+**Actions:** a read-only shot selector may change only its local view. Approve requires specific human choice of exact variation, anchored passage IDs and media hash; it is not Save. A mutation must invoke the real available source workflow with source identity and guarded current version, write a new snapshot, independently reopen and report observed results. Save only after media validation; Lock only after verified Save readback and on the same exact image; Unlock requires original saved+locked candidate and a reason and retains history. Regenerate requires creator direction, Unlock first if locked, and preservation of prior candidates. The owner's existing initial-image default Save→Lock workflow remains a distinct runtime capability subject to its own readback, not new permission from this design approval. If secure persistent write is unavailable, say `REVIEW_DRAFT_NOT_PPF_COMMITTED`; never show an altered success badge. A batch needs per-shot receipts, and no blanket author aesthetic approval can be inferred.
 
-Use current authorized saved PPF from the user's ChatGPT Project or Library and its corresponding portable media. Pin project ID, revision, SHA-256, canonical shot address and exact candidate. Run the existing canonical inspector when available; independently verify each image's actual bytes, content hash, dimensions and decoded content, not merely filenames or contact sheets. Identify original PPF concept crops separately from later ChatGPT-generated candidate images. Show the selected image and screenplay source if available, and clearly separate four values: Human Approved, PPF Saved, PPF Locked and Media Verified. Unknown is not true.
+Provider credit-consuming actions require per-job explicit approval and current cost and source verification. When Save/Lock truly succeeds, show new revision, PPF SHA, selected image SHA and authorized storage location only after readback. Preserve existing workflows, do not introduce a hosted sidebar, fake storage or Windows dependency. The production handoff layout is not approved Skin V1 yet.
 
-## Native in-chat actions
+## Mobile layout (approved v0.8.38)
 
-A native button may select another shot locally, but Approve, Regenerate, Save, Lock and Unlock MUST initiate an explicit conversational tool-backed action, not change a badge in UI state and falsely claim a PPF write. If a control cannot perform the real operation, use a follow-up turn explaining the blocked step. No fake buttons or claims that widget state is persistent.
-
-Approve requires an explicit choice of one exact image variation, recorded with source passage references and media SHA. An author's visual approval is not proof of native PPF Save/Lock. If initial auto Save→Lock is enabled, run the real source workflow and show separate readback confirmations. Regenerate requires a source-bound shot and revision reason, preserves prior candidates, and requires Unlock first for a locked image. ChatGPT image creation happens only on explicit instruction; fal/Suno credits require their own per-job permission.
-
-Save requires a current source pin and verified image bytes. Invoke the installed read-plotpickle-project default-save-lock or image-operations source workflow, produce a new PPF snapshot, reopen it and confirm saved markers. Lock only after Save readback and actual media validation, with new revision and independent readback. Unlock requires a previously saved and locked specific candidate plus reason; write a new revision, preserve audit history, reopen it and verify the new state. Never overwrite a creator's canonical PPF or newest Library file using an unverified expected version. Use actual available Library/Project file tools with version guards; when no secure write is possible return REVIEW_DRAFT_NOT_PPF_COMMITTED, not a success badge.
-
-Show resulting project revision and hash, saved/locked states and output location only after independently checking written bytes. Keep source truth and image approval independent.
-
-## The Third Bell
-
-The original private PPF rev 0 had 25 individually hash-verified images; this is not proof the later generated variants are imported or final-approved. Prior Shot 01 Save→Lock→Unlock→Relock tests in isolated Library snapshots do not update the canonical project. Reopen current project and let the author choose the exact candidate before committing.
-
-The standalone plotpickle-studio/pilot sidebar was retired and is not installed. Native Review requires no separate hosted MCP App, although persistent file writes still require the real authenticated ChatGPT file service and readback. Never claim otherwise.
+For phone-sized response, render `../plotpickle-skin-v1/references/skin-v1.json` -> `fixedSurfaceLayouts.MOBILE_STORYBOARD_REVIEW`: a single vertical, touch-friendly presentation retaining the 5×5 25-slot grid, four Mini selectors, selected shot's actual source image, source inspector, 4 independent status rows and action placements. Horizontal/swipe tabs must remain legible. The older sidebar screenshot is appearance guidance, never a current hosted session or verified source. Unavailable backend writes mean disabled controls or conversational steps, not fake success. When actual five-page graphic-novel output exists in the authorized story Library, present a separate read-only reader link without mislabeling the panels as PPF-locked shot images.

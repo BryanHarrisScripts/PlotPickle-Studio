@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "plotpickle-story-reader",
-  "version": "0.8.36",
-  "description": "PlotPickle storytelling engine with REEL for movies and ONCE for life stories, preserving all existing creative and production workflows.",
+  "version": "0.8.39",
+  "description": "PlotPickle REEL and ONCE storytelling with Skin V1 and official private-Library graphic-novel reading.",
   "author": {
     "name": "Bryan Harris",
     "email": "bryan@bryanharris.ca"
@@ -11,7 +11,8 @@
     "storyboard",
     "filmmaking",
     "image-to-video",
-    "fal"
+    "fal",
+    "graphic-novel"
   ],
   "repository": "https://github.com/BryanHarrisScripts/PlotPickle-Studio",
   "license": "AGPL-3.0-or-later",
@@ -24,17 +25,22 @@
         ],
         "category": "Creativity",
         "defaultPrompt": [
-          "Open PlotPickle Storyboard and show REEL and ONCE, each with its short description.",
+          "Open PlotPickle Studio HOME with Meet Elara, Learn, Storyboard and Connected Services using the approved Skin V1 layout.",
+          "Open PlotPickle Storyboard using Skin V1. Show REEL and ONCE, followed by my verified saved stories.",
+          "Open PlotPickle Studio REEL and show New Idea, Import Script, Continue Film, Explore Tools and verified Your Stories using approved Skin V1.",
+          "Open the approved mobile PlotPickle Storyboard Review for my verified Mini-Block, with a 5×5 shot grid, source-linked image inspector, and non-writing review controls.",
+          "Read the saved five-page graphic-novel edition for my current Mini-Block, five panels per page and 25 shot positions total, without changing PPF files or generating images.",
+          "Open the PlotPickle 24-Block Story Map for my saved project using Skin V1.",
+          "Open my selected Mini-Block and 25-shot grid, with source-linked read-only shot inspection.",
+          "Open the PlotPickle in-chat Image Review for an exact source-verified shot and show four independent statuses.",
+          "Explain the approved Save/Lock transaction workflow; do not write until separately authorized and verified.",
           "Choose REEL. Help me develop an idea or screenplay into a movie using PlotPickle.",
           "Choose ONCE. Let me tell a real memory by voice and help preserve it as an illustrated life story.",
           "Meet Elara and explore PlotPickle.",
           "Explore the PlotPickle storytelling lessons.",
-          "Open the PlotPickle in-chat Review panel for The Third Bell. Show the actual source-backed shot image, candidate variations and recorded Save/Lock state. Let me choose Approve, Regenerate, Lock or Unlock using native ChatGPT controls, without opening a separate sidebar.",
           "Continue my saved PlotPickle story in ChatGPT. Reopen the latest authorized PPF, verify available media, and show one source-backed next step without changing or generating anything.",
           "Start a new story in Storyboard and ask whether to create a ChatGPT Project folder for it.",
           "Open Story Explorer from a saved PlotPickle .ppf project and inspect a selected shot in ChatGPT.",
-          "Show the graphical, clickable Story Explorer inside ChatGPT, then navigate Act 1 > Sequence 1 > Block 1 > Mini-Block 1 > Shot 07 to inspect the screenplay evidence, beat, exact image prompt, candidate image and Save/Lock status.",
-          "Open the graphical mobile-friendly Story Explorer for my saved PlotPickle .ppf project and inspect its source-linked storyboard shots.",
           "Group 1–5 consecutive storyboard positions into a 3–15 second Motion Span and prepare a source-pinned fal brief without spending credits.",
           "Save and lock all verified initial storyboard images, then show only the shots needing revision.",
           "Review the latest PlotPickle OSS Radar findings.",
@@ -45,12 +51,13 @@
           "Continue Film through Script, Storyboard, Visuals and Produce with source-pinned truth and no automatic paid generation.",
           "Process my completed PlotPickle fal clip end to end: inspect, conform to 24 fps, verify 72 frames, and register a draft without changing native Save/Lock.",
           "Prepare a revision-safe PlotPickle timeline edit patch for The Third Bell without changing native PPF Save/Lock or spending credits.",
-          "Continue The Third Bell in REEL from its authorized screenplay. Review Block 1.1's 25 planned shot positions and show what is ready before generating new media."
+          "Open The Third Bell official graphic novel in PlotPickle Studio REEL. Reopen the creator's private Library edition, verify and read the 10 pages / 50 illustrated panels in order, five panels per page with captions, without changing PPF or generating images.",
+          "Open the official graphic-novel editions for my saved stories. Show a page-turning reader, verified original pages, available PDF, HTML reader and archive, while keeping source and PPF Save/Lock statuses separate."
         ],
         "developerName": "Bryan Harris",
         "displayName": "PlotPickle Studio",
         "shortDescription": "REEL films and ONCE life stories",
-        "longDescription": "PlotPickle is an on-demand creative production system guided by Elara in ChatGPT. HOME offers Meet Elara, Learn, Storyboard and Connected Services. Within Storyboard, REEL means make a movie from ideas and screenplays; ONCE means tell a life story, visualize memories and preserve them for family. Both paths use exactly the same underlying PlotPickle story, visual, audio and media tools; ONCE is a gentle conversational framing rather than a separate engine. Storyboard offers an in-chat image Review panel (not a separately hosted sidebar) and Continue Film: a source-pinned Script → Storyboard → Visuals → Produce flow grounded in actual PPF screenplay, shot mappings, selected images, Save/Lock and verified media. The creator chooses when to review, revise and advance. Character and World Builders, Layout Sheets, Assets, Reports, Pitch Deck, Posters, animatic and draft assembly, and the 81-lesson curriculum remain. fal is the preferred external image-to-video provider through the separately installed and authenticated fal ChatGPT plugin, not a bundled API key or embedded MCP server. After confirming a particular source image, eligible model, duration and cost, the user may approve a single job and type Submit to call a connected fal tool, check status and display the returned video in the same chat turn if the job completes and the host supports preview. This is not an unattended background process and does not silently authorize retries. The 1–5 shot 3–15 second Motion Span is editorial timing at 24 fps, not a promise of native generation duration. Test previews from user-supplied composite images are noncanonical until native project bytes and Save/Lock are independently verified. After a completed fal video the in-chat intake attempts verified source-backed 24fps conversion and draft sidecar registration when original video bytes and FFmpeg are accessible; runtime media transport may block and no native PPF import is implied. No automatic cross-chat routing, credential collection, paid generation from an unapproved command, native Save/Lock in an unverified app or finished MP4 is claimed. BUZZ community pilot and Modem remain planned. Editor Phase 1 bundles a portable six-track draft timeline, a local-only Windows media receiver and FFmpeg video verification with undoable edits. ChatGPT cannot yet directly control the Windows process through an installed editor MCP action; the Windows companion must be installed and launched by the creator, and the first browser editor runs locally. Full embedded ChatGPT editing and secure outbound editor tunnel remain unverified. The Windows editor audio phase provides local WAV attachment, synthetic demo ocean/gull cues, gain and mute, exact frame-timed 48 kHz mix, and verified draft playback. These features require the installed local Windows editor and do not establish a live ChatGPT-to-Windows control bridge or native PPF Save/Lock.",
+        "longDescription": "PlotPickle Studio is an on-demand, ChatGPT-native creative production system with two paths: REEL for movies and ONCE for life stories. The approved Skin V1 design system (v0.8.38) makes HOME, Storyboard, Story Map, Mini-Block/25-shot grid and source-backed Image Review use consistent layouts and evidence presentation. Skin V1 is a packaged design/template contract rendered in normal ChatGPT replies; it is not a separately hosted persistent graphical app or a guarantee of pixel-identical rendering on every ChatGPT host. The Save/Lock transaction interaction design is approved, while real writes still require secure current source/bytes, version guards, validation and independent readback. Existing PPF screenplay reader, 81 lessons, Character and World Builders, Layout Sheets, Assets, Posters, Reports, Pitch Decks, animatic, editing, Sound, Suno, fal motion and BUZZ/Modem plans remain available. Provider costs require individual prior approval; no status, media or persistence is invented. No mandatory Windows app, GitHub account or sidebar. Production Handoff Skin V1 layout and other unreviewed surfaces are not yet approved. This release adds the approved REEL starting workspace (New Idea, Import Script, Continue Film, Explore Tools), a stacked mobile Storyboard Review that adapts the creator’s older three-column reference, and optional five-page/25-panel graphic-novel reading for each Mini-Block. The design remains dynamically rendered inside ChatGPT and does not install a hosted sidebar. Actual graphic-novel pages and PPF sources remain private in the creator’s Library; no project images are bundled. Other unapproved surfaces and unverified writes remain pending. Version 0.8.39 adds an owner-approved official-edition reading route for The Third Bell: the first Mini-Block in each of Blocks 01 and 02, ten sequential graphic-novel pages with five illustrated panels and captions per page. The approved artwork, original PDF, HTML reader and archive are loaded only from authorized private Library/Project files, not embedded in the plugin. Opening the edition never changes the PPF screenplay authority, image approval, Save/Lock or production status. It verifies available files and never invents media links.",
         "brandColor": "#8255D6",
         "brandColorDark": "#C6A8FC",
         "composerIcon": "./assets/studio-composer-icon.png",

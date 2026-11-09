@@ -1,0 +1,74 @@
+{
+  "schema": "plotpickle.skin.v1.transaction-design",
+  "status": "APPROVED_DESIGN_ONLY_NOT_TECHNICALLY_VERIFIED",
+  "pluginRelease": "0.8.37",
+  "surface": "SAVE_LOCK_TRANSACTIONS",
+  "stepOrder": [
+    "Inspect",
+    "Approve",
+    "Save",
+    "Save Readback",
+    "Lock",
+    "Lock Readback & Receipt"
+  ],
+  "statuses": [
+    "Human Approved",
+    "Media Verified",
+    "PPF Saved",
+    "PPF Locked"
+  ],
+  "operations": {
+    "save": {
+      "requires": [
+        "source pin",
+        "existing verified candidate bytes",
+        "version guard",
+        "new snapshot readback"
+      ]
+    },
+    "lock": {
+      "requires": [
+        "verified save readback",
+        "same candidate and hash",
+        "fresh source guard",
+        "lock readback"
+      ]
+    },
+    "unlock": {
+      "requires": [
+        "exact saved+locked candidate",
+        "author reason",
+        "new source revision",
+        "readback"
+      ]
+    },
+    "regenerate": {
+      "requires": [
+        "explicit instruction",
+        "unlock if previously locked",
+        "preserve prior candidate",
+        "new media verified before write"
+      ]
+    },
+    "batch": {
+      "requires": [
+        "independent per-shot outcomes",
+        "no partial success counted as complete",
+        "never blanket author approval of all images"
+      ]
+    }
+  },
+  "autoInitialSaveLock": "not activated by design package; existing writer behavior unchanged",
+  "writeReceipt": [
+    "old PPF revision + hash",
+    "new PPF revision + hash",
+    "shot/candidate ID",
+    "image media SHA",
+    "saved readback",
+    "locked readback",
+    "artifact destination",
+    "errors"
+  ],
+  "failure": "fail-closed; show explicit blocked/pending state; never simulate project mutation",
+  "technicalValidation": "pending independently; package does not authorize any PPF or Library writes"
+}
