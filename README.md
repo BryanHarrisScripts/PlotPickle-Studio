@@ -1,29 +1,24 @@
-# PlotPickle Studio
+# PlotPickle Studio — Release Archive
 
-The ChatGPT-native PlotPickle creative production plugin. This repository is intentionally separate from [PlotPickle](https://github.com/BryanHarrisScripts/PlotPickle), the original Windows desktop / Story Factory project.
+PlotPickle Studio is the ChatGPT-native creative production plugin for REEL, ONCE, Storyboard, the 81-lesson curriculum and creative services.
 
-## Migration state: v0.8.33 source candidate
+**Plugin Creator is the authoritative development, package and release manager.** GitHub is a read-only-in-practice historical version archive. The private published ChatGPT plugin, not the `main` branch, determines what creators use.
 
-The first import is pinned to the published private ChatGPT plugin `plotpickle-story-reader`, release `pluginrel_6af0b8fb4dec819181b70bcd777f9963` (version 0.8.33, published November 8, 2026).
+## Operating policy (owner approved 2026-11-09)
 
-The imported text source includes the plugin manifests, skills, instructions, workflow schemas, scripts, tests, creative service catalogue, 81-lesson curriculum data, Studio pilot and local editor source. This is **not yet a reproducible, independently verified release**. See [docs/MIGRATION.md](docs/MIGRATION.md) for the five intentionally omitted generated, binary or media-bearing files and the acceptance checklist.
+- Design and edit the plugin using ChatGPT and **Plugin Creator**. Publish updates using Plugin Creator's guarded update function and verify the published release metadata and relevant feature behaviour there.
+- After a successful publication, copy the approved release source into this repository as an archival snapshot; record the version, Plugin Creator release ID, archive commit and any known archive limitations. GitHub archival must **follow**, not precede, publication.
+- Do **not** use GitHub Actions, CI, automated GitHub tests, PR-based release gates, software-factory workers or branch-based deployment to produce or approve releases.
+- Do not execute stored tests in GitHub. A small creator-facing manual readback/check within ChatGPT remains an option when validating a release. Plugin Creator itself is not a comprehensive functional test runner.
+- Keep project PPFs, screenplay files, media, credentials and provider tokens out of this source archive. Personal story data belongs in authorized ChatGPT Project/Library records.
+- Keep the current release recoverable and preserve historical commits. Never silently overwrite the published release based on this repository.
 
-The live ChatGPT plugin is not automatically updated by changes to this repository. Existing private story projects, user media and credentials do not belong in source control.
+## Current published release
 
-## Repository boundaries
+**v0.8.36** — Plugin Creator release `pluginrel_6af12eac3bfc8191bcf844e1c4719aac`, published 2026-11-09 UTC.
 
-- **PlotPickle Studio**: ChatGPT plugin UI, Elara guidance, REEL and ONCE, story navigation, connected services, creative and media-production workflow sources.
-- **PlotPickle (original)**: legacy desktop app, Windows execution, Software Factory, prior historical development records, and all original PlotPickle logos, images, diagrams and brand assets. None of these visual assets are being migrated to Studio.
-- **Interoperability**: use explicit, versioned PPF and media contracts rather than implicit shared directories or duplicate private story stores.
+The preceding GitHub source mirror is commit [9f46cfb](https://github.com/BryanHarrisScripts/PlotPickle-Studio/commit/9f46cfb29e3b0bf7d6deccf6b5dd0cdee014029b). This historical commit is retained for recovery. Its exact byte-for-byte equality to the Plugin Creator archive has not been re-audited by this policy change.
 
-## Release discipline
+See [RELEASES.md](RELEASES.md) for release-to-archive references. Future source snapshots should be appended only after publishing through Plugin Creator.
 
-1. Create and approve Studio-specific icon/logo assets, verify them, and restore the canonical reader bundle. Do not copy original PlotPickle branding.
-2. Remove sample private media references and reconcile manifests to this repository.
-3. Run skill/script tests and full package build from a clean checkout.
-4. Compare the built package with the intended release manifest and verify ChatGPT host acceptance.
-5. Explicitly publish a new semantic version to the existing PlotPickle ChatGPT plugin and independently verify its release ID.
-
-Until these steps pass, **the published v0.8.33 plugin remains the deployed source of truth for runtime behaviour**, while GitHub tracks the migration candidate. The new GitHub repository becomes the development source of truth only after the first verified release.
-
-Licence: GNU Affero General Public License v3 (see LICENSE). Preserve third-party notices and comply with dependencies' individual licences.
+Licence: GNU Affero General Public License v3 (see LICENSE). Preserve third-party notices.
