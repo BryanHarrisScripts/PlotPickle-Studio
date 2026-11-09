@@ -2,6 +2,10 @@
 
 Status: implementation candidate, November 8, 2026. The source is built and unit/HTTP-tested; the global ChatGPT sidebar entry is **not yet installed or hosted**. This directory is intentionally separate from the optional legacy Windows app. The November 8 engineering brief in `docs/plotpickle-engineering-brief-2026-11-08.md` is the working product direction; November 6 is background only.
 
+## Shot-review tray source checkpoint
+
+The owner requested a narrow approval/regeneration/lock/unlock sidebar to make repeated storyboard review less error-prone. `studio.html` now shows a source-linked Review shot list and four **disabled** action controls, because the installed plugin has no authenticated durable project write connection. `src/review-intents.mjs` supplies a pure guard against stale PPF revisions, wrong images, missing media approval evidence, ambiguous slots, attempts to regenerate locked art, and locking before Save. Its result is `PREPARED_NOT_COMMITTED`, never an actual write receipt. The existing native `default-save-lock.py` provides true exported project operations; a separately authenticated, compare-and-swap host adapter plus independent readback is still required to enable buttons. See `docs/SHOT-REVIEW-SIDEBAR-0.1.md`. This patch does not deploy the graphical sidebar or change the published v0.8.34 plugin.
+
 ## What is implemented
 
 - REEL and ONCE are two navigation experiences over one PPF project and one source identity, not separate stores. Choosing ONCE does **not** turn an existing screenplay into an autobiographical memory.

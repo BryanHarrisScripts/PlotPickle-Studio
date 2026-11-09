@@ -29,11 +29,12 @@ main{min-width:0;padding:30px clamp(16px,4vw,56px) 50px;max-width:1300px;width:1
 .tags{display:flex;flex-wrap:wrap;gap:6px}.tag{font-size:11px;border:1px solid #454650;background:#202129;color:#cdcad5;border-radius:6px;padding:5px 7px}
 .link{display:inline-block;text-decoration:none;border:1px solid #47414e;padding:7px 11px;border-radius:8px;color:#ddd0ff;background:#27212f;margin:5px 7px 0 0}
 .line{border-top:1px solid #34343c;margin:15px 0}.source{font-size:11px;color:#9999a6}.notice{padding:11px 14px;border-left:3px solid #776598;background:#22212c;border-radius:4px;font-size:12px;color:#ccc9d6}
+.review-steps{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}.review-step{border:1px solid #444452;border-radius:8px;padding:9px 12px;color:#c9c7d2;background:#25252d}.review-step:disabled{opacity:.45;cursor:not-allowed}.review-info{margin-top:12px;color:#b4b3c0;font-size:12px;line-height:1.55}
 @media(max-width:900px){.workspace{grid-template-columns:1fr}.shell{grid-template-columns:1fr}nav{border-right:0;border-bottom:1px solid #30313a;padding:15px}.brand-sub,.navfoot{display:none}.navgroup{display:flex;flex-wrap:wrap}.navbutton{width:auto}main{padding-top:18px}}
 @media(max-width:540px){.enter{grid-template-columns:1fr}.route{min-height:105px}.story{display:block}.topline h1{font-size:23px}}
 </style></head><body>
 <script id="plotpickle-data" type="application/json">__STUDIO_JSON__</script>
-<div class="shell"><nav aria-label="Studio navigation"><div><div class="brand">PLOT<span>PICKLE</span></div><div class="brand-sub">Studio · source-first</div></div><div class="navgroup"><div class="eyebrow">Your work</div><button class="navbutton selected" data-section="Story">Story</button><button class="navbutton" data-section="People">People</button><button class="navbutton" data-section="Places">Places</button><button class="navbutton" data-section="Moments">Moments</button><button class="navbutton" data-section="Visuals">Visuals</button><button class="navbutton" data-section="Produce">Produce</button></div><div class="navgroup"><div class="eyebrow">Across your work</div><button class="navbutton" data-section="Learn">Learn</button><button class="navbutton" data-section="Review">Review</button><button class="navbutton" data-section="Share">Share</button></div><div class="navfoot">No automatic media generation<br>No independent project database<br>Read-only Studio pilot</div></nav>
+<div class="shell"><nav aria-label="Studio navigation"><div><div class="brand">PLOT<span>PICKLE</span></div><div class="brand-sub">Studio · source-first</div></div><div class="navgroup"><div class="eyebrow">Your work</div><button class="navbutton selected" data-section="Story">Story</button><button class="navbutton" data-section="People">People</button><button class="navbutton" data-section="Places">Places</button><button class="navbutton" data-section="Moments">Moments</button><button class="navbutton" data-section="Visuals">Visuals</button><button class="navbutton" data-section="Produce">Produce</button></div><div class="navgroup"><div class="eyebrow">Across your work</div><button class="navbutton" data-section="Learn">Learn</button><button class="navbutton" data-section="Review">Review</button><button class="navbutton" data-section="Share">Share</button></div><div class="navfoot">Review controls require authenticated storage<br>No background generation or charges<br>Read-only Studio pilot</div></nav>
 <main><div class="topline"><div><div class="eyebrow">Welcome to your creative workspace</div><h1>Stories become experiences.</h1></div><div class="pill" id="status">READ-ONLY PILOT</div></div>
 <div class="enter"><button class="route selected" id="reel"><div><b>REEL</b><div>Make a movie</div></div><small>Ideas, screenplays and cinematic production</small></button><button class="route once" id="once"><div><b>ONCE</b><div>Preserve a life story</div></div><small>Memories, people, places and family history</small></button></div>
 <div class="group-label">Current story</div><div class="story"><div><div class="eyebrow" id="projectSource">Not connected</div><h2 id="projectTitle">No project loaded</h2><div class="meta" id="projectMeta">A verified PlotPickle project is required for source-backed relationships.</div></div><span class="pill" id="projectStatus">READ ONLY</span></div>
@@ -58,7 +59,7 @@ main{min-width:0;padding:30px clamp(16px,4vw,56px) 50px;max-width:1300px;width:1
   el('listTitle').textContent=names[section];el('listSub').textContent= section==='Story'?'A view of the same project—not a new asset database.':`The ${section.toLowerCase()} view is linked to the selected story.`;
   const items=el('items');items.replaceChildren();
   if(!data){add(items,'div',envelope.message||envelope.reason||'Unverified project identity.','empty');renderDetails();return;}
-  const rows= section==='People'?data.people:section==='Places'?data.places:section==='Visuals'?data.shots:section==='Moments'||section==='Story'?data.scenes:[];
+  const rows= section==='People'?data.people:section==='Places'?data.places:section==='Visuals'||section==='Review'?data.shots:section==='Moments'||section==='Story'?data.scenes:[];
   if(rows.length){for(const item of rows){const button=make('button','','item');button.type='button';const label=make('span');
    add(label,'span',item.title||item.name||`Block ${item.address?.block} · Mini ${item.address?.mini} · Shot ${item.address?.shot}`);
    add(label,'small',item.id);button.append(label,make('span','›'));button.classList.toggle('selected',selected?.id===item.id);button.addEventListener('click',()=>{selected=item;render();});items.append(button);}}
@@ -78,7 +79,27 @@ main{min-width:0;padding:30px clamp(16px,4vw,56px) 50px;max-width:1300px;width:1
   if(scene){tagList('Source passages',scene.passageIds);tagList('People',scene.peopleIds.map(id=>data.people.find(p=>p.id===id)?.name).filter(Boolean));tagList('Place',[data.places.find(p=>p.id===scene.placeId)?.name].filter(Boolean));tagList('Linked authored shots',data.shots.filter(s=>s.sceneId===scene.id).map(s=>`${s.address.block}.${s.address.mini}.${s.address.shot}`));}
   if(selected.cuePassageIds)tagList('Character cues',selected.cuePassageIds);
   if(selected.sceneIds)tagList('Linked scene IDs',selected.sceneIds);
-  if(selected.address){tagList('Source evidence',selected.sourcePassageIds);tagList('Shot record',[selected.promptStatus,selected.imageStatus,selected.saveLockStatus]);if(selected.prompt)add(root,'p',selected.prompt,'small');}
+  if(selected.address){
+   tagList('Source evidence',selected.sourcePassageIds);
+   tagList('Shot record',[selected.promptStatus,selected.imageStatus,selected.saveLockStatus]);
+   if(selected.prompt)add(root,'p',selected.prompt,'small');
+   if(section==='Review'){
+     const c=selected.candidateRecords||[];
+     add(root,'div','Image candidates','group-label');
+     if(!c.length)add(root,'div','No mapped image candidate. A planned shot does not prove media exists.','notice');
+     for(const candidate of c){
+       add(root,'div','Artifact '+(candidate.artifactId||'unidentified')+' · Save record: '+String(candidate.savedMarkerPresent)+' · Lock record: '+String(candidate.locked),'small');
+       add(root,'div','Media independently checked: '+String(candidate.mediaBytesVerifiedThisSession===true)+' · Recorded hash: '+(candidate.recordedHash||'unknown'),'source');
+     }
+     const actions=add(root,'div','','review-steps');
+     for(const verb of ['Approve','Regenerate','Lock','Unlock']){
+       const b=make('button',verb,'review-step');b.type='button';b.disabled=true;
+       b.title='Requires an authenticated source-pinned project write service, independently verified image bytes and successful native readback';
+       actions.append(b);
+     }
+     add(root,'div','Review controls are intentionally disabled. An authenticated project writer and verified media are not connected; no preview click may claim Save, Lock, approval or regeneration. Once connected, actions must use source-revision and image-hash checks plus native readback.','review-info');
+   }
+  }
   const refs=selected.address?selected.sourcePassageIds:selected.passageIds || selected.cuePassageIds || [];
   const excerpts=(data.sourcePassages||[]).filter(p=>refs.includes(p.id)).slice(0,12);
   if(excerpts.length){add(root,'div','Recorded screenplay evidence','group-label');for(const p of excerpts){add(root,'div',`${p.id} · ${p.type}`,'source');add(root,'p',p.text||'(empty passage)','small');}}
