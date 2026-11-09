@@ -26,9 +26,7 @@ jobs:
         run: python skills/plotpickle-story-flow/scripts/test-story-flow.py
       - name: Verify portable PPF archive recovery (synthetic files)
         run: python skills/plotpickle-story-flow/scripts/test-verify-portable-package.py
-      - name: Check Studio pilot syntax
-        working-directory: skills/plotpickle-studio/pilot
-        run: npm run check
-      - name: Test read-only Studio pilot
-        working-directory: skills/plotpickle-studio/pilot
-        run: npm test
+      - name: Test source-backed Storyboard Review (synthetic PPF)
+        run: python skills/read-plotpickle-project/scripts/test-storyboard-review.py
+      - name: Test Save then Lock and Unlock (synthetic PPF)
+        run: python skills/read-plotpickle-project/scripts/test-default-save-lock.py
