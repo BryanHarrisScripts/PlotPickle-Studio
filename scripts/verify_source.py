@@ -9,6 +9,7 @@ REPOSITORY = "https://github.com/BryanHarrisScripts/PlotPickle-Studio"
 MANIFESTS = ("plugin.json", ".codex-plugin/plugin.json")
 SOURCE_REQUIRED = (
     "skills/plotpickle-welcome/SKILL.md",
+    "skills/plotpickle-review/SKILL.md",
     "skills/plotpickle-studio/pilot/src/projection.mjs",
     "skills/plotpickle-studio/pilot/tests/projection.test.mjs",
     "skills/plotpickle-fal-production/scripts/fal-handoff.py",
