@@ -18,21 +18,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Install pinned-compatible MCP dependencies
-        run: npm install --ignore-scripts --no-audit --no-fund
-      - name: Export resolved lockfile for pinning
-        run: |
-          echo 'PLOTPICKLE_PACKAGE_LOCK_START'
-          cat package-lock.json
-          echo 'PLOTPICKLE_PACKAGE_LOCK_END'
+      - name: Install locked MCP dependencies
+        run: npm ci --ignore-scripts --no-audit --no-fund
       - name: Verify MCP tool, resource, and HTTP acceptance tests
         run: npm test
       - run: node --check server.mjs
       - run: node --check core.mjs
-      - name: Retain resolved dependency lockfile for reproducible build
-        uses: actions/upload-artifact@v4
-        with:
-          name: plotpickle-fal-mcp-dependency-lock
-          path: integrations/fal-library-mcp/package-lock.json
-          if-no-files-found: error
-          retention-days: 7
