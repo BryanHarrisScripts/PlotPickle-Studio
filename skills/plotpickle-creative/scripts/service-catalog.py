@@ -32,6 +32,8 @@ def catalog(reg):
         rows.append({'id':s['id'],'name':s['name'],'category':s['category'],'summary':s['summary'],
           'status':'Planned · unavailable' if planned else 'Connection not verified',
           'statusEvidence':'catalogue-only-not-live','setupUrl':None if planned else s.get('officialSetupUrl'),
+          'requiredFor':s.get('requiredFor',[]),'notRequiredFor':s.get('notRequiredFor',[]),
+          'siteVisibility':s.get('siteVisibility'),'setupGuide':s.get('setupGuide'),
           'secureSignIn':s.get('secureSignIn'),'credentialsStoredByPlotPickle':False,
           'actions':[{'id':a['id'],'label':a['label'],'requiresProvider':a['requiresProvider'],
             'usesCredits':a['usesCredits'],'openUrl':a.get('url') if a['kind']=='external-link' else None,
