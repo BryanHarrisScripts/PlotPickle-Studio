@@ -3,14 +3,6 @@ on:
   push:
     branches:
       - release/plotpickle-transfer-connections-v0.8.41
-  pull_request:
-    paths:
-      - 'plugin.json'
-      - '.codex-plugin/plugin.json'
-      - 'skills/plotpickle-creative/**'
-      - 'skills/plotpickle-welcome/SKILL.md'
-      - 'scripts/pack-plotpickle-transfer-overlay.py'
-      - '.github/workflows/plotpickle-transfer-plugin-package.yml'
   workflow_dispatch:
 permissions:
   contents: read
