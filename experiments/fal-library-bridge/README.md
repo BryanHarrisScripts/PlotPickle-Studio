@@ -1,24 +1,31 @@
-# PlotPickle fal → ChatGPT Library bridge: proof of concept
+# PlotPickle fal → ChatGPT Library: direct-first proof of concept
 
-This is source-only experimental code, not an installed or deployed PlotPickle Studio feature.
+This is experimental source code, **not a deployed PlotPickle Studio widget**.
 
-Run `node --test experiments/fal-library-bridge/test.mjs` (Node 22+). Four offline tests cover strict URL validation, authentication gating, media byte transport into a mock `uploadFile(..., { library: true })` call, and oversize refusal. The tests do not call the real fal network or live ChatGPT widget API.
+## Simplest candidate: no additional server or storage
 
-## Proposed mechanism
+1. Inside an actual PlotPickle MCP Apps widget, retrieve the original public `v3b.fal.media` MP4 using a browser `fetch` (cross-origin access must be allowed by the fal CDN and host CSP).
+2. Wrap the returned Blob as a File.
+3. Call `window.openai.uploadFile(file, { library: true })`.
+4. Obtain `fileId`, then independently read back the Library asset and compare full byte count and SHA-256 to establish persistence.
 
-1. In a real PlotPickle MCP Apps widget, the creator chooses to preserve a verified fal output.
-2. The authenticated service verifies the creator's project ownership and resolves the exact fal URL. Only a restricted media domain is permitted. Server fetching must occur on a host with fal CDN network egress.
-3. The proxy streams original bytes into the widget, which creates a `File` and calls `window.openai.uploadFile(file, { library: true })`.
-4. Treat the returned `fileId` as an upload receipt, NOT as independent proof of Library persistence. Verify Library listing, saved file size and SHA-256 via a separate authorized readback. Folder placement and guarded PPF asset registration are subsequent operations.
+The widget implementation in `widget.mjs` **attempts direct fetch first**. It does not need or create a proxy by default. An explicitly configured and authenticated proxy can be used as a fallback if cross-origin restrictions prevent direct access. `proxy.mjs` is only that optional, unhosted alternative, not a requirement.
 
-## Important limitations
+## Tests
 
-- No hosting or new storage has been provisioned. The published PlotPickle package is currently skills/scripts and does not have this custom backend or UI widget.
-- `authorize(req)` is deliberately mandatory. Production must connect it to existing authenticated sessions/OAuth scoped to project ownership. Do not make a public unauthenticated URL proxy. Add per-user quotas, rate limits, audit logs, security review and replay safeguards.
-- A real ChatGPT host test is required to establish whether the widget accepts a programmatically constructed `File` from a fetched `Blob` and actually adds it to Library.
-- The tested uploader uses the library flag explicitly; merely returning `video/mp4` from a proxy does not save anything in ChatGPT.
-- The original fal The Third Bell Shot 01 job reported 1920×1080, 3 sec, 30 fps and 8,495,321 bytes. The user-supplied ChatGPT copy is lower resolution and must not be substituted for the master.
-- Never put private source videos, story data or auth receipts in this public GitHub repository.
-- This prototype makes no native PPF writes, no provider generation calls and no external storage writes.
+Run `node --test experiments/fal-library-bridge/*.test.mjs` with Node 22+. Local synthetic tests verify direct-first routing, expected errors when CORS/network access fails, explicit proxy fallback, authentication checks, URL allowlisting, media types, byte count, and that mocked `uploadFile` receives `{ library: true }`.
+
+Tests are not a live ChatGPT widget or fal CDN transfer. A mock upload receipt is not proof of a persisted Library file.
+
+## Acceptance criteria for The Third Bell, Shot 01
+
+- The original fal provider job reports a 1920×1080, 3-second, 30-fps MP4 of 8,495,321 bytes. Never substitute the 910×512 user-supplied ChatGPT copy.
+- A real PlotPickle widget downloads the actual original bytes in the host, using no new storage provider.
+- The host's real uploadFile helper returns a file ID and adds the original media to ChatGPT Library.
+- Reopen the Library record, compare byte size + SHA-256 and verify correct story/shot association separately.
+- Do not write native PPF Save/Lock or claim creative approval without a separate guarded transaction.
+- If the browser/CDN blocks CORS or the OpenAI widget rejects programmatically built Files, stop at transport blocked; the optional authenticated proxy is a fallback, not a completed solution.
+
+The installed private PlotPickle Studio 0.8.40 is currently a skills/scripts package without an embedded live widget to run this code. No server, new account, media generation, or external storage has been provisioned.
 
 Docs: https://developers.openai.com/plugins/reference
