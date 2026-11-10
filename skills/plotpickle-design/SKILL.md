@@ -3,7 +3,7 @@ name: plotpickle-design
 description: Build screenplay-backed character profiles, world/location designs and printable multi-panel layout sheets for PlotPickle. Read-only design drafts and candidate imagery; no approval or screenplay mutation.
 ---
 
-# PlotPickle — Character, World and Layout Sheets (v0.8.5)
+# PlotPickle — Character, World and Layout Sheets (v0.8.42)
 
 ChatGPT is the creative workspace. Storyboard contains a **Production Design** path with **Character Builder**, **World Builder** and **Layout Sheets**. Keep Meet Elara, Learn, Storyboard, Connected Services as the four top-level home choices. A user may choose any production-design action without completing another path first.
 
@@ -50,3 +50,22 @@ Do not count a user-supplied image as an approved visual reference without agree
 ## Acceptance
 
 Run `python3 scripts/test-design-kit.py`. Tests cover screenplay indexing/normalization, 9-square and 6-landscape panels, source isolation, SHA mismatch fail-closed, ungenerated-image status, no-overwrite and HTML placeholders. Review a genuine current saved project at least for catalogue and one design/layout before claiming end-to-end data proof. This test does not certify actual image generation or project save.
+
+
+## v0.8.42 — practical visual production and verification
+
+Storyboard → REEL or ONCE → Production Design presents three child choices: **Characters**, **Worlds**, **Layout Sheets**. Characters and Worlds start from the actual latest authorized saved source, not memory. Show source passage ID(s), project ID, revision and raw SHA-256, and label unscripted visual decisions as proposed. Do not invent a new Home tab.
+
+A design brief from design-kit.py drives design-review.py:
+
+    python3 scripts/design-review.py prompts --layout character-layout.json --brief character-design.json --out character-prompts.json
+    python3 scripts/design-review.py stage --layout character-layout.json --panel front --assets-root ./my-art --relative front.webp --out front.candidate.json
+    python3 scripts/design-review.py review --layout character-layout.json --assets-root ./my-art --candidate front.candidate.json --out character-review.json
+
+Use --candidate repeatedly for each panel in a sheet. Characters require nine distinct 1:1 views; Worlds require six distinct 16:9 views. The offline prompt pack is read-only and contains **no generated image**. The stage step requires locally accessible actual PNG, WebP or JPEG bytes, checks a strict contained path, content hash, container header and aspect ratio, and reports pixelsDecoded:false; full image decoding, visual continuity and exact source-image identity still need image inspection. Never present filename/header verification as a complete media proof. All operations produce NEW sidecars without replacing a PPF or existing file. Files already attached or stored in a verified ChatGPT Library can be materialized into an authorized working directory for staging if allowed; the result is not automatically stored back into the creator's project.
+
+A review sheet reopens every registered candidate file, compares hash and header metadata, rejects stale project revision, subject collisions, changed bytes, duplicate panel IDs and author-approval forgery, and identifies missing panels and duplicate image hashes. A full nonduplicate set may be readyForAuthorReview, not approved, saved, locked or mediaVerified at PPF level. Review each actual image with the author and compare accepted identity, wardrobe, continuity anchors, layout axes, architecture and time-of-day; approve selected candidates explicitly through a future verified persistent project transaction. Never auto-approve all new design images just because the character or world sheet is full. Keep age/wardrobe variants separate and do not regress existing approved storyboards.
+
+User-facing choices: **Choose Character**, **Choose World**, **Generate One Reference** (invoke actual image generation only on a clear creator request), **Prepare All Views**, **Review Candidate Sheet**, **Use Accepted Reference** (only when genuine source image, approval and project transaction proofs are present). On entry, show truthful states: no screenplay, source catalogue ready, draft brief, prompts ready, candidates awaiting verification, ready for review, or verified accepted. Provide source links or passage excerpts; no fabricated completed image views or PPF edits.
+
+Run python3 scripts/test-design-kit.py and python3 scripts/test-design-review.py before release. Tests are local source/transport contracts, not a production end-to-end image generator or persistent Save/Lock acceptance.

@@ -2,7 +2,7 @@
 name: plotpickle-welcome
 description: Enter PlotPickle Studio via its published, owner-approved Skin V1 HOME and source-backed storytelling screens.
 ---
-# HOME (v0.8.41 — Skin V1, Connections, and official reader)
+# HOME (v0.8.42 — Skin V1, Production Design, Connections, and official reader)
 
 **Always use `../plotpickle-skin-v1/SKILL.md` and its canonical `references/skin-v1.json` to render HOME, Storyboard, Story Map, Mini-Block/25-shot grid or Image Review.** The approved HOME is fixed: brand/header, HOME breadcrumb, one heading, exactly four cards ordered **Meet Elara / Learn / Storyboard / Connected Services**, then quiet Continue Creating only for a current verified story, then status/footer. Use matte black/off-white with restrained purple accent and consistent mobile-friendly spacing; do not reinterpret this hierarchy from scratch.
 
@@ -13,3 +13,6 @@ For ONCE, preserve factual memories and privacy and ask consent before invented 
 On REEL entry use `fixedSurfaceLayouts.REEL_WORKSPACE_ENTRY` with New Idea / Import Script / Continue Film / Explore Tools. On mobile Storyboard Review, use the approved vertical `MOBILE_STORYBOARD_REVIEW` with source-verified images; do not pretend the older sidebar is hosted. Provide access to a real five-page graphic-novel Mini-Block edition if verified from current authorized Library/Project files. These updates add no automatic PPF writes or credit-consuming provider generation.
 
 **Official Graphic Novel v0.8.39:** when the user opens REEL > Your Stories > The Third Bell, show `Read Graphic Novel` when the real official edition is available. Reopen private Library `/The Third Bell/Graphic Novel/Official Blocks 01-02/`, verify actual ten images and the available original reader/PDF/archive, then use `../plotpickle-official-reader/SKILL.md` for page-by-page reading of 50 captioned panels. Do not hardcode thumbnails or promise that all users have this private Library. A creator-approved reading edition does not update PPF Save/Lock or rewrite contradictory screenplay source.
+
+
+**Production Design v0.8.42**: Storyboard → REEL/ONCE → Production Design offers Character Builder, World Builder, Layout Sheets. See ../plotpickle-design/SKILL.md. Character sheets have nine distinct square view positions, and world sheets six landscape positions. Review proof statuses separately: source confirmed, proposed design, image bytes/header checked, human visual approval and any native PPF save/lock. Entry is read-only; show user-authorized image generation only when explicitly requested.

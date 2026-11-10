@@ -104,9 +104,13 @@ def choose(index, subject):
 
 
 def evidence(p):
+    full = p['text']
+    excerpt = full[:540]
     return {'passageId':p['id'],'type':p.get('type'),
-            'text':p['text'][:540],
-            'textSha256':hashlib.sha256(p['text'].encode('utf-8')).hexdigest()}
+            'text':excerpt,
+            'textSha256':hashlib.sha256(full.encode('utf-8')).hexdigest(),
+            'excerptSha256':hashlib.sha256(excerpt.encode('utf-8')).hexdigest(),
+            'excerptTruncated':len(full)>540}
 
 
 def character_design(project,ident,passages,subject):
