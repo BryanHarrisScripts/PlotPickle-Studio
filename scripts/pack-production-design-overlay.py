@@ -10,6 +10,7 @@ INCLUDE=(
     ".codex-plugin/plugin.json",
     "skills/plotpickle-design/SKILL.md",
     "skills/plotpickle-design/references/layout-sheet.md",
+    "skills/plotpickle-design/scripts/design-kit.py",
     "skills/plotpickle-design/scripts/design-review.py",
     "skills/plotpickle-design/scripts/test-design-review.py",
     "skills/plotpickle-studio/SKILL.md",
