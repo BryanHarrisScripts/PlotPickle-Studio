@@ -1,0 +1,17 @@
+{
+  "name": "plotpickle-fal-library-mcp",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Read-only MCP Apps acceptance runtime for fal media import into ChatGPT Library",
+  "engines": {"node": ">=22"},
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node --test test/*.test.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.20.2",
+    "@modelcontextprotocol/ext-apps": "^1.0.1",
+    "zod": "^3.25.76"
+  }
+}
