@@ -20,7 +20,7 @@ jobs:
           node-version: '22'
       - name: Install pinned-compatible MCP dependencies
         run: npm install --ignore-scripts --no-audit --no-fund
-      - name: Verify MCP tool, resource, and HTTP acceptance tests
+      - name: Export resolved lockfile for pinning\n        run: |\n          echo 'PLOTPICKLE_PACKAGE_LOCK_START'\n          cat package-lock.json\n          echo 'PLOTPICKLE_PACKAGE_LOCK_END'\n      - name: Verify MCP tool, resource, and HTTP acceptance tests
         run: npm test
       - run: node --check server.mjs
       - run: node --check core.mjs
