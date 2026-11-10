@@ -5,6 +5,8 @@ on:
       - 'integrations/fal-library-mcp/**'
       - '.github/workflows/plotpickle-fal-mcp-test.yml'
   workflow_dispatch:
+permissions:
+  contents: read
 jobs:
   validate:
     runs-on: ubuntu-latest
@@ -16,7 +18,16 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: npm install --ignore-scripts --no-audit --no-fund
-      - run: npm test
+      - name: Install pinned-compatible MCP dependencies
+        run: npm install --ignore-scripts --no-audit --no-fund
+      - name: Verify MCP tool, resource, and HTTP acceptance tests
+        run: npm test
       - run: node --check server.mjs
       - run: node --check core.mjs
+      - name: Retain resolved dependency lockfile for reproducible build
+        uses: actions/upload-artifact@v4
+        with:
+          name: plotpickle-fal-mcp-dependency-lock
+          path: integrations/fal-library-mcp/package-lock.json
+          if-no-files-found: error
+          retention-days: 7
