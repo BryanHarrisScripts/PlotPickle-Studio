@@ -81,8 +81,9 @@ def validate_brief(l,b):
             if not e["excerptTruncated"]:
                 require(actual==e["textSha256"],"Full passage hash mismatch")
         else:
-            require(len(e["text"])<540 and actual==e["textSha256"],
+            require(len(e["text"])<540,
                     "Legacy passage excerpt not verifiable; reopen source and rebuild brief")
+            require(actual==e["textSha256"],"Source passage text hash mismatch")
     return b
 
 def prompt_pack(l,b):
