@@ -1,0 +1,35 @@
+name: PlotPickle Production Design v0.8.42
+on:
+  push:
+    branches:
+      - feature/production-design-review-v0.8.42
+  pull_request:
+    paths:
+      - 'skills/plotpickle-design/**'
+      - 'skills/plotpickle-welcome/SKILL.md'
+      - 'skills/plotpickle-studio/SKILL.md'
+      - 'plugin.json'
+      - '.codex-plugin/plugin.json'
+      - 'scripts/pack-production-design-overlay.py'
+      - '.github/workflows/plotpickle-production-design.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Source-bound character and world layout tests
+        run: python3 skills/plotpickle-design/scripts/test-design-kit.py
+      - name: Candidate image proof and review tests
+        run: python3 skills/plotpickle-design/scripts/test-design-review.py
+      - name: Package Plugin Creator overlay
+        run: python3 scripts/pack-production-design-overlay.py
+      - name: Upload versioned overlay
+        uses: actions/upload-artifact@v4
+        with:
+          name: plotpickle-production-design-v0.8.42
+          path: dist/plotpickle-production-design-v0.8.42-plugin.zip
+          if-no-files-found: error
+          retention-days: 7
