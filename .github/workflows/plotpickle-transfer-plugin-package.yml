@@ -1,0 +1,32 @@
+name: Package PlotPickle Studio Transfer Connections v0.8.41
+on:
+  push:
+    branches:
+      - release/plotpickle-transfer-connections-v0.8.41
+  pull_request:
+    paths:
+      - 'plugin.json'
+      - '.codex-plugin/plugin.json'
+      - 'skills/plotpickle-creative/**'
+      - 'skills/plotpickle-welcome/SKILL.md'
+      - 'scripts/pack-plotpickle-transfer-overlay.py'
+      - '.github/workflows/plotpickle-transfer-plugin-package.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate PlotPickle Transfer catalogue
+        run: python3 skills/plotpickle-creative/scripts/test-service-catalog.py
+      - name: Build versioned Plugin Creator overlay
+        run: python3 scripts/pack-plotpickle-transfer-overlay.py
+      - name: Retain installable Plugin Creator overlay
+        uses: actions/upload-artifact@v4
+        with:
+          name: plotpickle-transfer-v0.8.41-plugin
+          path: dist/plotpickle-transfer-v0.8.41-plugin.zip
+          if-no-files-found: error
+          retention-days: 7
