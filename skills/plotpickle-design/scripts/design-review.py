@@ -69,14 +69,27 @@ def validate_brief(l,b):
             "Design brief/layout passages differ")
     for e in evidence:
         require(isinstance(e.get("text"),str) and
-                hashlib.sha256(e["text"].encode("utf-8")).hexdigest()==e.get("textSha256"),
-                "Source passage text hash mismatch")
+                isinstance(e.get("textSha256"),str) and
+                re.fullmatch("[0-9a-f]{64}",e["textSha256"]) is not None,
+                "Source passage text/hash missing")
+        actual=hashlib.sha256(e["text"].encode("utf-8")).hexdigest()
+        excerpt_hash=e.get("excerptSha256")
+        if excerpt_hash is not None:
+            require(actual==excerpt_hash and
+                    e.get("excerptTruncated") is (len(e["text"])==540 and actual!=e["textSha256"]),
+                    "Source passage excerpt hash or truncation flag mismatch")
+            if not e["excerptTruncated"]:
+                require(actual==e["textSha256"],"Full passage hash mismatch")
+        else:
+            require(len(e["text"])<540 and actual==e["textSha256"],
+                    "Legacy passage excerpt not verifiable; reopen source and rebuild brief")
     return b
 
 def prompt_pack(l,b):
     validate_layout(l);validate_brief(l,b)
     ev=[{"passageId":e["passageId"],"type":e.get("type"),
-         "excerpt":e["text"][:540]} for e in b["sourceEvidence"]]
+         "excerpt":e["text"][:540],
+         "excerptTruncated":bool(e.get("excerptTruncated",False))} for e in b["sourceEvidence"]]
     intro=("One ORIGINAL visual-design candidate per position. Preserve the same character identity "
            "and approximate proportions across all views; do not assume unspecified age, ethnicity, "
            "facial detail or clothing is screenplay canon." if l["kind"]=="character" else
