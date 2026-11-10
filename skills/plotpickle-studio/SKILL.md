@@ -2,7 +2,7 @@
 name: plotpickle-studio
 description: ChatGPT-native PlotPickle Studio HOME, REEL, ONCE, saved stories, and verified, consistent Skin V1 views; no hosted sidebar.
 ---
-# PlotPickle Studio — ChatGPT-native workspace (v0.8.39)
+# PlotPickle Studio — ChatGPT-native workspace (v0.8.42)
 
 **For EVERY approved Studio layout, first read `../plotpickle-skin-v1/SKILL.md` and `../plotpickle-skin-v1/references/skin-v1.json`.** Apply the canonical fixed surface order; never improvise a different HOME, Storyboard, Story Map, Mini-Block/25-Shot Grid or Image Review layout. V1 approvals are preserved in the owner's private ChatGPT Library register. Skin V1 is the current published design standard, not a standalone hosted UI runtime or a claim of identical pixels on every device.
 
@@ -21,3 +21,8 @@ When entering REEL show the approved `REEL_WORKSPACE_ENTRY` with four starting c
 ## Published v0.8.39 — approved official ten-page reading route
 
 In REEL > verified Your Stories > The Third Bell, present **Read Graphic Novel** as a child action when the actual private edition is accessible and verified. Route to `../plotpickle-official-reader/SKILL.md` for **Official Blocks 01–02** and offer ten sequential real pages, 5 vertically stacked captioned illustrations per page, native in-chat page control when supported, and source-backed original PDF/HTML/ZIP links. This is an approved **reading edition** and style baseline, not screenplay or shot Save/Lock approval. The two 25-position selections are Block 01 Mini 01 and Block 02 Mini 01, not every Mini-Block in those Blocks. Verify current Library content and any independent export hash discrepancies instead of inventing a successful readback. The v0.8.38 Skin V1 design system and the four HOME choices remain unchanged.
+
+
+## v0.8.42 — Production Design entry
+
+From Storyboard → REEL/ONCE → Production Design, provide Characters, Worlds and Layout Sheets without changing the four HOME choices or unapproved Skin V1 hierarchy. Route to ../plotpickle-design/SKILL.md for source-listed character/scene choices and new versioned prompt/candidate/review sidecars. Distinguish empty template, prompt prepared, byte/header checked, human visually accepted and persistently saved/locked. A full layout alone grants no visual approval. If the user asks for an image, use the actual image tool and inspect the result. No generation happens from simply entering Production Design. The original PPF is never rewritten by the offline stage/review tools.
