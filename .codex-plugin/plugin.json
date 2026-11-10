@@ -9,7 +9,7 @@
       "Open PlotPickle Studio HOME with Meet Elara, Learn, Storyboard and Connected Services using the approved Skin V1 layout.",
       "Open PlotPickle Storyboard using Skin V1. Show REEL and ONCE, followed by my verified saved stories.",
       "Open PlotPickle Studio REEL and show New Idea, Import Script, Continue Film, Explore Tools and verified Your Stories using approved Skin V1.",
-      "Open the approved mobile PlotPickle Storyboard Review for my verified Mini-Block, with a 5\u00d75 shot grid, source-linked image inspector, and non-writing review controls.",
+      "Open the approved mobile PlotPickle Storyboard Review for my verified Mini-Block, with a 5×5 shot grid, source-linked image inspector, and non-writing review controls.",
       "Read the saved five-page graphic-novel edition for my current Mini-Block, five panels per page and 25 shot positions total, without changing PPF files or generating images.",
       "Open the PlotPickle 24-Block Story Map for my saved project using Skin V1.",
       "Open my selected Mini-Block and 25-shot grid, with source-linked read-only shot inspection.",
@@ -22,7 +22,7 @@
       "Continue my saved PlotPickle story in ChatGPT. Reopen the latest authorized PPF, verify available media, and show one source-backed next step without changing or generating anything.",
       "Start a new story in Storyboard and ask whether to create a ChatGPT Project folder for it.",
       "Open Story Explorer from a saved PlotPickle .ppf project and inspect a selected shot in ChatGPT.",
-      "Group 1\u20135 consecutive storyboard positions into a 3\u201315 second Motion Span and prepare a source-pinned fal brief without spending credits.",
+      "Group 1–5 consecutive storyboard positions into a 3–15 second Motion Span and prepare a source-pinned fal brief without spending credits.",
       "Save and lock all verified initial storyboard images, then show only the shots needing revision.",
       "Review the latest PlotPickle OSS Radar findings.",
       "Open PlotPickle Connected Services and check fal account status without spending credits.",
@@ -36,12 +36,14 @@
       "Open the official graphic-novel editions for my saved stories. Show a page-turning reader, verified original pages, available PDF, HTML reader and archive, while keeping source and PPF Save/Lock statuses separate.",
       "Open the PlotPickle fal Player and play the newly generated completed clips for my verified storyboard shots together inside ChatGPT. Use the connected fal media viewer; do not regenerate.",
       "Continue The Third Bell Shots 01, 02 and 03 from their real saved fal videos into a source-linked 24fps nine-second editor draft; verify actual bytes and report any blocked media transport honestly without spending credits.",
-      "Prepare a separate three-shot fal production batch from the selected Mini-Block, show the exact total estimated cost and obtain approval before any submissions."
+      "Prepare a separate three-shot fal production batch from the selected Mini-Block, show the exact total estimated cost and obtain approval before any submissions.",
+      "Open PlotPickle Connections and show Suno, fal, PlotPickle Transfer, BUZZ and Modem with current verified statuses.",
+      "Set up my creator-owned private PlotPickle Transfer Site for automatic fal originals into ChatGPT Library. Show setup instructions and a separate connection check; do not claim it is already connected."
     ],
     "developerName": "Bryan Harris",
     "displayName": "PlotPickle Studio",
     "shortDescription": "REEL films and ONCE life stories",
-    "longDescription": "PlotPickle Studio is an on-demand, ChatGPT-native creative production system with two paths: REEL for movies and ONCE for life stories. The approved Skin V1 design system (v0.8.38) makes HOME, Storyboard, Story Map, Mini-Block/25-shot grid and source-backed Image Review use consistent layouts and evidence presentation. Skin V1 is a packaged design/template contract rendered in normal ChatGPT replies; it is not a separately hosted persistent graphical app or a guarantee of pixel-identical rendering on every ChatGPT host. The Save/Lock transaction interaction design is approved, while real writes still require secure current source/bytes, version guards, validation and independent readback. Existing PPF screenplay reader, 81 lessons, Character and World Builders, Layout Sheets, Assets, Posters, Reports, Pitch Decks, animatic, editing, Sound, Suno, fal motion and BUZZ/Modem plans remain available. Provider costs require individual prior approval; no status, media or persistence is invented. No mandatory Windows app, GitHub account or sidebar. Production Handoff Skin V1 layout and other unreviewed surfaces are not yet approved. The v0.8.38 REEL workspace includes New Idea, Import Script, Continue Film, Explore Tools, stacked mobile Storyboard Review, and optional five-page/25-panel graphic-novel reading for each Mini-Block. Actual graphic-novel pages and PPF sources remain private in the creator's Library; no project images are bundled. Version 0.8.39 added the owner-approved official The Third Bell edition route for the first Mini-Block of Blocks 01 and 02, with ten pages and 50 panels. Version 0.8.40 adds native in-chat fal player routing through the separately connected fal app, source-linked multi-shot generation, completed clip library save/readback, and an offline no-spend three-shot 24fps/216-frame conform and verification helper when the actual MP4 bytes can be accessed. The observed three-shot provider test completed and saved real MP4s; remote MP4 byte intake, authenticated editor connectivity, actual three-shot editor import, and native PPF video registration remain independently unverified. Nothing in this plugin installs a custom fal player, pays for media without per-batch approval, or changes story Save/Lock merely by playback.",
+    "longDescription": "PlotPickle Studio is an on-demand, ChatGPT-native creative production system with two paths: REEL for movies and ONCE for life stories. The approved Skin V1 design system (v0.8.38) makes HOME, Storyboard, Story Map, Mini-Block/25-shot grid and source-backed Image Review use consistent layouts and evidence presentation. Skin V1 is a packaged design/template contract rendered in normal ChatGPT replies; it is not a separately hosted persistent graphical app or a guarantee of pixel-identical rendering on every ChatGPT host. The Save/Lock transaction interaction design is approved, while real writes still require secure current source/bytes, version guards, validation and independent readback. Existing PPF screenplay reader, 81 lessons, Character and World Builders, Layout Sheets, Assets, Posters, Reports, Pitch Decks, animatic, editing, Sound, Suno, fal motion and BUZZ/Modem plans remain available. Provider costs require individual prior approval; no status, media or persistence is invented. No mandatory Windows app, GitHub account or sidebar. Production Handoff Skin V1 layout and other unreviewed surfaces are not yet approved. The v0.8.38 REEL workspace includes New Idea, Import Script, Continue Film, Explore Tools, stacked mobile Storyboard Review, and optional five-page/25-panel graphic-novel reading for each Mini-Block. Actual graphic-novel pages and PPF sources remain private in the creator's Library; no project images are bundled. Version 0.8.39 added the owner-approved official The Third Bell edition route for the first Mini-Block of Blocks 01 and 02, with ten pages and 50 panels. Version 0.8.40 adds native in-chat fal player routing through the separately connected fal app, source-linked multi-shot generation, completed clip library save/readback, and an offline no-spend three-shot 24fps/216-frame conform and verification helper when the actual MP4 bytes can be accessed. The observed three-shot provider test completed and saved real MP4s; remote MP4 byte intake, authenticated editor connectivity, actual three-shot editor import, and native PPF video registration remain independently unverified. Nothing in this plugin installs a custom fal player, pays for media without per-batch approval, or changes story Save/Lock merely by playback. Version 0.8.41 adds PlotPickle Transfer as a fifth Connections catalogue entry, with private user-owned Site setup guidance and separately verified connection status. This release does not deploy, connect, or activate the transfer MCP server or imply any 1080p file has been saved.",
     "brandColor": "#8255D6",
     "brandColorDark": "#C6A8FC",
     "composerIcon": "./assets/studio-composer-icon.png",
@@ -53,7 +55,7 @@
     }
   },
   "name": "plotpickle-story-reader",
-  "version": "0.8.40",
+  "version": "0.8.41",
   "description": "PlotPickle REEL and ONCE storytelling with Skin V1, official graphic novels, and source-linked fal Player shot-batch delivery.",
   "author": {
     "name": "Bryan Harris",
@@ -65,7 +67,8 @@
     "image-to-video",
     "fal",
     "graphic-novel",
-    "fal-player"
+    "fal-player",
+    "plotpickle-transfer"
   ],
   "repository": "https://github.com/BryanHarrisScripts/PlotPickle-Studio",
   "license": "AGPL-3.0-or-later",
