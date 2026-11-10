@@ -1,0 +1,24 @@
+name: Export Native PPF Writer Source (one-time inspection)
+on:
+  push:
+    branches:
+      - tools/export-native-ppf-writers-nov10
+permissions:
+  contents: read
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Bundle exact current writer sources
+        run: |
+          mkdir -p dist
+          tar -czf dist/plotpickle-native-writers.tar.gz -C skills/read-plotpickle-project scripts references
+          tar -tf dist/plotpickle-native-writers.tar.gz | head -20
+      - name: Upload read-only inspection archive
+        uses: actions/upload-artifact@v4
+        with:
+          name: plotpickle-native-writer-sources
+          path: dist/plotpickle-native-writers.tar.gz
+          retention-days: 1
+          if-no-files-found: error
