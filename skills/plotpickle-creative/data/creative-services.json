@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.1",
-  "purpose": "Static creative-service catalogue; never a credential store or proof of connection",
+  "purpose": "Static creative-service catalogue; never a credential store or proof of connection; creator-owned transfer is required only for automated Library import",
   "selectionPolicy": "ChatGPT native production and still-animatic first. For requested paid video, prefer the independently hosted fal ChatGPT plugin and require per-job spend approval.",
   "connectionTruth": "Read real authorized provider tool/account state in the current chat; a catalogue name is never proof of authentication.",
   "services": [
@@ -111,6 +111,52 @@
           "requiresProvider": true,
           "usesCredits": true,
           "prompt": "Review PlotPickle saved+locked first-frame evidence and fal-supported model/duration/cost. Show one per-job quote and request explicit approval before generating; retrieve and verify returned video bytes before marking it usable."
+        }
+      ]
+    },
+    {
+      "id": "plotpickle-transfer",
+      "name": "PlotPickle Transfer",
+      "category": "Private video transfer",
+      "summary": "A creator-owned private ChatGPT Site used to transfer original fal video files into that creator's ChatGPT Library. Required for automatic video transfer, not for generation or storyboarding.",
+      "kind": [
+        "video-transfer",
+        "library-ingest"
+      ],
+      "catalogState": "setup-available",
+      "status": "not-confirmed-connected",
+      "connection": "separately-created-private-ChatGPT-Site-hosted-MCP-plugin",
+      "secureSignIn": "ChatGPT-Sites-owner-and-plugin-authorization; no PlotPickle credentials",
+      "credentialsStoredByPlotPickle": false,
+      "billing": "Site creation/editing uses Codex allowance; running Sites has separate limits; no automatic per-transfer Work invocation; Library limits still apply",
+      "requiredFor": [
+        "automatic-fal-original-video-transfer-to-chatgpt-library"
+      ],
+      "notRequiredFor": [
+        "storyboarding",
+        "scriptwriting",
+        "fal-video-generation",
+        "previewing-provider-video"
+      ],
+      "setupGuide": "integrations/fal-library-mcp/SITE-BOOTSTRAP.md",
+      "siteVisibility": "private-by-default",
+      "projectTruth": "upload-reported-is-not-verified; require independent original-byte readback before registration; never change Save/Lock",
+      "actions": [
+        {
+          "id": "setup-transfer-site",
+          "label": "Set up PlotPickle Transfer",
+          "kind": "local-preview",
+          "requiresProvider": false,
+          "usesCredits": false,
+          "prompt": "Show the creator-owned PlotPickle Transfer private ChatGPT Site setup steps from the PlotPickle repo SITE-BOOTSTRAP.md. Do not claim the Site is created, connected, or deployed. Explain that Site building/editing may consume Codex allowance and user consent is needed for publishing or installing its plugin."
+        },
+        {
+          "id": "verify-transfer-site",
+          "label": "Verify transfer connection",
+          "kind": "provider-read",
+          "requiresProvider": true,
+          "usesCredits": false,
+          "prompt": "Read the live account-authorized Site-hosted PlotPickle Transfer MCP connection and tool status. Mark connected only if the private Site, installed plugin, authorization, transfer tool and widget resource are verified. Do not generate video or edit the story."
         }
       ]
     },
