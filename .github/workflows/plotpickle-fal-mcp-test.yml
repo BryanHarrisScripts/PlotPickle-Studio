@@ -4,6 +4,10 @@ on:
     paths:
       - 'integrations/fal-library-mcp/**'
       - '.github/workflows/plotpickle-fal-mcp-test.yml'
+      - 'skills/plotpickle-creative/data/creative-services.json'
+      - 'skills/plotpickle-creative/scripts/service-catalog.py'
+      - 'skills/plotpickle-creative/scripts/test-service-catalog.py'
+      - 'skills/plotpickle-creative/references/connected-services.md'
   workflow_dispatch:
 permissions:
   contents: read
@@ -24,3 +28,6 @@ jobs:
         run: npm test
       - run: node --check server.mjs
       - run: node --check core.mjs
+      - name: Validate creative service connections catalogue
+        working-directory: .
+        run: python3 skills/plotpickle-creative/scripts/test-service-catalog.py
