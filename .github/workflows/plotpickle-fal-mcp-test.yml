@@ -8,6 +8,7 @@ on:
       - 'skills/plotpickle-creative/scripts/service-catalog.py'
       - 'skills/plotpickle-creative/scripts/test-service-catalog.py'
       - 'skills/plotpickle-creative/references/connected-services.md'
+      - 'skills/plotpickle-welcome/SKILL.md'
   workflow_dispatch:
 permissions:
   contents: read
