@@ -65,6 +65,23 @@ class DesignProductionTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,"source or subject mismatch"):m.prompt_pack(self.layout,b)
         b=copy.deepcopy(self.brief);b["sourceEvidence"][0]["text"]="Unexpected revision"
         with self.assertRaisesRegex(ValueError,"hash mismatch"):m.prompt_pack(self.layout,b)
+    def test_long_passage_uses_excerpt_hash_without_claiming_full_text_verification(self):
+        b=copy.deepcopy(self.brief)
+        full="A very long descriptive screenplay passage. "*20
+        short=full[:540]
+        e=b["sourceEvidence"][0]
+        e.update({"text":short,
+                  "textSha256":hashlib.sha256(full.encode()).hexdigest(),
+                  "excerptSha256":hashlib.sha256(short.encode()).hexdigest(),
+                  "excerptTruncated":True})
+        pack=m.prompt_pack(self.layout,b)
+        self.assertTrue(pack["sourcePassages"][0]["excerptTruncated"])
+        tampered=copy.deepcopy(b);tampered["sourceEvidence"][0]["text"]="X"+short[1:]
+        with self.assertRaisesRegex(ValueError,"excerpt hash"):
+            m.prompt_pack(self.layout,tampered)
+        legacy=copy.deepcopy(b);legacy["sourceEvidence"][0].pop("excerptSha256")
+        with self.assertRaisesRegex(ValueError,"Legacy passage excerpt"):
+            m.prompt_pack(self.layout,legacy)
     def test_exact_image_hash_and_header_staging(self):
         raw=png(1024,1024);self.write("design/face.png",raw)
         c=m.stage(self.layout,"face",self.root,"design/face.png")
