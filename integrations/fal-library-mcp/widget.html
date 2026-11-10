@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PlotPickle — Preserve Original fal Video</title>
+<style>
+:root{color-scheme:light dark;font:15px system-ui,-apple-system,Segoe UI,sans-serif}
+body{margin:0;padding:18px;background:#17151e;color:#f3f0f9}
+h1{font-size:18px;margin:0 0 8px}p{font-size:14px;line-height:1.5;color:#c8c3d5}
+button{background:#7855b4;border:0;border-radius:9px;color:white;padding:12px 18px;font:600 14px system-ui;cursor:pointer}
+button:disabled{opacity:.5;cursor:default}small{display:block;color:#bcb4ca;margin-top:8px}
+#status{white-space:pre-wrap;background:#292535;border-radius:9px;padding:12px;line-height:1.5;overflow-wrap:anywhere}
+</style></head>
+<body>
+<h1>Preserve original fal video</h1>
+<p>This test retrieves the original MP4 from fal.ai and asks ChatGPT to save it to your Library. It does not generate clips or alter story Save/Lock.</p>
+<button id="transfer" disabled>Save original to ChatGPT Library</button>
+<small id="source">Awaiting verified shot source…</small>
+<p id="status" role="status" aria-live="polite">Loading the transfer tool.</p>
+<script>
+(() => {
+  const button=document.getElementById('transfer');
+  const status=document.getElementById('status');
+  const source=document.getElementById('source');
+  const cap=100*1024*1024;
+  let config=null;
+  let working=false;
+  const say=(message)=>{status.textContent=message;};
+  function validated(raw){
+    const o=raw?.structuredContent??raw?.result?.structuredContent??raw;
+    if(!o || typeof o!=='object')throw new Error('Tool result has not arrived');
+    const u=new URL(o.url);
+    if(u.protocol!=='https:'||u.hostname!=='v3b.fal.media'||u.port||u.username||u.password||u.hash||
+       !/^\/files\/b\/[A-Za-z0-9_-]+\/[A-Za-z0-9_.-]+\.mp4$/i.test(u.pathname)){
+      throw new Error('Only original fal MP4 URLs are supported');
+    }
+    const expectedBytes=Number(o.expectedBytes);
+    if(!Number.isSafeInteger(expectedBytes)||expectedBytes<1||expectedBytes>cap)throw new Error('Invalid expected byte count');
+    const filename=String(o.filename||'fal-original.mp4');
+    if(!/^[A-Za-z0-9._-]{1,120}\.mp4$/i.test(filename))throw new Error('Invalid filename');
+    const storyId=String(o.storyId||'').trim(),shotId=String(o.shotId||'').trim();
+    if(!storyId||!shotId)throw new Error('Missing story or shot identity');
+    return {url:u.toString(),expectedBytes,filename,storyId,shotId};
+  }
+  function receive(data){
+    if(working)return;
+    try {
+      config=validated(data);
+      source.textContent=`${config.storyId} / ${config.shotId} • Original ${config.expectedBytes.toLocaleString()} bytes`;
+      if(typeof window.openai?.uploadFile!=='function'){
+        button.disabled=true;say('Host does not expose ChatGPT Library uploads. No transfer attempted.');return;
+      }
+      button.disabled=false;say('Ready. This will preserve an existing fal video without new generation.');
+    } catch(e){button.disabled=true;say('Waiting for source: '+e.message);}
+  }
+  function tryHost(){if(window.openai?.toolOutput)receive(window.openai.toolOutput);}
+  tryHost();
+  window.addEventListener('openai:set_globals',tryHost);
+  window.addEventListener('message',(event)=>{
+    if(event.source!==window.parent)return;
+    if(event.data?.method==='ui/notifications/tool-result')receive(event.data.params);
+  });
+  async function digest(blob){
+    const bytes=await blob.arrayBuffer();
+    const hash=await crypto.subtle.digest('SHA-256',bytes);
+    return Array.from(new Uint8Array(hash)).map(x=>x.toString(16).padStart(2,'0')).join('');
+  }
+  button.addEventListener('click',async()=>{
+    if(!config||working)return;
+    working=true;button.disabled=true;
+    try {
+      say('Retrieving the original fal MP4…');
+      const response=await fetch(config.url,{method:'GET',mode:'cors',credentials:'omit',redirect:'error',signal:AbortSignal.timeout(90000)});
+      if(!response.ok)throw new Error('fal download returned HTTP '+response.status);
+      const type=(response.headers.get('content-type')||'').split(';')[0].trim().toLowerCase();
+      if(type!=='video/mp4')throw new Error('Unexpected content type: '+type);
+      const advertised=response.headers.get('content-length');
+      if(advertised!==null && Number(advertised)!==config.expectedBytes)throw new Error('Original size does not match fal job receipt');
+      const blob=await response.blob();
+      if(blob.size!==config.expectedBytes || blob.size>cap)throw new Error('Original MP4 byte count mismatched');
+      const header=new Uint8Array(await blob.slice(0,12).arrayBuffer());
+      if(header.length<12 || String.fromCharCode(...header.slice(4,8))!=='ftyp')throw new Error('Downloaded bytes are not an MP4');
+      const originalSha=await digest(blob);
+      say('Received original '+blob.size.toLocaleString()+' bytes. Uploading to ChatGPT Library…');
+      const uploaded=await window.openai.uploadFile(new File([blob],config.filename,{type:'video/mp4'}),{library:true});
+      const fileId=uploaded?.fileId;
+      if(!fileId)throw new Error('ChatGPT did not return a file ID');
+      let readback='pending';
+      if(typeof window.openai.getFileDownloadUrl==='function'){
+        try {
+          const {downloadUrl}=await window.openai.getFileDownloadUrl({fileId});
+          if(downloadUrl){
+            const check=await fetch(downloadUrl,{signal:AbortSignal.timeout(30000)});
+            if(check.ok){
+              const copy=await check.blob();
+              const copyHash=await digest(copy);
+              readback=copy.size===blob.size&&copyHash===originalSha?'verified':'mismatch';
+            }
+          }
+        } catch {readback='pending';}
+      }
+      const message=readback==='verified'?'Saved and byte-for-byte readback verified.':
+        readback==='mismatch'?'WARNING: Library readback does not match source.':
+        'Upload acknowledged; independent Library byte readback remains pending.';
+      say(`${message}\nFile ID: ${fileId}\nOriginal SHA-256: ${originalSha}`);
+      window.openai.setWidgetState?.({modelContent:`PlotPickle fal media upload: fileId ${fileId}; readback ${readback}; story ${config.storyId}, shot ${config.shotId}. PPF not modified.`,
+        privateContent:{fileId,storyId:config.storyId,shotId:config.shotId,filename:config.filename,sizeBytes:blob.size,sha256:originalSha,readback}});
+      if(readback==='mismatch')return;
+    } catch(e) {
+      say('Transfer failed: '+(e?.message||String(e))+'\nNothing was registered in PlotPickle.');
+    } finally{working=false;button.disabled=false;}
+  });
+})();
+</script></body></html>
