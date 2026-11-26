@@ -1,8 +1,4 @@
-# PlotPickle Studio — Software Licence
-
-We welcome developers to use, adapt and build upon PlotPickle Studio, including for commercial projects. The following MIT licence applies to software and technical documentation expressly designated MIT by its rights holders. Creative works, learning materials, branding and third-party material are not automatically included.
-
-## MIT License
+MIT License
 
 Copyright (c) 2026 Bryan Harris
 

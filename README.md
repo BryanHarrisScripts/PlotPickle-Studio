@@ -16,6 +16,10 @@ Ideas, improvements and independent adaptations are welcome. See [Contributing](
 
 ## Licensing
 
-Our direction for new releases is [MIT for designated software](LICENSE-SOFTWARE.md) and [CC BY-NC-SA 4.0 for designated creative and educational works](LICENSE-CREATIVE.md). The applicable licence is identified with each release or work. User stories remain under their creators' chosen terms.
+**[Open Technology](docs/licensing/OPEN-TECHNOLOGY.md)** — MIT for designated software.
+
+**[Shared Creativity](docs/licensing/SHARED-CREATIVITY.md)** — CC BY-NC-SA 4.0 for designated creative and educational works.
+
+These are our licensing direction for new releases. The applicable licence is identified with each release or work. User stories remain under their creators’ chosen terms.
 
 **The human remains the author.**
