@@ -17,6 +17,20 @@ The goal is not to produce a perfect movie. It is to help you explore what works
   <img src="assets/plotpickle-creative-workflow.svg" alt="PlotPickle Studio: learn, experiment, develop and pitch; the creative process is iterative and the creator retains control" width="100%">
 </p>
 
+## A system that grows with you
+
+Choose **REEL** to develop a fictional story or **ONCE** to explore personal memories and life stories. Both encourage learning by doing. The curriculum and Elara's creative guidance can expand as storytelling techniques, research and AI capabilities evolve.
+
+## Developer architecture
+
+PlotPickle separates its creative core from the infrastructure that runs it. The aim is portability through host-specific integrations, not dependence on a particular model or platform. The current implementation has limitations; other potential hosts remain untested.
+
+The architecture includes two complementary feedback loops: the creator learns through visual experimentation, while PlotPickle can improve through reviewed research, open-source discovery (OSS Radar), optional feedback and tested releases. System improvements are proposals until reviewed and approved; private stories are not automatically collected for training or used to change the system.
+
+<p align="center">
+  <img src="assets/plotpickle-developer-architecture.svg" alt="PlotPickle developer architecture: creative core, host adapters, AI infrastructure, optional tools and two feedback loops for human learning and reviewed system evolution" width="100%">
+</p>
+
 ## Install
 
 Developed for ChatGPT. When a verified plugin ZIP is available under [Downloads](https://github.com/BryanHarrisScripts/PlotPickle-Studio/releases), download it and use the native plugin upload option where supported by your account. Connect any required services, select PlotPickle Studio and say **Home**.
