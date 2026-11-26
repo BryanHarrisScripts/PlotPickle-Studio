@@ -1,22 +1,20 @@
-<h1 align="center">
-  <img src="assets/studio-logo.svg" alt="PlotPickle Studio" width="520">
-</h1>
+# PlotPickle Studio
 
 **Your story. Your decisions. Your cut.**
 
-PlotPickle Studio is a human-led storytelling and creative filmmaking plugin. Work with Elara, your creative collaborator, to develop stories from an initial idea through screenplay, storyboard, visual production and editing.
+PlotPickle Studio is a storytelling learning and creative development plugin for students, hobbyists and independent storytellers. Work with Elara, your creative collaborator, to learn the craft, experiment visually through trial and error, and develop a better story.
 
-**[Website](https://plotpickle.com)** · [Studio](https://studio.plotpickle.com) · [Downloads](https://github.com/BryanHarrisScripts/PlotPickle-Studio/releases)
+The goal is not to produce a perfect movie. It is to help you explore what works, refine your creative vision and build a compelling pitch package for a book, comic book, short story, feature-length film or episodic series.
 
-- Develop ideas, screenplays, characters and worlds.
-- Learn the craft through 81 storytelling lessons.
-- Plan shots and review visual continuity.
-- Guide creative choices with Elara while retaining human approval.
-- Assemble images, motion and sound into cinematic presentations.
-- Keep project decisions, versions and approvals linked to the story.
+**[Website](https://plotpickle.com)** · [Studio](https://studio.plotpickle.com/home) · [Downloads](https://github.com/BryanHarrisScripts/PlotPickle-Studio/releases)
+
+- **Learn** — explore an expanding library of storytelling and creative development lessons.
+- **Experiment** — visualize ideas, characters, worlds and scenes; compare alternatives through trial and error.
+- **Develop** — refine narrative, structure, dialogue, pacing and visual continuity with Elara.
+- **Pitch** — assemble written, illustrated or cinematic materials that communicate your story and creative vision.
 
 <p align="center">
-  <img src="assets/plotpickle-creative-workflow.svg" alt="PlotPickle Studio: creator, Elara, learning, project continuity and the seven-step creative workflow from idea to screen" width="100%">
+  <img src="assets/plotpickle-creative-workflow.svg" alt="PlotPickle Studio: learn, experiment, develop and pitch; the creative process is iterative and the creator retains control" width="100%">
 </p>
 
 ## Install
