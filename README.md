@@ -2,6 +2,8 @@
 
 **Your story. Your decisions. Your cut.**
 
+Open Technology · Shared Creativity · Human Ownership · Continuous Evolution
+
 PlotPickle Studio is a storytelling learning and creative development plugin for students, hobbyists and independent storytellers. Work with Elara, your creative collaborator, to learn the craft, experiment visually through trial and error, and develop a better story.
 
 The goal is not to produce a perfect movie. It is to help you explore what works, refine your creative vision and build a compelling pitch package for a book, comic book, short story, feature-length film or episodic series.
