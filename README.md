@@ -1,14 +1,29 @@
-# PlotPickle Studio
+<h1 align="center">
+  <img src="assets/studio-logo.svg" alt="PlotPickle Studio" width="520">
+</h1>
 
 **Your story. Your decisions. Your cut.**
 
-PlotPickle Studio is a human-led storytelling and creative filmmaking plugin developed for ChatGPT. Work with Elara, your creative collaborator, to develop stories from an initial idea through screenplay, storyboard, visual production and editing.
+PlotPickle Studio is a human-led storytelling and creative filmmaking plugin. Work with Elara, your creative collaborator, to develop stories from an initial idea through screenplay, storyboard, visual production and editing.
 
-[Website](https://plotpickle.com) · [Studio](https://studio.plotpickle.com) · [Downloads](https://github.com/BryanHarrisScripts/PlotPickle-Studio/releases)
+**[Website](https://plotpickle.com)** · [Studio](https://studio.plotpickle.com) · [Downloads](https://github.com/BryanHarrisScripts/PlotPickle-Studio/releases)
+
+- Develop ideas, screenplays, characters and worlds.
+- Learn the craft through 81 storytelling lessons.
+- Plan shots and review visual continuity.
+- Guide creative choices with Elara while retaining human approval.
+- Assemble images, motion and sound into cinematic presentations.
+- Keep project decisions, versions and approvals linked to the story.
+
+<p align="center">
+  <img src="assets/plotpickle-creative-workflow.svg" alt="PlotPickle Studio: creator, Elara, learning, project continuity and the seven-step creative workflow from idea to screen" width="100%">
+</p>
 
 ## Install
 
-When a verified plugin ZIP is available under Downloads, download it and use the native plugin upload option in ChatGPT, where supported by your account. Connect any required services, select PlotPickle Studio and say **Home**. Other AI platforms may be able to adapt the project, but have not been tested.
+Developed for ChatGPT. When a verified plugin ZIP is available under [Downloads](https://github.com/BryanHarrisScripts/PlotPickle-Studio/releases), download it and use the native plugin upload option where supported by your account. Connect any required services, select PlotPickle Studio and say **Home**.
+
+Adaptations to other AI platforms are welcome, but have not been tested.
 
 ## Contribute
 
