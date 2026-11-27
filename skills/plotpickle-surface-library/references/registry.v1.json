@@ -1,0 +1,174 @@
+{
+  "schema": "plotpickle.surface-library.registry.v1",
+  "libraryVersion": "1.0.0",
+  "pluginRelease": "2.0.40",
+  "effectiveDate": "2026-11-13",
+  "identity": "PlotPickle Studio — one plugin, one Elara, one current ChatGPT conversation",
+  "transport": "existing authenticated PlotPickle Studio MCP; no new backend",
+  "authority": {
+    "home": "skills/plotpickle-skin-v2/references/skin-v2.json",
+    "inherited": "skills/plotpickle-skin-v1/references/skin-v1.json",
+    "interface": "skills/plotpickle-studio/references/locked-interface-agreement-v1.1.md"
+  },
+  "lockedHomeOrder": [
+    "MEET_ELARA",
+    "LEARN",
+    "STORYBOARD",
+    "LIBRARY_YOUR_STORIES",
+    "CONNECTED_SERVICES"
+  ],
+  "aliases": {
+    "Home": "HOME",
+    "Studio": "HOME",
+    "Open Studio": "HOME",
+    "Open Studio HOME": "HOME",
+    "/home": "HOME"
+  },
+  "layout": {
+    "theme": "matte-black",
+    "text": "off-white",
+    "accent": "restrained-purple",
+    "spacingPx": 4,
+    "wideHomeColumns": 2,
+    "mobileHomeColumns": 1,
+    "brandAsset": "assets/branding-locked/studio-logo-approved.png"
+  },
+  "surfaces": {
+    "HOME": {
+      "title": "Home",
+      "route": "HOME",
+      "approval": "owner-locked",
+      "authority": "PP-SKIN-V2-HOME-LOCK-2026-11-13-01",
+      "parent": null,
+      "dataSources": [
+        "open_chat_home (data only)",
+        "studio_get_core",
+        "studio_list_projects (optional contextual preview)"
+      ],
+      "template": "templates/HOME.dil.md",
+      "spec": "references/surfaces/HOME.md",
+      "children": [
+        "MEET_ELARA",
+        "LEARN",
+        "STORYBOARD",
+        "LIBRARY_YOUR_STORIES",
+        "CONNECTED_SERVICES"
+      ],
+      "readOnlyEntry": true,
+      "validation": [
+        "exactly five cards in locked order",
+        "selection local until explicit user action",
+        "no auto project switch"
+      ]
+    },
+    "STORYBOARD": {
+      "title": "Storyboard",
+      "route": "HOME/STORYBOARD",
+      "approval": "inherited-approved-Skin-V1",
+      "authority": "PP-SKIN-V1-STORYBOARD-APPROVAL-2026-11-09-01",
+      "parent": "HOME",
+      "dataSources": [
+        "studio_list_projects",
+        "studio_get_state (only if current project actually loaded)",
+        "real source PPF after authorized selection"
+      ],
+      "template": "templates/STORYBOARD.dil.md",
+      "spec": "references/surfaces/STORYBOARD.md",
+      "children": [
+        "REEL",
+        "ONCE",
+        "STORY_MAP",
+        "MINI_BLOCK_SHOT_GRID",
+        "REVIEW",
+        "EDITOR"
+      ],
+      "readOnlyEntry": true,
+      "validation": [
+        "equal-weight REEL and ONCE",
+        "actual stories only",
+        "25 slots not assumed existing media"
+      ]
+    },
+    "LIBRARY_YOUR_STORIES": {
+      "title": "Library / Your Stories",
+      "route": "HOME/LIBRARY_YOUR_STORIES",
+      "approval": "owner-locked-Skin-V2",
+      "authority": "PP-SKIN-V2-HOME-LOCK-2026-11-13-01",
+      "parent": "HOME",
+      "dataSources": [
+        "studio_list_projects",
+        "studio_get_state",
+        "studio_check_project (only after explicit selection)"
+      ],
+      "template": "templates/LIBRARY_YOUR_STORIES.dil.md",
+      "spec": "references/surfaces/LIBRARY_YOUR_STORIES.md",
+      "children": [
+        "STORYBOARD"
+      ],
+      "readOnlyEntry": true,
+      "validation": [
+        "saved Studio projects separate from unverified references",
+        "no automatic Library scan",
+        "selection not project open"
+      ]
+    },
+    "REVIEW": {
+      "title": "Review",
+      "route": "HOME/STORYBOARD/REVIEW",
+      "approval": "inherits-approved-Skin-V1-Image-Review",
+      "authority": "PP-SKIN-V1-IMAGE-REVIEW-APPROVAL-2026-11-09-01",
+      "parent": "STORYBOARD",
+      "dataSources": [
+        "studio_get_state",
+        "studio_get_image",
+        "studio_get_beat",
+        "verified PPF and exact media"
+      ],
+      "template": "templates/REVIEW.dil.md",
+      "spec": "references/surfaces/REVIEW.md",
+      "children": [
+        "EDITOR",
+        "STORYBOARD"
+      ],
+      "readOnlyEntry": true,
+      "validation": [
+        "exact current source + candidate evidence",
+        "four independent statuses",
+        "guarded explicit writes only"
+      ]
+    },
+    "EDITOR": {
+      "title": "Editor",
+      "route": "HOME/STORYBOARD/EDITOR",
+      "approval": "registered-draft-not-visually-locked",
+      "authority": null,
+      "parent": "STORYBOARD",
+      "dataSources": [
+        "studio_get_state",
+        "studio_prepare_render",
+        "studio_get_render (when available)"
+      ],
+      "template": "templates/EDITOR.dil.md",
+      "spec": "references/surfaces/EDITOR.md",
+      "children": [
+        "REVIEW",
+        "STORYBOARD"
+      ],
+      "readOnlyEntry": true,
+      "validation": [
+        "six lanes at 24 fps",
+        "no unverified playback, export or master approval",
+        "all edits revision-guarded and read back"
+      ]
+    }
+  },
+  "outOfScope": [
+    "automatic ChatGPT Library folder browsing",
+    "native Library PPF writeback",
+    "new website",
+    "automatic third panel",
+    "auto-approval or provider spending"
+  ],
+  "approvalBoundary": "This registers reusable layout and interaction contracts. It does not approve EDITOR visual styling or certify host rendering, backend writeback or device tests.",
+  "privateUserDataBundled": false
+}

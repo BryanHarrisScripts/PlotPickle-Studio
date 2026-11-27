@@ -1,6 +1,6 @@
 ---
 name: plotpickle-assets
-description: Use for PlotPickle Assets: character, world, collectible, poster, Foley, narration and music libraries; asset inventory, media verification, creative requests, provenance and portable exports.
+description: "Use for PlotPickle Assets: character, world, collectible, poster, Foley, narration and music libraries; asset inventory, media verification, creative requests, provenance and portable exports."
 ---
 
 # PlotPickle — Assets (v0.8.21)
@@ -22,3 +22,13 @@ Portable command: `python3 scripts/assets.py --project story.ppf.json [--assets-
 ## Validation
 
 Run `python3 scripts/test-assets.py` and inspect a source-backed sample. Asset presentation can be provided as clickable in-chat cards, but these are transient UI, not a permanent host-installed library. Do not imply synchronization with the original Windows desktop application.
+
+
+## Asset synchronization and handoff
+
+For where files are stored, missing transfers, provider-versus-Library reconciliation, source-image discrepancies and editor readiness, read `references/asset-handoff.md` and run `scripts/asset-handoff.py` against real current evidence. Keep the existing registry as canon. Show exact query scope and snapshot time, stable provider IDs, Library destinations, verified originals versus derivatives, unassigned assets, and actionable blockers. BUZZ and Modem are on hold for this milestone. This is on-demand reconciliation, not an installed background synchronization service.
+
+
+## v2.0.18 audio integration
+
+For movie dialogue, Foley, ambience and music, use `../plotpickle-editor/references/audio-workflow.md`. Original MP3/PCM WAV candidates can be imported with exact-byte/full-decode evidence, independently reopened, creator-locked (lock includes approval), attached to the four sound tracks and included in a verified 48-kHz mix using the ChatGPT media runtime. Read the actual current Studio state; do not infer candidate approval, Library ingestion or complete film loading from this release. Action remains a marker lane. Native PPF writeback remains separate.

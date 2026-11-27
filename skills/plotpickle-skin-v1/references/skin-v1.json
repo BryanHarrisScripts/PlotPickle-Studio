@@ -100,6 +100,7 @@
         "home-breadcrumb",
         "heading",
         "four-primary-cards",
+        "quiet-library-project-link",
         "continue-creating-if-current-source-verified",
         "quiet-status-footer"
       ],
@@ -126,7 +127,15 @@
         }
       ],
       "noFifthPrimaryTile": true,
-      "continueCreating": "only verified current story; otherwise empty/no source"
+      "continueCreating": "only verified current story; otherwise empty/no source",
+      "projectOpenEntry": {
+        "label": "Open ChatGPT Library",
+        "href": "https://chatgpt.com/library",
+        "placement": "quiet entry below existing four primary cards",
+        "fileIntake": "PPF or screenplay dropped in chat with Elara",
+        "automaticSelectionReturn": "pending supported authorized Library bridge",
+        "noManualWebImport": true
+      }
     },
     "STORYBOARD": {
       "heading": "Storyboard",

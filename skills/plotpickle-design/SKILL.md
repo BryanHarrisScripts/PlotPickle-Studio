@@ -69,3 +69,8 @@ A review sheet reopens every registered candidate file, compares hash and header
 User-facing choices: **Choose Character**, **Choose World**, **Generate One Reference** (invoke actual image generation only on a clear creator request), **Prepare All Views**, **Review Candidate Sheet**, **Use Accepted Reference** (only when genuine source image, approval and project transaction proofs are present). On entry, show truthful states: no screenplay, source catalogue ready, draft brief, prompts ready, candidates awaiting verification, ready for review, or verified accepted. Provide source links or passage excerpts; no fabricated completed image views or PPF edits.
 
 Run python3 scripts/test-design-kit.py and python3 scripts/test-design-review.py before release. Tests are local source/transport contracts, not a production end-to-end image generator or persistent Save/Lock acceptance.
+
+
+## v0.8.43 — creator-approved reference Save/Lock
+
+Route explicit approval, Save/Lock, 50-shot scope audits and actual design reference registration to `../plotpickle-approval/SKILL.md`. Creator approval starts a verified Save→Lock transaction: it is not itself a completed PPF write. Keep character/world reference locks separate from native storyboard shot locks. Never count a five-panel composite as five individual native shot images. Use Plugin Creator to update the plugin; do not embed private PPFs or artwork or claim GitHub CI verification.

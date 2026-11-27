@@ -3,6 +3,11 @@ name: plotpickle-creative
 description: Use PlotPickle's complete 81-lesson screenplay curriculum with source-linked creative decisions and verified story production handoffs.
 ---
 
+## Current hosted core routing — November 11, 2026
+
+Use `../plotpickle-studio/references/hosted-core.md` for the current Sites-hosted core and Elara handoff. This routing supersedes older source-only, independent-host migration, and mandatory separate Transfer setup descriptions. Keep the original plugin and App connection, the approved Skin V1 hierarchy, and the existing project truth rules. Elara converses in this ChatGPT conversation while the application runs beside it; do not add a website chatbot or request an API key for chat.
+
+
 # PlotPickle — Creative System (v0.8.25)
 
 Elara coordinates learning and creation inside ChatGPT, which is the human creative workspace. PlotPickle contains portable story tools and authored craft teaching; it is neither a background agent nor a repository of the user's private scripts or provider credentials.
@@ -32,3 +37,4 @@ Require `completeSnapshotVerified: true` before describing the embedded corpus a
 For music or song briefs, follow `references/connected-services.md` and `data/creative-services.json`; use Suno only through an independent authorized account with explicit paid action approval. For moving-video from storyboard stills, route to `../plotpickle-fal-production/SKILL.md`, with a no-spend plan first. A 3–15-second Motion Span contains 1–5 consecutive nominal 3-second positions within the same Mini-Block and preserves their addresses/passages/first-frame hash. The target is 72–360 editorial frames at 24 fps; provider native duration and actual cost must be checked separately. For still-to-animatic and draft film use `../plotpickle-animatic/SKILL.md`.
 
 For default initial-image Save/Lock from verified images use `../read-plotpickle-project/references/default-save-lock.md`: Save → independently reopen → Lock → verify; creators may unlock exceptions. Do not equate automatically accepted production images to an explicit human final sign-off. No paid provider call, account authentication, native application write, or finished film is established by this skill alone.
+

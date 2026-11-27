@@ -31,3 +31,8 @@ description: Permanent published PlotPickle Studio Skin V1 layout contract for t
 ## Reference order and routing
 
 Use `../plotpickle-studio/SKILL.md` for entry, `../plotpickle-navigator/SKILL.md` for source-backed story drilldown, `../plotpickle-review/SKILL.md` for image review, `../read-plotpickle-project/SKILL.md` for actual verified operations. Skin V1 determines only consistent visual projection. When preparing content for a layout, `python3 scripts/render-surface.py --surface HOME` outputs the immutable ordered section contract. The helper is read-only, deterministic and includes no story data or hosted UI runtime.
+
+
+## HOME project link — v0.8.48 owner-directed addition
+
+Keep the same four primary HOME cards. The owner directs one quiet ChatGPT Library project-opening link below them, with a separate Continue Creating item for a verified current project. Do not add a manual import panel to Review or Editor. File intake stays in chat with Elara. This addition changes project-opening placement only; it does not grant Library connector access or certify automatic selection/linked-media loading.

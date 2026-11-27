@@ -1,28 +1,38 @@
 ---
 name: plotpickle-studio
-description: ChatGPT-native PlotPickle Studio HOME, REEL, ONCE, saved stories, and verified, consistent Skin V1 views; no hosted sidebar.
+description: Owner-locked unified interactive PlotPickle HOME in the current ChatGPT conversation with Elara; Skin V2 five-choice layout, permanent versioned Surface Library, and authenticated MCP engine underneath.
 ---
-# PlotPickle Studio — ChatGPT-native workspace (v0.8.42)
 
-**For EVERY approved Studio layout, first read `../plotpickle-skin-v1/SKILL.md` and `../plotpickle-skin-v1/references/skin-v1.json`.** Apply the canonical fixed surface order; never improvise a different HOME, Storyboard, Story Map, Mini-Block/25-Shot Grid or Image Review layout. V1 approvals are preserved in the owner's private ChatGPT Library register. Skin V1 is the current published design standard, not a standalone hosted UI runtime or a claim of identical pixels on every device.
+# PlotPickle Studio — unified in-chat application (plugin v2.0.41)
 
-HOME remains Meet Elara, Learn, Storyboard, Connected Services. Storyboard opens REEL (make a movie) or ONCE (preserve a life story), then verified saved stories. Both paths share the same source PPF, the 81 lessons, characters, worlds, source-linked shots, visual candidates, Save→Lock, fal motion on demand, audio, animatic, editor, posters, reports and production tools. There is no GitHub account, new storage service or Windows app requirement for ordinary ChatGPT operation.
+## Owner locks — mandatory
 
-Story Map, Shot Grid and Image Review are in-chat projections using validated current PPF and actual media. For read-only drilldown use `../plotpickle-navigator/SKILL.md`, and for Image Review use `../plotpickle-review/SKILL.md`. Source truth remains `../read-plotpickle-project/SKILL.md`. Show source location, project ID, revision and hash when verified, or explicit unknowns. Separate Human Approved, PPF Saved, PPF Locked and Media Verified. Never treat a selection toggle, draft mockup or conversation approval as a PPF write. Secure writes need current version guards, valid source and media, and a new saved project reopened to prove success.
+Read `references/locked-interface-agreement-v1.1.md` and `../plotpickle-skin-v2/SKILL.md` before responding to `Home`, `Studio`, `Open Studio`, `Open Studio HOME`, or `/home`. All aliases open the SAME in-conversation interactive HOME. One plugin, one Elara, one account-bound backend. No mandatory panel, browser tab, website, Work mode, extra login or separate ChatGPT conversation.
 
-Save/Lock transaction interface design is approved and standardized in `../plotpickle-skin-v1/references/save-lock-transaction.v1.json`. That does NOT implement or authorize transaction writes, batch auto-defaults or backend behavior. Exact mutation uses existing guarded tool-based workflows only when independently verified. Provider costs need explicit job-specific approval. Production Handoff Skin V1 layout and all remaining unapproved surfaces are pending; do not market those layouts as approved. Preserve other existing feature skill routes without new unapproved shells.
+**Permanent fast-reference Surface Library:** read `../plotpickle-surface-library/SKILL.md` and its `references/registry.v1.json`, then the requested surface spec/template. Library version 1.0.0 covers `HOME`, `STORYBOARD`, `LIBRARY_YOUR_STORIES`, `REVIEW` and `EDITOR`; reusable specs/templates do not independently deploy UI or authorize actions. Do not regenerate a conflicting layout.
 
-The retired standalone Studio sidebar pilot remains retired. If native in-chat controls are supported, render real, locally navigable sections; if not, keep identical text hierarchy. No invisible worker or automatic remote host.
+**Skin V2 HOME has exactly five selectable cards, in order:** 1 Meet Elara; 2 Learn; 3 Storyboard; 4 **Library / Your Stories**; 5 Connected Services. Approved and locked 2026-11-13 under `PP-SKIN-V2-HOME-LOCK-2026-11-13-01`. Skin V1 child Storyboard/Image Review rules survive; Editor layout is documented draft, not visually locked.
 
-## Published v0.8.38 nested presentations (retained unchanged)
+Use host-supported real in-chat controls and local selections; project/review/edit actions require exact authorized tool calls, version/hash guards and readback. `open_chat_home` provides data, NOT a rendered UI. HOME entry is read-only. Never invoke legacy `open_studio_home`, `open_studio_surface` or `open_studio_review_editor` automatically; explicit fallback requests only.
 
-When entering REEL show the approved `REEL_WORKSPACE_ENTRY` with four starting cards and verified Your Stories; not a new HOME category. When asked for mobile Storyboard/shot Review, apply `MOBILE_STORYBOARD_REVIEW` from Skin V1: 25 tap positions, genuine source image, four independent statuses and inactive controls unless a tool-backed write is available. The historical sidebar is an aesthetic reference only. The creator's five-panel reading workflow is in `../plotpickle-graphic-novel/SKILL.md`. Existing five-page editions may be read from the creator's private story Library after real file verification. Never package the private pages in this plugin, invent completed downstream pages, claim source PPF edits, or initiate paid media actions by simply viewing a layout. Production Handoff design and other pending surfaces remain unapproved.
+## Intent → real authenticated source
 
-## Published v0.8.39 — approved official ten-page reading route
+| Intent | Tool | Boundary |
+| --- | --- | --- |
+| HOME / Studio / aliases | Same Surface Library `HOME` view; optionally `open_chat_home`, `studio_get_core` | No project switch or write; returned data alone is not UI proof |
+| Library / Your Stories | `studio_list_projects` + `studio_get_state` | Saved catalogue vs unverified references; no live Library-wide scan |
+| Explicit Open Film | `studio_check_project`, `studio_get_state`, guarded `studio_open_project` and readback | Selection must be explicit; exact source/revision |
+| Learn | `studio_list_lessons`, `studio_get_lesson` | Real 81 lessons / 12 topics, no invented progress |
+| Storyboard / Review | `studio_get_state`, `studio_get_image`, `studio_get_beat` | Exact image + BEAT provenance; no fabricated media |
+| Approve / Lock / Undo | revision-guarded `studio_apply_action`, independent readback | Native Library PPF never silently changed |
+| Editor / Render | `studio_get_state`, `studio_prepare_render`, `studio_get_render` | 6 lanes, 24 fps, real draft evidence only |
+| Image / motion / music | authorized provider calls only after current prices and explicit job consent | No spend from view navigation |
+| Connected Services | `studio_get_core`, actual provider status if connected | Backend listing ≠ provider credit verification |
 
-In REEL > verified Your Stories > The Third Bell, present **Read Graphic Novel** as a child action when the actual private edition is accessible and verified. Route to `../plotpickle-official-reader/SKILL.md` for **Official Blocks 01–02** and offer ten sequential real pages, 5 vertically stacked captioned illustrations per page, native in-chat page control when supported, and source-backed original PDF/HTML/ZIP links. This is an approved **reading edition** and style baseline, not screenplay or shot Save/Lock approval. The two 25-position selections are Block 01 Mini 01 and Block 02 Mini 01, not every Mini-Block in those Blocks. Verify current Library content and any independent export hash discrepancies instead of inventing a successful readback. The v0.8.38 Skin V1 design system and the four HOME choices remain unchanged.
+## Guardrails
 
+Before any project-specific mutation read current project ID, source revision/SHA-256, media SHA and Studio expected revision. Do not infer active project from memory. Keep all existing story copies, media, BEATs, approvals and six-lane edits. No new provider charges or private files in plugin. Missing in-chat gestures/playback, automatic Library access and native PPF writeback are separate acceptance gaps. Read `references/chat-first-acceptance.md`, `../plotpickle-skin-v2/references/surface-sitemap.md` and the existing specialist reader/review/editor skills.
 
-## v0.8.42 — Production Design entry
+## Engineering releases and storage (v2.0.41)
 
-From Storyboard → REEL/ONCE → Production Design, provide Characters, Worlds and Layout Sheets without changing the four HOME choices or unapproved Skin V1 hierarchy. Route to ../plotpickle-design/SKILL.md for source-listed character/scene choices and new versioned prompt/candidate/review sidecars. Distinguish empty template, prompt prepared, byte/header checked, human visually accepted and persistently saved/locked. A full layout alone grants no visual approval. If the user asks for an image, use the actual image tool and inspect the result. No generation happens from simply entering Production Design. The original PPF is never rewritten by the offline stage/review tools.
+Before design changes, developer work, version bumps or publication, use `../plotpickle-release-lock/SKILL.md`. The one version-linked `../plotpickle-release-lock/references/release-index.v1.json` tracks affected surface lock IDs, patterns, invention identifiers, verified tests, authorizations and rollback references. Validate and check the release gate before calling a version LOCKED or suitable for live deployment. **No per-version private archives, user-story media copies or parallel engineering DB.** Continue to distinguish a working release package from actual Site/MCP deployment and user acceptance. Internal patent/invention records are not legal patent filings or registrations. Never silently change the approved HOME layout or overwrite creator story data.

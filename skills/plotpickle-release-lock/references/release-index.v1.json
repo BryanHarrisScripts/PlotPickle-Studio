@@ -1,0 +1,91 @@
+{
+  "schema": "plotpickle.engineering.release-index.v1",
+  "currentVersion": "2.0.44",
+  "storagePolicy": {
+    "customArchivesPerRelease": 0,
+    "bundlePrivateProjectAssets": false,
+    "onlyCompactMetadataAndReferences": true,
+    "rollbackReferencesToRetain": 2,
+    "platformManagedReleaseHistory": "provider-controlled; never assume deletable",
+    "legalHold": "never auto-delete original, historical or legally held evidence"
+  },
+  "releases": [
+    {
+      "version": "2.0.41",
+      "state": "TESTED",
+      "change": "Add version-linked compact engineering lock ledger and offline gate; no Site/MCP changes",
+      "surfaceLockRefs": [
+        "PP-SKIN-V2-HOME-LOCK-2026-11-13-01"
+      ],
+      "patternRefs": [
+        "PP-ENG-UI-001",
+        "skills/plotpickle-surface-library/references/registry.v1.json"
+      ],
+      "inventionRefs": [],
+      "patentFilingRefs": [],
+      "checks": {
+        "unit": false,
+        "integration": false,
+        "preservation": false
+      },
+      "sourceFingerprint": null,
+      "ownerReleaseApproval": null,
+      "rollbackRef": "2.0.40",
+      "deploymentVerified": false,
+      "evidence": "Local ledger/CLI candidate only. User authorized design/build; release acceptance and live host integration unverified.",
+      "recordDigest": "a8e86a31f05d3d7bee7878564996f4288cfe1f3b99b9a26713b03e1a9b5189e0"
+    },
+    {
+      "version": "2.0.43",
+      "state": "TESTED",
+      "change": "Image production context lock, original-byte preflight/postflight guard, DRIFTED-only review policy and route skills; no Site/MCP code changes",
+      "surfaceLockRefs": [
+        "PP-SKIN-V2-HOME-LOCK-2026-11-13-01"
+      ],
+      "patternRefs": [
+        "PP-ENG-UI-001",
+        "skills/plotpickle-surface-library/references/registry.v1.json",
+        "skills/plotpickle-truth-gate/references/backend-enforcement-contract.v1.md"
+      ],
+      "inventionRefs": [],
+      "patentFilingRefs": [],
+      "checks": {
+        "unit": true,
+        "integration": false,
+        "preservation": true
+      },
+      "sourceFingerprint": "8565fad08d77848048176a86d1f25f7d0c804180d3b8c02ac5e43c60b1ee07ff",
+      "ownerReleaseApproval": "2026-11-21 owner instruction: yes, fix and build into existing private plugin; not authorization for Site production deployment",
+      "rollbackRef": "pluginrel_6b0137107ef0819193621098fde67905",
+      "deploymentVerified": false,
+      "evidence": "Synthetic offline preflight/postflight tests passed; existing App config, branding, HOME and media untouched. Live MCP importer, server-side visual gate and native PPF writeback not verified.",
+      "recordDigest": "2674bdb4d4da1051bfad1eb9dbb39d9bc96c2933c48f8ea56dd6f19bec3dbd67"
+    },
+    {
+      "version": "2.0.44",
+      "state": "TESTED",
+      "change": "Per-user approval truth and bulk-shot recovery gate; separately record authorization, original bytes, native Save/Lock and Studio imports; no Site or MCP server write code changes",
+      "surfaceLockRefs": [
+        "PP-SKIN-V2-HOME-LOCK-2026-11-13-01"
+      ],
+      "patternRefs": [
+        "PP-ENG-UI-001",
+        "skills/plotpickle-approval-truth/SKILL.md",
+        "skills/plotpickle-approval-truth/references/hosted-save-lock-contract.md"
+      ],
+      "inventionRefs": [],
+      "patentFilingRefs": [],
+      "checks": {
+        "unit": true,
+        "integration": false,
+        "preservation": true
+      },
+      "sourceFingerprint": "ed83d377b43103951e5c02e16dabe4cd95675597891531009f0ddd356522fc82",
+      "ownerReleaseApproval": "2026-11-21 owner request to continue reconciliation and establish truthful procedures for subsequent plugin users; does not authorize or verify hosted Site/MCP deployment",
+      "rollbackRef": "pluginrel_6b01d640c86c81918faabdcf7eec1a10",
+      "deploymentVerified": false,
+      "evidence": "Offline reconciliation tests: 5/5 PASS; Afterglow synthetic-plus-historical ledger correctly reports 200 authorized, 169 historical original positions, 31 unresolved, zero native locks verified. No user assets in package. Hosted storage writes blocked; pending separate server fix.",
+      "recordDigest": "1e31b60b3948c299cf13c7e719d08ae6170ee584069fc84f97969f4d7d0736de"
+    }
+  ]
+}

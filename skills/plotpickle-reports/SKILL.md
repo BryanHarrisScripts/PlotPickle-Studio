@@ -1,6 +1,6 @@
 ---
 name: plotpickle-reports
-description: Use for PlotPickle Reports: project, story, characters, scenes, dialogue, production, feedback, connections, project-readiness, or printable/exportable story reports sourced from actual PPF records.
+description: "Use for PlotPickle Reports: project, story, characters, scenes, dialogue, production, feedback, connections, project-readiness, or printable/exportable story reports sourced from actual PPF records."
 ---
 
 # PlotPickle — Reports (v0.8.21)
@@ -29,3 +29,8 @@ Use standard ChatGPT document, spreadsheet or PDF creation tools if the user ask
 ## Validation
 
 Run `python3 scripts/test-reports.py` for structural and safety coverage; also check a real current PPF sample. A successful generated report is a **draft analytical projection**, not project canon, a saved report database or a completed production. Existing desktop Windows reports are references, not a live synchronized source.
+
+
+## Production > Handoff and asset completeness
+
+Route asset storage, transfer gaps, source/character/world review and readiness questions to `../plotpickle-assets/references/asset-handoff.md`. Generate a current scoped report with `../plotpickle-assets/scripts/asset-handoff.py`. Show transfer completeness separately from approval, Save/Lock and editor readiness. Read the newest actual receipts; historical bundled The Third Bell inventories are not live status. Explain each blocker and the exact shot/cue needing attention. Unknown visual continuity requires review; do not invent a wrong-character diagnosis from a file hash.

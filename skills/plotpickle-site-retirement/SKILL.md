@@ -1,0 +1,28 @@
+---
+name: plotpickle-site-retirement
+description: Use for safe migration of PlotPickle Studio Site-backed MCP App to independent production hosting behind the existing single PlotPickle ChatGPT plugin, with project data preservation and acceptance-tested Site retirement.
+---
+
+# PlotPickle — migrate Site backend, do not duplicate product
+
+Product decision: one public-facing PlotPickle plugin guided by Elara inside ChatGPT, with embedded HOME, Storyboard and six-track Review/Editor MCP App views. The owner wishes eventually to RETIRE the current `plotpickle-studio.avairis.chatgpt.site` website and its Site-generated plugin registration, not merely hide its listing. Keep the user-facing plugin ID `plugins_6aedd4f5ac1481919653cf6110d565ba` and current skills, prompts, icons and REEL/ONCE. Support must have no mandatory Windows app, second plugin or separate Site visit.
+
+**This skill only ships reference adapter code and a migration contract. It does NOT migrate or host the Site server, App view, authentication, storage, or private project data.** The current creator install still depends on `.app.json` App `asdk_app_sites_fe9cce49dbf48191922f7373df80c6fa`. Do not delete or disconnect that Site while it remains the live backing service. Do not substitute the Site's browser URL for a verified independent MCP endpoint. No change to user-approved PPF, original media or editor draft is authorized.
+
+## Safe destination architecture
+
+1. In ChatGPT Work, inspect/export/snapshot the EXISTING Site source, tool definitions, UI assets, database/object store, private owner/account mapping and deployment revision. Site project source is not part of this plugin package. Verify data export counts and hashes, including all account-specific records. Record backups and restore steps before touching prod.
+2. Identify supported production hosting for a real remote HTTPS streamable MCP endpoint (plus MCP App UI assets) independent of the current Site. No unverified endpoint URLs, credentials or provider-billing assumption. Host must be available to all eligible users with per-account authenticated session mapping and authorized Library file access where supported. Use versioned data migration: schema parity, export/import, independent readback and rollback.
+3. Preserve existing tools/semantics `open_studio_home`, `open_studio_review_editor`, `studio_get_state`, `studio_get_image`, `studio_apply_action`, `studio_import_project`, `prepare_fal_library_import`, and `check_transfer_connection`. Support six tracks (video, dialogue, action, foley, ambience, music), 24fps timing, PPF SHA/revisions, locks vs review decisions, independent saved-draft readback, and source media originals.
+4. Adapt the reference scripts `scripts/project-bridge.mjs`, `scripts/project-bridge.test.mjs` and `references/project-bridge-contract.v1.json` to the actual hosting runtime. These 18 tests use FAKE Library and storage adapters; new live host tests are mandatory. Implement authenticated project selection and guarded batch review. Always obtain actor identity from trusted host claims, never from request fields. If actual first-party Library grant is unavailable, return `LIBRARY_CONNECTOR_UNAVAILABLE` and do not invent project picks or project-wide loads. Canonical folders may be read per-actor only; never embed the creator's registry or story contents in the public plugin.
+5. Stage the replacement MCP/UI service and data store in parallel, preserve the original Site as an independent rollback. Do not switch the main plugin until the replacement App/endpoint and its authentication are verified. Plugin Creator updates use guarded expected release and preserve existing manifest metadata/prompts; public submission needs a verified remote `mcp.json` endpoint, not solely the current private `.app.json`.
+6. Test second-account installation, actor isolation and no second-plugin requirement. Run source-hash and 24fps editor parity, 25-shot navigation, Save/Lock truth separation and atomic batch persistence readback. Do not make a paid fal/Suno request, delete original media, edit native PPF or deactivate old hosting in an acceptance test.
+7. Cut over only after owner-approved proof, independent readback and documented rollback; observe production for a verification interval. Retire the Site-generated registration and the old Site ONLY after establishing through supported vendor controls that it no longer owns active App, storage or users. A personal duplicate plugin being installed once by the creator is not public acceptance.
+
+## PPF and editor truths
+
+Source-lock readback is separate from Studio's sidecar review decisions. `Keep` is not native PPF Save/Lock; `Redo` is not paid generation; `Discard` does not destroy sources; locked-source changes require explicitly authorized unlock. Any requested writing must use version guards and server trust. `studio_apply_action(approve-lock)` in the legacy service cannot be inferred to mean a native ChatGPT Library PPF writeback. Native Library PPF writeback and original fal-to-Library transfer remain separate acceptance gates.
+
+## Failure/stop conditions
+
+Fail closed on unknown current project SHA, missing source bytes, fake or guessed user IDs, missing Library permission, missing live auth, stale draft/PPF revisions, cross-account leakage, unavailable restored snapshot or unverified portable remote MCP endpoint. Preserve the prior Site and old App binding until all migration checks are green. Never present reference integration as deployed or suggest that deleting a Site-generated plugin automatically migrates its app and data.

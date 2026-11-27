@@ -255,7 +255,7 @@ def args_parser(argv=None):
 def main(argv=None):
     try:
         a=args_parser(argv)
-        if a.shot and (a.block is None or a.mini is None):err('shot requires block and mini')
+        if getattr(a,'shot',None) and (a.block is None or a.mini is None):err('shot requires block and mini')
         wf=native()
         if a.operation=='audit':
             p,_=wf.pinned(a);result={'status':'read-only','readiness':audit(p,Path(a.project).resolve().parent,a.block,a.mini)}
@@ -272,7 +272,7 @@ def main(argv=None):
                     err('replacement requires a currently unlocked, explicitly selected image')
             with tempfile.TemporaryDirectory(prefix='plotpickle-new-shot-') as tmp:
                 stage=Path(tmp)/'attached'
-                wf.attach(SimpleNamespace(**vars(a),out=str(stage),replace=a.operation=='replace-unlocked'))
+                wf.attach(SimpleNamespace(**{**vars(a), 'out':str(stage), 'replace':a.operation=='replace-unlocked'}))
                 old=stage/'project.ppf.json';i=wf.identity(str(old))
                 next_a=SimpleNamespace(project=str(old),project_id=i['id'],revision=i['revision'],sha256=i['sha256'],
                      out=a.out,block=a.block,mini=a.mini,shot=a.shot)

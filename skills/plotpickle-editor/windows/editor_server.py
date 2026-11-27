@@ -17,13 +17,13 @@ def default_media_root():
     override=os.environ.get('PLOTPICKLE_EDITOR_ROOT')
     if override:
         return pathlib.Path(override).expanduser()
-    legacy=pathlib.Path.home()/'Videos'/'PlotPickle'/'The Third Bell'/'Editor'
+    legacy=pathlib.Path.home()/'Videos'/'PlotPickle'/'Untitled Film'/'Editor'
     if (legacy/'editor-draft.json').is_file():
         return legacy
     local=os.environ.get('LOCALAPPDATA')
     if local:
-        return pathlib.Path(local)/'PlotPickle'/'Projects'/'The Third Bell'/'Editor'
-    return pathlib.Path.home()/'PlotPickle'/'Projects'/'The Third Bell'/'Editor'
+        return pathlib.Path(local)/'PlotPickle'/'Projects'/'Untitled Film'/'Editor'
+    return pathlib.Path.home()/'PlotPickle'/'Projects'/'Untitled Film'/'Editor'
 MAX_UPLOAD=32*1024*1024
 MAX_VIDEO=1024*1024*1024
 MEDIA_ID=re.compile(r'^[a-zA-Z0-9_-]{1,64}$')

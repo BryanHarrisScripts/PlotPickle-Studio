@@ -1,8 +1,13 @@
 ---
 name: plotpickle-review
 version: 0.8.38
-description: Review exact source-backed PlotPickle storyboard image candidates in the approved Skin V1 Image Review presentation, with honest guarded Save/Lock/Unlock support.
+description: "Review exact source-backed PlotPickle storyboard image candidates in the approved Skin V1 Image Review presentation, with honest guarded Save/Lock/Unlock support."
 ---
+## Live Review / Editor — v0.8.48
+
+For the live review/editor interface, use `../plotpickle-review/references/live-review-editor.md` before legacy prototype guidance below. The deployed existing PlotPickle Transfer app now serves a real MCP App and signed-in `/studio` page with private per-user workspaces, backed by server-persisted Studio drafts. Do not describe it as a native Library PPF writer. Opening does not approve anything. When the new tools have not refreshed in this chat, link the authenticated workspace and report host tool availability separately.
+
+
 # Image Review — published Skin V1
 
 **Presentation:** render Image Review strictly from `../plotpickle-skin-v1/references/skin-v1.json` → `fixedSurfaceLayouts.IMAGE_REVIEW`. Reuse the approved shared matte-black PLOTPICKLE STUDIO header, breadcrumb, pinned source bar, real selected shot image/candidate distinctions, separate Human Approved / PPF Saved / PPF Locked / Media Verified rows, Script/Prompt/Continuity/Audit tabs and clear read-only/operation footer. The approved Save/Lock transaction *design* is in `../plotpickle-skin-v1/references/save-lock-transaction.v1.json`. No other unauthorised operation buttons or invented persistent layout.
@@ -16,3 +21,13 @@ Provider credit-consuming actions require per-job explicit approval and current 
 ## Mobile layout (approved v0.8.38)
 
 For phone-sized response, render `../plotpickle-skin-v1/references/skin-v1.json` -> `fixedSurfaceLayouts.MOBILE_STORYBOARD_REVIEW`: a single vertical, touch-friendly presentation retaining the 5×5 25-slot grid, four Mini selectors, selected shot's actual source image, source inspector, 4 independent status rows and action placements. Horizontal/swipe tabs must remain legible. The older sidebar screenshot is appearance guidance, never a current hosted session or verified source. Unavailable backend writes mean disabled controls or conversational steps, not fake success. When actual five-page graphic-novel output exists in the authorized story Library, present a separate read-only reader link without mislabeling the panels as PPF-locked shot images.
+
+
+## Sequential review
+
+Offer Previous / Next, Approve and Lock, Flag for Change and Unlock using the existing layout and four independent statuses. Follow `../plotpickle-approval/SKILL.md` for actual actions, then refresh the asset handoff report via `../plotpickle-assets/references/asset-handoff.md`. Conversation navigation does not imply a permanent live UI; only a verified guarded writer can change Save/Lock.
+
+
+## HOME and conversational intake (v0.8.48)
+
+Open existing projects through HOME → ChatGPT Library, using the current selection and real linked bytes. Do not request manual PPF/WebP uploads in the review/editor surface. A PPF or screenplay dropped directly into chat goes to Elara for inspection and the existing source-backed development workflow. Review offers Approve and Lock, Unlock and Resubmit to Elara. Resubmit is a saved source-pinned revision request, never proof of paid generation. See `../plotpickle-review/references/live-review-editor.md` for host bridge limits.

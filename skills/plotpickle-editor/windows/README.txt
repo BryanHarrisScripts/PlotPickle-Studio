@@ -12,14 +12,14 @@ QUICK START
 5. Edit the timeline and click Render Draft for a frame-verified 24fps MP4.
 
 DATA LOCATION (unchanged)
-Default: %LOCALAPPDATA%\PlotPickle\Projects\The Third Bell\Editor
+Default: %LOCALAPPDATA%\PlotPickle\Projects\Untitled Film\Editor
 This avoids assuming C:\Users\<name>\Videos actually exists. Windows may redirect Videos.
-Existing old drafts at %USERPROFILE%\Videos\PlotPickle\The Third Bell\Editor
+Existing old drafts at %USERPROFILE%\Videos\PlotPickle\Untitled Film\Editor
 are reused automatically if they contain editor-draft.json.
 
 To use a different local drive such as G:, before launching set a user environment
 variable named PLOTPICKLE_EDITOR_ROOT to a writable full path, e.g.
-G:\PlotPickle-Media\The Third Bell\Editor
+G:\PlotPickle-Media\Untitled Film\Editor
 You may also edit the DATA_ROOT setting in the .cmd file.
 
 TROUBLESHOOTING

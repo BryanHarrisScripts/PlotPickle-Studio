@@ -1,0 +1,5 @@
+# LIBRARY / YOUR STORIES — owner-locked Skin V2
+
+Breadcrumb HOME / LIBRARY / YOUR STORIES. Library is the **fourth top-level HOME card**, not a quiet-only link. Read the signed-in `studio_list_projects` and current `studio_get_state` each time. Group (A) imported, saved private Studio projects that may be checked/opened and (B) unverified source references requiring source PPF/media validation. NEVER merge those statuses, invent projects, or claim an exhaustive direct scan of ChatGPT Library.
+
+Show project title, source revision (if supplied), status, availability of verified images with scope caveat, and active/not loaded. Only button to open an exact saved project submits the explicit selected project intent; then fresh `studio_check_project`, current revision `studio_get_state`, guarded `studio_open_project`, and readback. Display an optional `https://chatgpt.com/library` link; file intake occurs in chat, not in a fake Site picker. Empty result must say no saved Studio projects, not account failure or leaked state. Template: `../../templates/LIBRARY_YOUR_STORIES.dil.md`.

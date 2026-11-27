@@ -17,7 +17,7 @@ import editor_core as core
 import editor_server as server
 
 HERE=pathlib.Path(__file__).resolve().parent
-SEED=HERE/'the-third-bell-seed.json'
+SEED=HERE/'fictional-editor-seed.json'
 
 def wait(app):
     for _ in range(200):

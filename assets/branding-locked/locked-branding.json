@@ -1,0 +1,14 @@
+{
+  "schema": "plotpickle.locked-branding.v1",
+  "approvedBy": "Bryan Harris",
+  "approvalDate": "2026-11-12",
+  "approvalBasis": "Explicit creator lock of exact artwork; no new approval required",
+  "artworks": {
+    "composer-icon.png": "bc9906956d1b9f64559b17a2b884f3df1122df5ce4e4965a447c98147196184c",
+    "studio-logo-approved.png": "20137895ab5eccad1619b4d02a904635ae1c55637035eafbef7f8c1fd79cd57f"
+  },
+  "layout": "Original transparent 16:9 lockup: cyan-purple filmstrip P, smaller STUDIO inline, much smaller PlotPickle above STUDIO",
+  "website": "https://studio.plotpickle.com/home",
+  "scope": "Exact logo and composer icon artwork only; website wording is not separately locked",
+  "appListing": "Pending app-owned configuration access; package or website publication alone does not update the app listing"
+}

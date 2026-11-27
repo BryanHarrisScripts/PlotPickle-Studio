@@ -12,8 +12,8 @@ class TestEditing(unittest.TestCase):
                 os.environ.pop('PLOTPICKLE_EDITOR_ROOT',None)
                 root=server.default_media_root()
                 # The default must not rely on creating a Windows Videos folder.
-                if not (pathlib.Path.home()/'Videos'/'PlotPickle'/'The Third Bell'/'Editor'/'editor-draft.json').exists():
-                    self.assertEqual(root, pathlib.Path(td)/'PlotPickle'/'Projects'/'The Third Bell'/'Editor')
+                if not (pathlib.Path.home()/'Videos'/'PlotPickle'/'Untitled Film'/'Editor'/'editor-draft.json').exists():
+                    self.assertEqual(root, pathlib.Path(td)/'PlotPickle'/'Projects'/'Untitled Film'/'Editor')
                 ed=server.Editor(root)
                 self.assertTrue(ed.project_path.exists())
     def test_custom_root_override(self):

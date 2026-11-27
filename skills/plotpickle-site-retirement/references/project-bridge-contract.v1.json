@@ -1,0 +1,18 @@
+{
+  "schema": "plotpickle.studio-library-bridge-contract.v1",
+  "status": "reference-tested-not-deployed",
+  "libraryRoot": "/PlotPickle/Stories",
+  "registryPath": "/PlotPickle/Stories/PP-Project-Registry.v1.json",
+  "physicalStoryFolderPrefix": "PP - ",
+  "serverIdentity": "Authenticated actor derived by server host; never client supplied",
+  "endpointsToDeploy": [
+    {"name": "studio_list_library_projects", "request": {}, "readOnly": true, "response": "current authenticated project entries with real Library paths and availability"},
+    {"name": "studio_load_library_project", "request": {"projectKey": "pp-the-third-bell", "expectedStudioRevision": 0}, "readOnly": false, "response": "verified project media bin plus source-pin and saved Studio snapshot readback; preserve prior workspace"},
+    {"name": "studio_prepare_review_batch", "request": {"decisions": []}, "readOnly": true, "response": "source-linked proposed actions, exact media hashes, per-shot conflicts and costs"},
+    {"name": "studio_save_review_batch", "request": {"expectedStudioRevision": 0, "decisions": []}, "readOnly": false, "response": "new Studio sidecar revision and independent readback receipt; no PPF or media mutation"}
+  ],
+  "statusDimensions": ["humanApproved", "ppfSaved", "ppfLocked", "mediaVerified", "studioReviewDecision"],
+  "batchChoices": ["unreviewed", "keep", "redo", "discard"],
+  "safety": ["Exact source ID/revision/SHA pin", "Private actor-only Library enumeration", "Validate candidate asset SHA", "No implicit Save/Lock", "Recoverable archive for Discard", "Explicit provider spending consent for Redo", "Optimistic Studio revision CAS", "Readback receipt and immutable audit"],
+  "acceptance": {"adapterTestsPassed": 18, "deployedSiteEndpointsVerified": false, "liveLibraryGrantVerified": false, "pluginUpdated": false}
+}

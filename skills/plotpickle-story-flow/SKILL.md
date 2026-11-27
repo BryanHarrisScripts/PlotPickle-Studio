@@ -1,6 +1,6 @@
 ---
 name: plotpickle-story-flow
-description: Continue PlotPickle Script → Storyboard → Visuals → Produce on demand with source-verifiable readiness, not an autonomous factory.
+description: "Continue PlotPickle Script → Storyboard → Visuals → Produce on demand with source-verifiable readiness, not an autonomous factory."
 ---
 
 # PlotPickle — Story Flow / Continue Film (v0.8.25)
@@ -21,3 +21,12 @@ PlotPickle is an on-demand creative production system. Preserve four HOME choice
 **Produce → Review:** actual verified MP4/animatic, duration, frame rate, sound provenance and hash; report draft vs accepted master accurately. A Motion Span represents 1–5 consecutive editorial 3-second positions, or 72–360 frames at 24 fps; fal's native duration may differ.
 
 Run `python3 scripts/test-story-flow.py` for the bounded readiness helper. `scripts/story-flow.py --project story.ppf.json --block 1 --mini 1 --format markdown` reads metadata only; provide `--assets-root` to hash-check actual portable image bytes. Do not promise a completed provider integration, saved PPF, paid clip or approved master from a successful offline test.
+
+
+## Reconcile each handoff
+
+At generation completion, after transfer or approved image changes, and before Produce, use `../plotpickle-assets/references/asset-handoff.md`. Reconcile provider listing coverage, original Library bytes, exact source image and approval/project state; return a scoped handoff report with actionable gaps. Run this during the current authorized turn; no recurring automation is installed. Keep existing paid-generation approval rules.
+
+## Mandatory image truth gate (v2.0.43)
+
+The Storyboard → Visuals step MUST read `../plotpickle-image-production/SKILL.md` and `../plotpickle-truth-gate/SKILL.md` before continuing a shot or five-shot batch. First reopen actual screenplay/PPF, approved reference image bytes and preceding shot; run source/shot preflight. Never combine five requested shots into one generated storyboard image. Inspect each returned original for identity, action, vehicle, location, single-frame composition and source alignment before listing it as usable. A drifted attempt never advances the continuation pointer; a Library filename is never a native PPF Lock receipt. This is production logic only; it changes no approved HOME or Surface Library layout.

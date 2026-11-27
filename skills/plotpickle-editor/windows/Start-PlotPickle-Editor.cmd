@@ -2,9 +2,9 @@
 setlocal EnableExtensions
 rem PlotPickle Creative Editor - Windows launcher (v0.8.30)
 rem Use a user-writable local root; preserve an existing legacy draft if found.
-set "DATA_ROOT=%LOCALAPPDATA%\PlotPickle\Projects\The Third Bell\Editor"
-if not defined LOCALAPPDATA set "DATA_ROOT=%USERPROFILE%\AppData\Local\PlotPickle\Projects\The Third Bell\Editor"
-if exist "%USERPROFILE%\Videos\PlotPickle\The Third Bell\Editor\editor-draft.json" set "DATA_ROOT=%USERPROFILE%\Videos\PlotPickle\The Third Bell\Editor"
+set "DATA_ROOT=%LOCALAPPDATA%\PlotPickle\Projects\Untitled Film\Editor"
+if not defined LOCALAPPDATA set "DATA_ROOT=%USERPROFILE%\AppData\Local\PlotPickle\Projects\Untitled Film\Editor"
+if exist "%USERPROFILE%\Videos\PlotPickle\Untitled Film\Editor\editor-draft.json" set "DATA_ROOT=%USERPROFILE%\Videos\PlotPickle\Untitled Film\Editor"
 if defined PLOTPICKLE_EDITOR_ROOT set "DATA_ROOT=%PLOTPICKLE_EDITOR_ROOT%"
 
 rem Pick Python 3.11 or newer, not the default 'py -3' (which may be Python 3.8).
@@ -46,7 +46,7 @@ if not exist "%DATA_ROOT%\." (
   exit /b 1
 )
 echo [PlotPickle] Using media folder: %DATA_ROOT%
-%PYTHON_CMD% "%~dp0editor_server.py" --root "%DATA_ROOT%" --seed "%~dp0the-third-bell-seed.json"
+%PYTHON_CMD% "%~dp0editor_server.py" --root "%DATA_ROOT%"
 if errorlevel 1 (
   echo [PlotPickle] Startup failed. See the error above.
   pause

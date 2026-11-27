@@ -1,0 +1,58 @@
+{
+  "schema": "plotpickle.editor-seed.v1",
+  "title": "Fictional Test Film",
+  "source": {
+    "projectId": "fictional-test-film",
+    "revision": 1,
+    "rawSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  },
+  "script": [
+    {
+      "id": "test-card",
+      "text": "A colored test card appears.",
+      "shot": 1
+    }
+  ],
+  "media": [
+    {
+      "id": "shot01",
+      "url": "https://v3b.fal.media/files/b/fictional/fixture.mp4",
+      "requestId": "fictional-request"
+    }
+  ],
+  "clips": [
+    {
+      "id": "video-01",
+      "track": "video",
+      "label": "Fictional video test",
+      "startFrame": 0,
+      "durationFrames": 72,
+      "mediaId": "shot01",
+      "sourceShot": 1,
+      "note": "Synthetic fixture only",
+      "gainDb": 0
+    },
+    {
+      "id": "ambience-01",
+      "track": "ambience",
+      "label": "Fictional ambience test",
+      "startFrame": 0,
+      "durationFrames": 72,
+      "mediaId": null,
+      "sourceShot": 1,
+      "note": "Synthetic fixture only",
+      "gainDb": 0
+    },
+    {
+      "id": "foley-01",
+      "track": "foley",
+      "label": "Fictional foley test",
+      "startFrame": 0,
+      "durationFrames": 72,
+      "mediaId": null,
+      "sourceShot": 1,
+      "note": "Synthetic fixture only",
+      "gainDb": 0
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+# Live Chat Review v2.0.33 — implementation contract
+
+**Identity and host:** Same PlotPickle Studio plugin/App/MCP binding. ChatGPT conversation controls the UI. Collapse, Expand, Shot 01–25, Page 1–5, and local inspector tabs are front-end state changes and must not invoke a model, mutate a project, or spend credits.
+
+**Read-only hydration:** Authenticate with `studio_get_state`. Verify source ID, revision, PPF SHA, loaded 25 shots, and actual media SHA. Optional `studio_get_image(shot)` returns exact verified WebP bytes in `dataUrl` with SHA; verify against the registered shot. Chat-side Library access requires user-scoped file authorization and independent hash validation. Do not put private WebP bytes or account data in the distributed plugin. Keep derived thumbnails within the current conversation or user-authorized private storage, not a public CDN.
+
+**Inspector:** Shot title, source passage, source text, saved BEAT narrative purpose/visual action/camera/sound/continuity, precise motion assignment, and a statuses panel. Distinguish: PPF saved/locked, source lock approval, explicit user-message approval, Studio review saved/locked, image-byte verified, editor-linkage and render status. A source-native `authoredBeats: []` and a saved Studio BEAT are not inconsistent.
+
+**Actions:** Read-only reviews are local. Clicking `Review with Elara` asks for fresh readback. Clicking Approve/Lock/Unlock/Resubmit/Regenerate/Undo is a full new turn with selected project ID + shot + intent. Elara must perform a current source/revision/asset hash check before invoking `studio_apply_action`; the tool performs atomic version guards and independent write readback. If an edit conflicts or an action is already locked, stop and report. Locking Studio media includes human approval, but is not a native PPF change. Request Regeneration never authorizes a paid job.
+
+**Editor:** Six tracks are Video, Dialogue, Action, Foley, Ambience, Music. Timeline operations require current revision, exact clip source and explicit edit. An attached current render remains an editorial draft, not an approved master. Audio candidate presence and original media accessibility are separately verified.
+
+**Accessibility/performance:** Prefer optimized, source-verified <=1000 px thumbnails (not substituted images), with a one-shot-at-a-time carousel and 25-slot navigation index. The control must remain operable via tap, Next/Previous and keyboard; swipe available only where host supports it. Collapse preserves selected shot for the current message, but transient client state need not survive starting a new chat turn.
+
+**Acceptance gates:** (1) one plugin identity; (2) creator-scoped project loaded by exact catalog/fingerprint; (3) all media bytes/PPF hashes verified; (4) BEAT per shot readback; (5) chat card actual artwork and instant navigation; (6) guarded write tested only after creator approval; (7) render verification; (8) live iOS host acceptance; (9) optional Site UI parity. Report each gate separately. No silent public rollout.

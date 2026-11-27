@@ -1,0 +1,136 @@
+{
+  "schema": "plotpickle.skin.v2",
+  "skinVersion": "2.0.0",
+  "name": "Skin V2 — Interactive In-Chat Design",
+  "pluginRelease": "2.0.39",
+  "approvalDate": "2026-11-13",
+  "approvalStatus": "OWNER APPROVED AND LOCKED",
+  "approvalId": "PP-SKIN-V2-HOME-LOCK-2026-11-13-01",
+  "precedence": "Supersedes Skin V1 HOME navigation/order and quiet Library placement only; all nonconflicting Skin V1 details and source-truth constraints remain in force.",
+  "entryAliases": [
+    "Home",
+    "Studio",
+    "Open Studio",
+    "Open Studio HOME",
+    "/home"
+  ],
+  "entryMode": "One interactive in-conversation HOME, one Elara, one authenticated PlotPickle engine; no default side panel, tab, website, Work or extra sign-in",
+  "theme": {
+    "background": "matte-black",
+    "foreground": "off-white",
+    "accent": "restrained-purple",
+    "spacingBasePx": 4,
+    "logo": "assets/branding-locked/studio-logo-approved.png",
+    "logoLocked": true
+  },
+  "sitemap": {
+    "name": "PlotPickle Studio — Plugin Surface Sitemap",
+    "home": [
+      {
+        "number": 1,
+        "id": "MEET_ELARA",
+        "label": "Meet Elara",
+        "description": "In-chat guide, ideas and collaboration"
+      },
+      {
+        "number": 2,
+        "id": "LEARN",
+        "label": "Learn",
+        "description": "81 lessons across 12 topics"
+      },
+      {
+        "number": 3,
+        "id": "STORYBOARD",
+        "label": "Storyboard",
+        "description": "REEL and ONCE paths through one PPF story engine"
+      },
+      {
+        "number": 4,
+        "id": "LIBRARY_YOUR_STORIES",
+        "label": "Library / Your Stories",
+        "description": "Saved private Studio catalogue and clearly distinguished unverified source references"
+      },
+      {
+        "number": 5,
+        "id": "CONNECTED_SERVICES",
+        "label": "Connected Services",
+        "description": "Status and integrations with real connection checks"
+      }
+    ],
+    "selectionCount": 5,
+    "libraryPosition": 4,
+    "libraryIsTopLevelSelectable": true,
+    "preserveSecondaryLibraryLink": "https://chatgpt.com/library"
+  },
+  "fixedSurfaceLayouts": {
+    "HOME": {
+      "heading": "What will you create today?",
+      "subtitle": "Your story. Your decisions. Your cut.",
+      "order": [
+        "brand-header",
+        "home-breadcrumb",
+        "heading",
+        "five-primary-selectable-cards",
+        "selected-workspace-detail",
+        "quiet-continue-creating-if-current-source-verified",
+        "quiet-status-footer"
+      ],
+      "cardOrder": [
+        "Meet Elara",
+        "Learn",
+        "Storyboard",
+        "Library / Your Stories",
+        "Connected Services"
+      ],
+      "wideColumns": 2,
+      "phoneColumns": 1,
+      "cardFivePresentation": "Final tile may span both desktop columns; remains item 5 and equally selectable",
+      "oneSelectedWorkspace": true,
+      "entryIsReadOnly": true,
+      "continueCreating": "Only if source actually loaded and verified",
+      "sourceTruth": "Never pretend current Library-wide browsing or native PPF writeback exists"
+    },
+    "LIBRARY_YOUR_STORIES": {
+      "heading": "Library / Your Stories",
+      "breadcrumb": "HOME / LIBRARY / YOUR STORIES",
+      "source": "studio_list_projects authenticated private catalogue and source-reference registry",
+      "order": [
+        "back-and-breadcrumb",
+        "heading",
+        "saved-private-studio-catalogue",
+        "distinct-unverified-library-source-references",
+        "optional-chatgpt-library-link",
+        "selection-without-implicit-opening",
+        "truth-footer"
+      ],
+      "readOnlyUntilProjectExplicitlySelected": true,
+      "selectionIsNotApproval": true,
+      "verifiedVersusReferenceOnlyMustBeDistinct": true,
+      "noAutomaticLibraryEnumeration": true,
+      "noNativeLibraryPpfWriteback": true
+    }
+  },
+  "inheritFrom": "../plotpickle-skin-v1/references/skin-v1.json",
+  "inheritedUnchanged": [
+    "STORYBOARD",
+    "STORY_MAP",
+    "MINI_BLOCK_SHOT_GRID",
+    "IMAGE_REVIEW",
+    "REEL_WORKSPACE_ENTRY",
+    "MOBILE_STORYBOARD_REVIEW",
+    "SAVE_LOCK_TRANSACTIONS",
+    "five-page reading structure"
+  ],
+  "truth": {
+    "neverAutoOpenOrSwitchProject": true,
+    "neverAutoApprove": true,
+    "neverSpendOnView": true,
+    "writesRequireExactVersionAndReadback": true,
+    "doNotBundlePrivateStoryData": true
+  },
+  "lock": {
+    "changeRequiresExplicitOwnerApproval": true,
+    "revisionsRequireNewVersion": true,
+    "implementationAndDesktopPhoneAcceptanceStillSeparate": true
+  }
+}
