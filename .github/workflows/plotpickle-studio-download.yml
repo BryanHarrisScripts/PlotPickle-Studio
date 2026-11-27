@@ -1,41 +1,26 @@
-name: Build PlotPickle Studio download
+name: Publish PlotPickle Studio v2.0.58
 on:
-  pull_request:
-    paths:
-      - '.github/workflows/plotpickle-studio-download.yml'
-      - '.app.json'
-      - '.mcp.json'
-      - '.codex-plugin/plugin.json'
-      - 'plugin.json'
-      - 'skills/**'
-      - 'assets/**'
-      - 'docs/pitch-edit-standard-v1.md'
-      - 'LICENSE'
-      - 'scripts/package_studio_download.py'
-  push:
-    tags:
-      - 'v*.*.*'
   workflow_dispatch:
-
 permissions:
-  contents: read
-
+  actions: read
+  contents: write
 jobs:
-  build:
+  publish:
+    if: github.ref == 'refs/heads/release/publish-studio-v2.0.58'
     runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
     steps:
-      - uses: actions/checkout@v4
-      - name: Verify the connection and build the ZIP
+      - name: Verify and publish the original build
         run: |
-          if [[ "$GITHUB_REF_TYPE" == "tag" ]]; then
-            python3 scripts/package_studio_download.py --check-live --tag "$GITHUB_REF_NAME"
-          else
-            python3 scripts/package_studio_download.py --check-live
-          fi
-      - uses: actions/upload-artifact@v4
-        with:
-          name: plotpickle-studio-download
-          path: |
-            dist/PlotPickle-Studio-*.zip
-            dist/SHA256SUMS.txt
-          if-no-files-found: error
+          gh run download 46056473411 --repo "$GITHUB_REPOSITORY" --name plotpickle-studio-download
+          sha256sum -c SHA256SUMS.txt
+          printf '%s  %s\n' d454987e353a7b349e4c372b131c837febe21bce5989d5430d9da3144102ef5f PlotPickle-Studio-2.0.58.zip | sha256sum -c
+          cat > release-notes.md <<'NOTES'
+          PlotPickle Studio HOME now uses a branded in-chat layout with the approved logo, the same five choices and an optional link straight to Studio on the web. The package prefers clickable rows where ChatGPT supports them and accepts a reply by number or name. The embedded card panel opens on request.
+
+          The direct Studio MCP connection and OAuth settings carry over from v2.0.57. The GitHub package and checksum were verified. The new banner's rendering in ChatGPT is pending a device check.
+          NOTES
+          gh release create v2.0.58 PlotPickle-Studio-2.0.58.zip SHA256SUMS.txt \
+            --repo "$GITHUB_REPOSITORY" --target 177ab257707487d9cd1fc8bd1b7dbc434649781d --latest \
+            --title "PlotPickle Studio 2.0.58" --notes-file release-notes.md
