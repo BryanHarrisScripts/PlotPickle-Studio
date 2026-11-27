@@ -1,0 +1,43 @@
+<!-- Shared PlotPickle footer: standalone integration fragment.
+     Mount exactly once in the shared layout for /, /studio and /home.
+     The displayed version is the verified GitHub release, NOT a site deployment claim.
+     Once the deployed site, plugin and MCP versions are independently reconciled,
+     bind the common release label and release URL to the deployed manifest and
+     remove the "GitHub release" qualifier. Do not replace page or workspace data. -->
+<style>
+.pp-shared-footer {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 2.25rem 1rem 1.5rem;
+  border-top: 1px solid currentColor;
+  text-align: center;
+  font: inherit;
+  color: inherit;
+}
+.pp-shared-footer__brand { margin: 0 0 .4rem; font-size: 1.35rem; font-weight: 700; }
+.pp-shared-footer__tagline { margin: 0 0 1.25rem; }
+.pp-shared-footer nav { display: flex; justify-content: center; flex-wrap: wrap; gap: .3rem 1rem; margin: .5rem auto; }
+.pp-shared-footer a { color: inherit; text-decoration: underline; text-underline-offset: .2em; display: inline-block; padding: .45rem .15rem; }
+.pp-shared-footer a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+.pp-shared-footer__meta { margin: 1rem 0 0; font-size: .875rem; }
+.pp-shared-footer__version { margin: .25rem 0 0; font-size: .875rem; }
+</style>
+<footer class="pp-shared-footer" aria-label="PlotPickle Studio footer">
+  <p class="pp-shared-footer__brand">PlotPickle Studio</p>
+  <p class="pp-shared-footer__tagline">Your story. Your decisions. Your cut.</p>
+  <nav aria-label="PlotPickle navigation">
+    <a href="https://plotpickle.com/">Website</a>
+    <a href="https://plotpickle.avairis.chatgpt.site/studio">Open Studio</a>
+    <a href="https://plotpickle.avairis.chatgpt.site/home">Home</a>
+    <a href="https://github.com/BryanHarrisScripts/PlotPickle-Studio/releases">Download</a>
+    <a href="https://github.com/BryanHarrisScripts/PlotPickle-Studio">GitHub</a>
+  </nav>
+  <nav aria-label="Support and policies">
+    <a href="https://plotpickle.com/support/">Support</a>
+    <a href="https://plotpickle.com/privacy/">Privacy</a>
+    <a href="https://plotpickle.com/terms/">Terms</a>
+    <a href="https://plotpickle.com/legal/">Licence</a>
+  </nav>
+  <p class="pp-shared-footer__meta">© 2026 PlotPickle · Independent creative project</p>
+  <p class="pp-shared-footer__version">GitHub release v2.0.55 · <a href="https://github.com/BryanHarrisScripts/PlotPickle-Studio/releases/tag/v2.0.55">Release information</a></p>
+</footer>
