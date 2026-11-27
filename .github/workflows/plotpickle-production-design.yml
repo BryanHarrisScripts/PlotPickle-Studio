@@ -25,8 +25,10 @@ jobs:
       - name: Candidate image proof and review tests
         run: python3 skills/plotpickle-design/scripts/test-design-review.py
       - name: Package Plugin Creator overlay
+        if: github.ref_name == 'feature/production-design-review-v0.8.42'
         run: python3 scripts/pack-production-design-overlay.py
       - name: Upload versioned overlay
+        if: github.ref_name == 'feature/production-design-review-v0.8.42'
         uses: actions/upload-artifact@v4
         with:
           name: plotpickle-production-design-v0.8.42

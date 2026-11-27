@@ -13,13 +13,15 @@ Read `references/locked-interface-agreement-v1.1.md` and `../plotpickle-skin-v2/
 
 **Skin V2 HOME has exactly five selectable cards, in order:** 1 Meet Elara; 2 Learn; 3 Storyboard; 4 **Library / Your Stories**; 5 Connected Services. Approved and locked 2026-11-13 under `PP-SKIN-V2-HOME-LOCK-2026-11-13-01`. Skin V1 child Storyboard/Image Review rules survive; Editor layout is documented draft, not visually locked.
 
-Use host-supported real in-chat controls and local selections; project/review/edit actions require exact authorized tool calls, version/hash guards and readback. `open_chat_home` provides data, NOT a rendered UI. HOME entry is read-only. Never invoke legacy `open_studio_home`, `open_studio_surface` or `open_studio_review_editor` automatically; explicit fallback requests only.
+Use host-supported real in-chat controls and local selections; project/review/edit actions require exact authorized tool calls, version/hash guards and readback. A successful tool response by itself does not verify a rendered UI. HOME entry is read-only.
+
+For HOME requests made in a ChatGPT conversation, call `open_chat_home` first. It is the launcher for the inline HOME resource. Reserve `open_studio_home` for the sidebar or an explicitly requested panel. If ChatGPT shows “Couldn’t open PlotPickle”, or you only have a tool response or a numbered text list, report the panel as unconfirmed or failed as appropriate. Keep the text menu in the conversation as a fallback and never tell the user the interactive HOME opened without host or user confirmation.
 
 ## Intent → real authenticated source
 
 | Intent | Tool | Boundary |
 | --- | --- | --- |
-| HOME / Studio / aliases | Same Surface Library `HOME` view; optionally `open_chat_home`, `studio_get_core` | No project switch or write; returned data alone is not UI proof |
+| HOME / Studio / aliases | Call `open_chat_home` to launch the inline Surface Library `HOME` view | No project switch or write; returned data alone is not UI proof |
 | Library / Your Stories | `studio_list_projects` + `studio_get_state` | Saved catalogue vs unverified references; no live Library-wide scan |
 | Explicit Open Film | `studio_check_project`, `studio_get_state`, guarded `studio_open_project` and readback | Selection must be explicit; exact source/revision |
 | Learn | `studio_list_lessons`, `studio_get_lesson` | Real 81 lessons / 12 topics, no invented progress |

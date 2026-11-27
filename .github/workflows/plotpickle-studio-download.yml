@@ -1,0 +1,41 @@
+name: Build PlotPickle Studio download
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/plotpickle-studio-download.yml'
+      - '.app.json'
+      - '.mcp.json'
+      - '.codex-plugin/plugin.json'
+      - 'plugin.json'
+      - 'skills/**'
+      - 'assets/**'
+      - 'docs/pitch-edit-standard-v1.md'
+      - 'LICENSE'
+      - 'scripts/package_studio_download.py'
+  push:
+    tags:
+      - 'v*.*.*'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify the connection and build the ZIP
+        run: |
+          if [[ "$GITHUB_REF_TYPE" == "tag" ]]; then
+            python3 scripts/package_studio_download.py --check-live --tag "$GITHUB_REF_NAME"
+          else
+            python3 scripts/package_studio_download.py --check-live
+          fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: plotpickle-studio-download
+          path: |
+            dist/PlotPickle-Studio-*.zip
+            dist/SHA256SUMS.txt
+          if-no-files-found: error
