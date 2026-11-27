@@ -6,7 +6,9 @@
 
 **Your story. Your decisions. Your cut.**
 
-Open Technology · Shared Creativity · Human Ownership · Continuous Evolution
+**Personal ChatGPT plugin**
+
+PlotPickle Studio is distributed for personal use through ChatGPT’s **Plugins → Personal** area. Public marketplace distribution and an open-source release of the current plugin are outside the project’s plans. This public GitHub repository provides documentation and release history. Previously published material carries the licence identified with that material.
 
 PlotPickle Studio is a storytelling learning and creative development plugin for students, hobbyists and independent storytellers. Work with Elara, your creative collaborator, to learn the craft, experiment visually through trial and error, and develop a better story.
 
@@ -37,17 +39,22 @@ The architecture includes two complementary feedback loops: the creator learns t
   <img src="assets/plotpickle-developer-architecture.svg" alt="PlotPickle developer architecture: creative core, host adapters, AI infrastructure, optional tools and two feedback loops for human learning and reviewed system evolution" width="100%">
 </p>
 
-## Install
+## Install in ChatGPT
 
-Download **PlotPickle Studio** from [GitHub Releases](https://github.com/BryanHarrisScripts/PlotPickle-Studio/releases), and compare the ZIP against the SHA-256 checksum for that version. Versions using the direct Studio connection sign in through ChatGPT OAuth. The archived v2.0.55 ZIP uses a retired app binding. Choose a direct-connection release when it is available.
+1. Sign in to [ChatGPT](https://chatgpt.com/) with the account you want to use.
+2. Open **Plugins → Personal**. Under **Created by you**, select **PlotPickle Studio** if it is already listed.
+3. Select **Install plugin** or the **+** button if shown. If prompted to connect to Studio, review the permissions and follow the ChatGPT sign-in prompts.
+4. Start a conversation, type `@PlotPickle Studio`, select the plugin, and ask **Open Studio HOME**.
 
-Maintainers can build and check a release ZIP with `python3 scripts/package_studio_download.py --check-live`. The package's connection lives in [.mcp.json](.mcp.json); the build derives the portable `mcp.json` from it. See [RELEASES.md](RELEASES.md) for GitHub download verification.
+### Set up from a ZIP
 
-Adaptations to other AI platforms are welcome, but have not been tested.
+If PlotPickle Studio is missing from **Personal**, use a current PlotPickle Studio plugin ZIP made available for personal setup. Check [GitHub Releases](https://github.com/BryanHarrisScripts/PlotPickle-Studio/releases) for a release explicitly marked for personal installation and compare the ZIP’s SHA-256 checksum with the one supplied for that version. The archived v2.0.55 ZIP points to a retired Studio connection.
 
-## Contribute
+In ChatGPT, open **Plugins → Add** and start **Plugin Creator** if offered. Install Plugin Creator if prompted, attach the ZIP in its conversation, and ask it to create PlotPickle Studio as a personal plugin. Once it appears under **Personal**, follow the steps above to install and connect it. Setup depends on your account’s plugin permissions and access to the Studio connection.
 
-Ideas, improvements and independent adaptations are welcome. See [Contributing](CONTRIBUTING.md).
+[OpenAI’s plugin installation and setup instructions](https://help.openai.com/en/articles/20001256-plugins-in-chatgpt)
+
+For release packaging and verification, see [RELEASES.md](RELEASES.md).
 
 ## Licensing
 
@@ -55,6 +62,6 @@ Ideas, improvements and independent adaptations are welcome. See [Contributing](
 
 **[Shared Creativity](docs/licensing/SHARED-CREATIVITY.md)** — CC BY-NC-SA 4.0 for designated creative and educational works.
 
-These are our licensing direction for new releases. The applicable licence is identified with each release or work. User stories remain under their creators’ chosen terms.
+The licence supplied with each published file or release governs that material. User stories remain under their creators’ chosen terms.
 
 **The human remains the author.**
