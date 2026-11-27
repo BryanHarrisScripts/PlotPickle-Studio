@@ -47,7 +47,7 @@ The approved original logo file stays in the plugin at `assets/branding-locked/s
 
 ## Branded chat HOME
 
-Render this in the conversation for routine HOME requests and when an explicitly requested interactive panel fails. The approved hosted logo may be displayed where the host supports Markdown images. Keep the heading and link visible even when the image is unavailable. Use ordinary Markdown. The web link opens the Studio workspace and sits below the five chat choices.
+Render this in the conversation for routine HOME requests and when an explicitly requested interactive panel fails. The approved hosted logo may be displayed where the host supports Markdown images. Keep the heading and link visible even when the image is unavailable. When the host provides in-chat action rows, show the five choices as stacked clickable rows in the same order. Each row sends the existing in-chat navigation request for that choice, such as `PlotPickle Studio: Open Meet Elara`. Offer replies by number or name as well. Use the Markdown list below when those action rows are unavailable. The web link opens the Studio workspace and sits below the five chat choices.
 
 ```markdown
 ![PlotPickle Studio logo](https://plotpickle.avairis.chatgpt.site/assets/studio-logo-approved.png)
