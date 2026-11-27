@@ -1,6 +1,6 @@
 {
   "schema": "plotpickle.engineering.release-index.v1",
-  "currentVersion": "2.0.44",
+  "currentVersion": "2.0.58",
   "storagePolicy": {
     "customArchivesPerRelease": 0,
     "bundlePrivateProjectAssets": false,
@@ -86,6 +86,31 @@
       "deploymentVerified": false,
       "evidence": "Offline reconciliation tests: 5/5 PASS; Afterglow synthetic-plus-historical ledger correctly reports 200 authorized, 169 historical original positions, 31 unresolved, zero native locks verified. No user assets in package. Hosted storage writes blocked; pending separate server fix.",
       "recordDigest": "1e31b60b3948c299cf13c7e719d08ae6170ee584069fc84f97969f4d7d0736de"
+    },
+    {
+      "version": "2.0.58",
+      "state": "LOCKED",
+      "change": "Add branded chat HOME, keep clickable rows where supported and make the embedded card launcher opt-in",
+      "surfaceLockRefs": [
+        "PP-SKIN-V2-HOME-LOCK-2026-11-13-01"
+      ],
+      "patternRefs": [
+        "PP-ENG-UI-001",
+        "skills/plotpickle-surface-library/templates/HOME.dil.md"
+      ],
+      "inventionRefs": [],
+      "patentFilingRefs": [],
+      "checks": {
+        "unit": true,
+        "integration": true,
+        "preservation": true
+      },
+      "sourceFingerprint": "df4092384e45cc15bd43cd96ad7d9858171ebf2231c75431da7b2686fbd0ea8b",
+      "ownerReleaseApproval": "2026-11-27 owner requested moving the reviewed banner to production",
+      "rollbackRef": "https://github.com/BryanHarrisScripts/PlotPickle-Studio/releases/tag/v2.0.57",
+      "deploymentVerified": false,
+      "evidence": "PR #18 production design and live MCP package checks passed before version metadata update. Approved logo matches hosted bytes. Prior HOME to Meet Elara click passed in ChatGPT. New in-chat banner rendering still unverified.",
+      "recordDigest": "edb21f4c0d7de9ddb31f3df2babeb32808a703fb5e08edaa48edbcc141b56956"
     }
   ]
 }
