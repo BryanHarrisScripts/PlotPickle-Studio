@@ -59,7 +59,7 @@ The architecture includes two complementary feedback loops: the creator learns t
 
 The v2.0.57 release is superseded by v2.0.58. The archived v2.0.55 ZIP uses a retired Studio connection and should not be used for new installations. For future updates, check [GitHub Releases](https://github.com/BryanHarrisScripts/PlotPickle-Studio/releases/latest).
 
-The v2.0.58 release reports a verified package and checksum. Independent installation from a separate ChatGPT account has not yet been confirmed; setup depends on account permissions and access to the Studio connection.
+The v2.0.58 release reports a verified package and checksum. Setup depends on account permissions and access to the Studio connection.
 
 [OpenAI’s plugin installation and setup instructions](https://help.openai.com/en/articles/20001256-plugins-in-chatgpt)
 
