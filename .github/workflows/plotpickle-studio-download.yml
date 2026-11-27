@@ -1,41 +1,28 @@
-name: Build PlotPickle Studio download
+name: Publish PlotPickle Studio v2.0.57
 on:
-  pull_request:
-    paths:
-      - '.github/workflows/plotpickle-studio-download.yml'
-      - '.app.json'
-      - '.mcp.json'
-      - '.codex-plugin/plugin.json'
-      - 'plugin.json'
-      - 'skills/**'
-      - 'assets/**'
-      - 'docs/pitch-edit-standard-v1.md'
-      - 'LICENSE'
-      - 'scripts/package_studio_download.py'
-  push:
-    tags:
-      - 'v*.*.*'
   workflow_dispatch:
-
 permissions:
-  contents: read
-
+  actions: read
+  contents: write
 jobs:
-  build:
+  publish:
+    if: github.ref == 'refs/heads/release/publish-studio-v2.0.57'
     runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
     steps:
-      - uses: actions/checkout@v4
-      - name: Verify the connection and build the ZIP
+      - name: Verify the original build and publish
         run: |
-          if [[ "$GITHUB_REF_TYPE" == "tag" ]]; then
-            python3 scripts/package_studio_download.py --check-live --tag "$GITHUB_REF_NAME"
-          else
-            python3 scripts/package_studio_download.py --check-live
-          fi
-      - uses: actions/upload-artifact@v4
-        with:
-          name: plotpickle-studio-download
-          path: |
-            dist/PlotPickle-Studio-*.zip
-            dist/SHA256SUMS.txt
-          if-no-files-found: error
+          gh run download 46053552684 --repo "$GITHUB_REPOSITORY" --name plotpickle-studio-download
+          sha256sum -c SHA256SUMS.txt
+          printf '%s  %s\n' 6ecf2bb9d5e38bd2102ac25c7ea6a40c21d6ec2bb588879359c72d0143f86f48 PlotPickle-Studio-2.0.57.zip | sha256sum -c
+          cat > release-notes.md <<'NOTES'
+          PlotPickle Studio now connects directly to the hosted Studio MCP service using ChatGPT OAuth.
+
+          Download `PlotPickle-Studio-2.0.57.zip` from Assets and verify it against `SHA256SUMS.txt` before installing.
+
+          The GitHub build verified the OAuth endpoint and packaged the same files as the owner-tested export. Installation from a separate ChatGPT account remains unverified.
+          NOTES
+          gh release create v2.0.57 PlotPickle-Studio-2.0.57.zip SHA256SUMS.txt \
+            --repo "$GITHUB_REPOSITORY" --target 6d1ee345b9b7a42464480bdeb3b67de80ca2972e --latest \
+            --title "PlotPickle Studio 2.0.57" --notes-file release-notes.md
