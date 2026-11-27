@@ -1,5 +1,9 @@
 # PlotPickle Studio
 
+<p align="center">
+  <img src="assets/studio-logo.png" alt="PlotPickle Studio" width="320">
+</p>
+
 **Your story. Your decisions. Your cut.**
 
 Open Technology · Shared Creativity · Human Ownership · Continuous Evolution
