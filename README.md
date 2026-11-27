@@ -6,9 +6,9 @@
 
 **Your story. Your decisions. Your cut.**
 
-**Personal ChatGPT plugin**
+**Open-source ChatGPT plugin — available for community testing**
 
-PlotPickle Studio is distributed for personal use through ChatGPT’s **Plugins → Personal** area. Public marketplace distribution and an open-source release of the current plugin are outside the project’s plans. This public GitHub repository provides documentation and release history. Previously published material carries the licence identified with that material.
+PlotPickle Studio is an open-source project available for personal installation and community testing through ChatGPT’s **Plugins → Personal** area. This repository provides published source code, documentation and downloadable releases. Public marketplace distribution is not required. Published material is governed by its applicable licence.
 
 PlotPickle Studio is a storytelling learning and creative development plugin for students, hobbyists and independent storytellers. Work with Elara, your creative collaborator, to learn the craft, experiment visually through trial and error, and develop a better story.
 
@@ -48,9 +48,18 @@ The architecture includes two complementary feedback loops: the creator learns t
 
 ### Set up from a ZIP
 
-If PlotPickle Studio is missing from **Personal**, use a current PlotPickle Studio plugin ZIP made available for personal setup. Check [GitHub Releases](https://github.com/BryanHarrisScripts/PlotPickle-Studio/releases) for a release explicitly marked for personal installation and compare the ZIP’s SHA-256 checksum with the one supplied for that version. The archived v2.0.55 ZIP points to a retired Studio connection.
+**Current release: [PlotPickle Studio v2.0.58](https://github.com/BryanHarrisScripts/PlotPickle-Studio/releases/tag/v2.0.58)** — published November 27, 2026, with the direct Studio MCP connection and ChatGPT OAuth.
 
-In ChatGPT, open **Plugins → Add** and start **Plugin Creator** if offered. Install Plugin Creator if prompted, attach the ZIP in its conversation, and ask it to create PlotPickle Studio as a personal plugin. Once it appears under **Personal**, follow the steps above to install and connect it. Setup depends on your account’s plugin permissions and access to the Studio connection.
+1. Open the release page above and download the plugin ZIP from **Assets** (not GitHub's automatically generated source-code ZIP).
+2. Compare the ZIP's SHA-256 checksum with the checksum supplied with the release.
+3. In ChatGPT, open **Plugins → Add** and select **Plugin Creator**, if available. Install it if prompted.
+4. Attach the downloaded ZIP in a Plugin Creator conversation and ask it to create PlotPickle Studio as a personal plugin.
+5. Open **Plugins → Personal**, select PlotPickle Studio and install it. Review and authorize the Studio connection if prompted.
+6. Start a conversation, select `@PlotPickle Studio` and ask **Open Studio HOME**.
+
+The v2.0.57 release is superseded by v2.0.58. The archived v2.0.55 ZIP uses a retired Studio connection and should not be used for new installations. For future updates, check [GitHub Releases](https://github.com/BryanHarrisScripts/PlotPickle-Studio/releases/latest).
+
+The v2.0.58 release reports a verified package and checksum. Independent installation from a separate ChatGPT account has not yet been confirmed; setup depends on account permissions and access to the Studio connection.
 
 [OpenAI’s plugin installation and setup instructions](https://help.openai.com/en/articles/20001256-plugins-in-chatgpt)
 
@@ -58,9 +67,9 @@ For release packaging and verification, see [RELEASES.md](RELEASES.md).
 
 ## Licensing
 
-**[Open Technology](docs/licensing/OPEN-TECHNOLOGY.md)** — MIT for designated software.
+**[Open Technology](docs/licensing/OPEN-TECHNOLOGY.md)** — MIT-licensed designated software may be used, modified and redistributed for personal or commercial purposes, subject to preserving the copyright and licence notices.
 
-**[Shared Creativity](docs/licensing/SHARED-CREATIVITY.md)** — CC BY-NC-SA 4.0 for designated creative and educational works.
+**[Shared Creativity](docs/licensing/SHARED-CREATIVITY.md)** — designated creative and educational works are licensed under CC BY-NC-SA 4.0: sharing and adaptation are permitted for noncommercial purposes with attribution and the same licence for adaptations.
 
 The licence supplied with each published file or release governs that material. User stories remain under their creators’ chosen terms.
 
