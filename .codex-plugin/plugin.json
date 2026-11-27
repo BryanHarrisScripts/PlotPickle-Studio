@@ -1,24 +1,23 @@
 {
-  "apps": "./.app.json",
   "interface": {
     "capabilities": [],
     "category": "Other",
-    "defaultPrompt": null,
     "developerName": "App developer",
     "displayName": "PlotPickle Studio",
     "longDescription": "What will you create today? Your story. Your decisions. Your cut.",
     "shortDescription": "Create stories with Elara",
-    "websiteURL": "https://studio.plotpickle.com/home",
-    "logo": "./assets/branding-locked/composer-icon.png",
-    "composerIcon": "./assets/branding-locked/composer-icon.png"
+    "websiteURL": "https://plotpickle.com/home",
+    "logo": "./assets/branding-locked/listing-icon-256.png",
+    "composerIcon": "./assets/branding-locked/composer-icon.png",
+    "defaultPrompt": null
   },
   "extensions": {
     "com.openai": {
       "onboardingSkill": "./skills/plotpickle-welcome/SKILL.md"
     }
   },
-  "name": "dev-fe9cce49dbf48191922f7373df80c6fa",
-  "version": "2.0.55",
+  "name": "plotpickle-studio",
+  "version": "2.0.57",
   "description": "What will you create today? Your story. Your decisions. Your cut.",
   "author": {
     "name": "App developer"
@@ -33,5 +32,6 @@
     "automatic canonical filenames",
     "naming standard v1"
   ],
-  "skills": "./skills"
+  "skills": "./skills",
+  "mcpServers": "./.mcp.json"
 }

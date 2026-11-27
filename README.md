@@ -39,9 +39,9 @@ The architecture includes two complementary feedback loops: the creator learns t
 
 ## Install
 
-PlotPickle Studio **2.0.55** packages the plugin source, approved artwork and 36 skills. The plugin uses the hosted PlotPickle Studio app in ChatGPT. Access to the hosted app depends on your account. Download the [2.0.55 ZIP](https://raw.githubusercontent.com/BryanHarrisScripts/PlotPickle-Studio/main/releases/2.0.55/PlotPickle-Studio-2.0.55.zip) and check it against [SHA256SUMS.txt](releases/2.0.55/SHA256SUMS.txt) and [Studio](https://studio.plotpickle.com/home) for current access options.
+Download **PlotPickle Studio** from [GitHub Releases](https://github.com/BryanHarrisScripts/PlotPickle-Studio/releases), and compare the ZIP against the SHA-256 checksum for that version. Versions using the direct Studio connection sign in through ChatGPT OAuth. The archived v2.0.55 ZIP uses a retired app binding. Choose a direct-connection release when it is available.
 
-> **ChatGPT web installation:** The ZIP can create a private listing, but a reinstall from this archive could not load the connector. Keep an existing Site-managed PlotPickle Studio installation and connection in place. The ZIP is available for source review while connector installation is unresolved.
+Maintainers can build and check a release ZIP with `python3 scripts/package_studio_download.py --check-live`. The package's connection lives in [.mcp.json](.mcp.json); the build derives the portable `mcp.json` from it. See [RELEASES.md](RELEASES.md) for GitHub download verification.
 
 Adaptations to other AI platforms are welcome, but have not been tested.
 

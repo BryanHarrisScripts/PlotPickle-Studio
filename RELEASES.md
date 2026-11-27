@@ -14,6 +14,12 @@ This file is a human-readable ledger, not a deployment trigger.
 | 0.8.34 | `pluginrel_6af102a657b08191b07da5b8d64be07b` | 2026-11-08 UTC | Historic repository history; individual archive commit not mapped here | Superseded; Plugin Creator retains release |
 | 0.8.33 | `pluginrel_6af0b8fb4dec819181b70bcd777f9963` | 2026-11-08 UTC | Historic GitHub import | Superseded; Plugin Creator retains release |
 
+## GitHub downloads
+
+The main branch's `.mcp.json` is the source of truth for the GitHub download's production Studio MCP connection. When the production endpoint changes, update this file in the same release change and keep the two plugin manifests on the same package version. The portable configuration is generated from that one connection during packaging.
+
+The **Build PlotPickle Studio download** workflow checks the endpoint's OAuth challenge and metadata, builds the ZIP from tracked source and attaches it with a SHA-256 checksum. On version tags, it also checks the tag against both manifests. Use the ZIP and checksum from the passing run for the corresponding GitHub Release, and test that exact ZIP in ChatGPT before listing it as the current download. The network check verifies the endpoint and authentication discovery. A signed-in HOME check verifies the installation.
+
 ## Future archival procedure
 
 1. Update and publish inside Plugin Creator, retaining its new release ID.
