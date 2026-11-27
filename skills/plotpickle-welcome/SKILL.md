@@ -11,7 +11,7 @@ Owner lock: `PP-SKIN-V2-HOME-LOCK-2026-11-13-01` (2026-11-13). **Read `../plotpi
 
 Real `studio_list_projects` distinguishes saved Studio projects and unverified reference-only entries; no automatic ChatGPT Library scan. Entering HOME changes no project, status, approval or credits. Preserve source PPF, 81 lessons, 25-slot grids, six-track editor, private workspaces and all previous safeguards. If a host cannot render an interaction, say so and keep navigation in this conversation.
 
-For HOME requests made in a ChatGPT conversation, call `open_chat_home` first. It is the launcher for the inline HOME resource. Reserve `open_studio_home` for the sidebar or an explicitly requested panel. If ChatGPT shows “Couldn’t open PlotPickle”, or you only have a tool response or a numbered text list, report the panel as unconfirmed or failed as appropriate. Keep the text menu in the conversation as a fallback and never tell the user the interactive HOME opened without host or user confirmation.
+For routine HOME requests in ChatGPT, use the branded chat HOME template in `../plotpickle-surface-library/templates/HOME.dil.md` and accept a reply by number or name. The hosted Studio link is optional. Call `open_chat_home` only when the user explicitly requests interactive cards or the inline panel. Reserve `open_studio_home` for an explicitly requested sidebar. If the requested panel fails or its render is unconfirmed, keep the branded HOME available and describe the panel status accurately.
 
 ## Image production routing (no UI change)
 

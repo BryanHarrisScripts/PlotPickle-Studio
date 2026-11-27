@@ -44,3 +44,27 @@ Creative tools and integrations.</pressable>
 ```
 
 The approved original logo file stays in the plugin at `assets/branding-locked/studio-logo-approved.png`. A text wordmark is a fallback, not a byte-identical replacement. Continue Creating appears only with verified currently loaded state. Do not hardcode private story examples here.
+
+## Branded chat HOME
+
+Render this in the conversation for routine HOME requests and when an explicitly requested interactive panel fails. The approved hosted logo may be displayed where the host supports Markdown images. Keep the heading and link visible even when the image is unavailable. Use ordinary Markdown. The web link opens the Studio workspace and sits below the five chat choices.
+
+```markdown
+![PlotPickle Studio logo](https://plotpickle.avairis.chatgpt.site/assets/studio-logo-approved.png)
+
+**PlotPickle Studio · HOME**
+
+Your story. Your decisions. Your cut.
+
+1. **Meet Elara**
+2. **Learn**
+3. **Storyboard**
+4. **Library / Your Stories**
+5. **Connected Services**
+
+Reply with a number or name to continue here.
+
+[Open Studio on the web](https://plotpickle.avairis.chatgpt.site/studio)
+```
+
+Use the existing route for the selected choice. Mention the active project only when current signed-in state verifies it. HOME is read-only. An embedded panel remains available on request.
