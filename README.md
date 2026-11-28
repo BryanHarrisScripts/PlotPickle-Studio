@@ -29,6 +29,30 @@ The goal is not to produce a perfect movie. It is to help you explore what works
 
 Choose **REEL** to develop a fictional story or **ONCE** to explore personal memories and life stories. Both encourage learning by doing. The curriculum and Elara's creative guidance can expand as storytelling techniques, research and AI capabilities evolve.
 
+## Surface sitemap
+
+```text
+PLOTPICKLE STUDIO — in this ChatGPT conversation
+├── HOME — Skin V2, five cards in this order
+│   ├── 1. MEET ELARA — creative collaboration in chat
+│   ├── 2. LEARN — 12 topics → 81 lessons
+│   ├── 3. STORYBOARD
+│   │   ├── REEL — film / screenplay route
+│   │   └── ONCE — personal story route
+│   ├── 4. LIBRARY / YOUR STORIES
+│   │   ├── Signed-in Studio project catalogue
+│   │   └── Select source files in chat or import PPF/WebP from HOME
+│   └── 5. CONNECTED SERVICES
+│       ├── PlotPickle Studio
+│       └── ChatGPT Space
+└── DIRECT STUDIO ENTRY POINTS
+    ├── STORY MAP — 4 Acts → 12 Sequences → 24 Blocks → 96 Mini-Blocks
+    ├── SHOT GRID — 25 planning positions per Mini-Block
+    ├── REVIEW / EDITOR — shot review and six-track timeline
+    │   └── PITCH EDIT — timeline workflow
+    └── SYSTEM RECORDS — account-private Studio records inventory
+```
+
 ## Developer architecture
 
 PlotPickle separates its creative core from the infrastructure that runs it. The aim is portability through host-specific integrations, not dependence on a particular model or platform. The current implementation has limitations; other potential hosts remain untested.
