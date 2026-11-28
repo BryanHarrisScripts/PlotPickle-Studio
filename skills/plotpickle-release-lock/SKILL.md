@@ -1,6 +1,6 @@
 ---
 name: plotpickle-release-lock
-description: PlotPickle Studio version-linked engineering release locks, surface and pattern IDs, inventor/invention reference tracking, test and deployment gates, minimal storage, and owner approval. Use before changes to a protected surface, plugin version or release.
+description: PlotPickle Studio version-linked engineering release locks, surface and pattern IDs, inventor/invention reference tracking, test and deployment gates, minimal storage, and owner approval. Use before changes to a protected surface, plugin version or release, and for /systemhealth.
 ---
 
 # PlotPickle Studio — Compact Engineering Release Lock v1.0 (plugin 2.0.41)
@@ -22,3 +22,7 @@ This is a **version-linked release ledger and a local release gate**, not a back
 Do not use a skill version bump as authorization to override the already owner-locked Skin V2 HOME. If a lock changes, obtain a new explicit owner design approval. Preserve private PPF/storyboard approvals, images, BEATs, six-track media, and source integrity.
 
 **Operation:** `python3 scripts/release_lock.py validate`, `... check --version 2.0.41`, or `... append --record /path/to/proposed-record.json`. The last command inserts a unique draft/tested record; it never marks the version locked automatically. Run `python3 scripts/test_release_lock.py` for offline tests. For actual release publishing, release engineers must run the gate; the plugin host does not currently enforce this script at deployment time.
+
+## /systemhealth
+
+For `/systemhealth`, follow the [read-only system health checklist](references/system-health.md). Read live evidence on every invocation and report the observed version, coordinated target, and next verification step for each surface.
