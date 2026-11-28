@@ -1,6 +1,6 @@
 # /systemhealth
 
-Show a read-only release and operational health report. Use the coordinated target from the current release brief or ledger. For this candidate the target is **2.0.60**. Report the time in America/Toronto. Refresh the evidence on every invocation.
+Show a read-only release and operational health report. Use the coordinated target from the current release brief or ledger. Report the time in America/Toronto. Refresh the evidence on every invocation.
 
 ## Production version register
 
@@ -13,17 +13,19 @@ Use one row per surface with columns for live version, candidate version, target
 | Studio HOME in Chat | Tool response, five-card order and rendered panel version when requested. |
 | **Web** | |
 | PlotPickle.com | Rendered homepage footer and release link. |
-| Studio HOME on the web | Signed-in rendered version and intended hostname. |
-| Studio Editor on the web | Signed-in rendered version, six-track editor and intended hostname. |
+| [Studio HOME on the web](https://plotpickle.com/home) | Verify the rendered release version. |
+| [Studio Editor on the web](https://plotpickle.com/studio) | Verify the sign-in redirect, signed-in version and six-track editor. |
 | Meet Elara on the web | Public entry link, intended route and shared footer version where applicable. |
 | **Work/Codex** | |
 | Sites deployment | Live deployment, hosting revision and source commit. |
 | GitHub main and README | Both checked-in manifests, documented release and deployed source mapping. |
 | GitHub tag and Release | Exact source commit, published status, ZIP manifests and asset checksums. |
 
-Show shared connections and storage in **Connections and diagnostics**. List Studio MCP once and verify its configured endpoint, authenticated initialize version, Studio core version and any branded alias. Label the Studio working-copy storage row **PlotPickle Studio Space** and show its readback and data revision. Keep **ChatGPT Space** as its own connection row. List the two unused development tunnels with their last reported versions in diagnostics.
+Show shared connections and storage in **Connections and diagnostics**. List Studio MCP once and verify its configured endpoint, authenticated initialize version, Studio core version. Label the Studio working-copy storage row **PlotPickle Studio Space** and show its readback and data revision. Keep **ChatGPT Space** as its own connection row. List the two unused development tunnels with their last reported versions in diagnostics.
 
 The hosting revision and Studio, source PPF and editorial revisions are separate identifiers. ChatGPT Space has its own lifecycle. If present, list the Test Tunnel and Factory MCP Tunnel as development connections with independently observed versions and no coordinated production target.
+
+Use `plotpickle.com` for production web checks. The retired `studio.plotpickle.com` hostname is outside the test inventory. The Sites-hosted URL is a diagnostic fallback.
 
 ## Studio surface inventory
 
