@@ -63,9 +63,9 @@ The architecture includes two complementary feedback loops: the creator learns t
   <img src="assets/plotpickle-developer-architecture.svg" alt="PlotPickle developer architecture: creative core, host adapters, AI infrastructure, optional tools and two feedback loops for human learning and reviewed system evolution" width="100%">
 </p>
 
-## Version 2.0.60 candidate
+## Version 2.0.61
 
-The existing private ChatGPT plugin has 37 skills and includes Animation & Motion Intelligence V1. The signed-in Studio backend reported 2.0.59 during verification. The latest published download is still v2.0.59.
+The private ChatGPT plugin includes 37 skills, Animation & Motion Intelligence V1 and the read-only `/systemhealth` report. The 2.0.61 hosted worker serves the marketing site, Studio and MCP.
 
 Start with `Home` in Chat. Ask for `Story Map`, `Shot Grid`, `Review`, `Editor`, or `Pitch Package` as you develop your story. Elara connects to the signed-in Studio working copy over MCP using ChatGPT OAuth. The workflow saves a candidate, reopens it to verify the saved record, then locks it with creator approval and verifies the lock. Studio Learn offers 81 lessons across 12 topics.
 
@@ -123,7 +123,7 @@ Ask Elara for `Animation`, `MotionBrief`, `MotionReview`, `Emotion`, `Continuity
 
 ### Set up from a ZIP
 
-**Current release: [PlotPickle Studio v2.0.59](https://github.com/BryanHarrisScripts/PlotPickle-Studio/releases/tag/v2.0.59)** — published November 27, 2026 (Toronto time), with direct Studio MCP, ChatGPT OAuth, and updated Save → Lock workflow.
+Download the latest published package from [GitHub Releases](https://github.com/BryanHarrisScripts/PlotPickle-Studio/releases). Setup depends on account permissions and Studio connection access.
 
 1. Open the release page above and download the plugin ZIP from **Assets** (not GitHub's automatically generated source-code ZIP).
 2. Compare the ZIP's SHA-256 checksum with the checksum supplied with the release.

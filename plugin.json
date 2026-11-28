@@ -9,13 +9,13 @@
       "interface": {
         "capabilities": [],
         "category": "Other",
+        "composerIcon": "./assets/branding-locked/composer-icon.png",
         "developerName": "App developer",
         "displayName": "PlotPickle Studio",
+        "logo": "./assets/branding-locked/listing-icon-256.png",
         "longDescription": "What will you create today? Your story. Your decisions. Your cut.",
         "shortDescription": "Create stories with Elara",
-        "websiteURL": "https://plotpickle.com/home",
-        "logo": "./assets/branding-locked/listing-icon-256.png",
-        "composerIcon": "./assets/branding-locked/composer-icon.png"
+        "websiteURL": "https://plotpickle.com/home"
       },
       "onboardingSkill": "./skills/plotpickle-welcome/SKILL.md"
     }
@@ -31,5 +31,5 @@
     "naming standard v1"
   ],
   "name": "plotpickle-studio",
-  "version": "2.0.60"
+  "version": "2.0.61"
 }
