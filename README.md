@@ -72,7 +72,7 @@ The architecture includes two complementary feedback loops: the creator learns t
 
 ### Set up from a ZIP
 
-**Current release: [PlotPickle Studio v2.0.58](https://github.com/BryanHarrisScripts/PlotPickle-Studio/releases/tag/v2.0.58)** — published November 27, 2026, with the direct Studio MCP connection and ChatGPT OAuth.
+**Current release: [PlotPickle Studio v2.0.59](https://github.com/BryanHarrisScripts/PlotPickle-Studio/releases/tag/v2.0.59)** — published November 27, 2026 (Toronto time), with direct Studio MCP, ChatGPT OAuth, and updated Save → Lock workflow.
 
 1. Open the release page above and download the plugin ZIP from **Assets** (not GitHub's automatically generated source-code ZIP).
 2. Compare the ZIP's SHA-256 checksum with the checksum supplied with the release.
@@ -81,9 +81,9 @@ The architecture includes two complementary feedback loops: the creator learns t
 5. Open **Plugins → Personal**, select PlotPickle Studio and install it. Review and authorize the Studio connection if prompted.
 6. Start a conversation, select `@PlotPickle Studio` and ask **Open Studio HOME**.
 
-The v2.0.57 release is superseded by v2.0.58. The archived v2.0.55 ZIP uses a retired Studio connection and should not be used for new installations. For future updates, check [GitHub Releases](https://github.com/BryanHarrisScripts/PlotPickle-Studio/releases/latest).
+The v2.0.57 and v2.0.58 releases are superseded by v2.0.59. The archived v2.0.55 ZIP uses a retired Studio connection and should not be used for new installations. For future updates, check [GitHub Releases](https://github.com/BryanHarrisScripts/PlotPickle-Studio/releases/latest).
 
-The v2.0.58 release reports a verified package and checksum. Setup depends on account permissions and access to the Studio connection.
+The v2.0.59 release includes a plugin ZIP and SHA-256 checksum. Connected Services lists PlotPickle Studio and ChatGPT Space; optional providers are managed through their own ChatGPT plugins. Save → Lock is designed to verify the exact PPF and original image in the private Studio working copy. Release notes report passing automated checks; signed-in production acceptance remains pending. Setup depends on account permissions and access to the Studio connection.
 
 [OpenAI’s plugin installation and setup instructions](https://help.openai.com/en/articles/20001256-plugins-in-chatgpt)
 
