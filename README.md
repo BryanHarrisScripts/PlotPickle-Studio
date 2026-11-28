@@ -14,7 +14,7 @@ PlotPickle Studio is a storytelling learning and creative development plugin for
 
 The goal is not to produce a perfect movie. It is to help you explore what works, refine your creative vision and build a compelling pitch package for a book, comic book, short story, feature-length film or episodic series.
 
-**[Website](https://plotpickle.com)** · [Studio](https://studio.plotpickle.com/home) · [Downloads](https://github.com/BryanHarrisScripts/PlotPickle-Studio/releases)
+**[Website](https://plotpickle.com)** · [Studio HOME](https://plotpickle.com/home) · [Studio Editor](https://plotpickle.com/studio) · [Downloads](https://github.com/BryanHarrisScripts/PlotPickle-Studio/releases)
 
 - **Learn** — explore an expanding library of storytelling and creative development lessons.
 - **Experiment** — visualize ideas, characters, worlds and scenes; compare alternatives through trial and error.
