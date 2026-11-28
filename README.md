@@ -6,15 +6,15 @@
 
 **Your story. Your decisions. Your cut.**
 
-**Open-source ChatGPT plugin — available for community testing**
+**Open-source ChatGPT plugin**
 
-PlotPickle Studio is an open-source project available for personal installation and community testing through ChatGPT’s **Plugins → Personal** area. This repository provides published source code, documentation and downloadable releases. Public marketplace distribution is not required. Published material is governed by its applicable licence.
+PlotPickle Studio is an open-source project available for personal installation and community testing through ChatGPT’s **Plugins → Personal** area. This repository provides source code, documentation and downloadable releases. Access depends on ChatGPT account permissions and the Studio connection. Published material is governed by its applicable licence.
 
 PlotPickle Studio is a storytelling learning and creative development plugin for students, hobbyists and independent storytellers. Work with Elara, your creative collaborator, to learn the craft, experiment visually through trial and error, and develop a better story.
 
 The goal is not to produce a perfect movie. It is to help you explore what works, refine your creative vision and build a compelling pitch package for a book, comic book, short story, feature-length film or episodic series.
 
-**[Website](https://plotpickle.com)** · [Studio](https://plotpickle.com/home) · [Downloads](https://github.com/BryanHarrisScripts/PlotPickle-Studio/releases)
+**[Website](https://plotpickle.com)** · [Studio](https://studio.plotpickle.com/home) · [Downloads](https://github.com/BryanHarrisScripts/PlotPickle-Studio/releases)
 
 - **Learn** — explore an expanding library of storytelling and creative development lessons.
 - **Experiment** — visualize ideas, characters, worlds and scenes; compare alternatives through trial and error.
@@ -62,6 +62,57 @@ The architecture includes two complementary feedback loops: the creator learns t
 <p align="center">
   <img src="assets/plotpickle-developer-architecture.svg" alt="PlotPickle developer architecture: creative core, host adapters, AI infrastructure, optional tools and two feedback loops for human learning and reviewed system evolution" width="100%">
 </p>
+
+## Version 2.0.60 candidate
+
+The existing private ChatGPT plugin has 37 skills and includes Animation & Motion Intelligence V1. The signed-in Studio backend reported 2.0.59 during verification. The latest published download is still v2.0.59.
+
+Start with `Home` in Chat. Ask for `Story Map`, `Shot Grid`, `Review`, `Editor`, or `Pitch Package` as you develop your story. Elara connects to the signed-in Studio working copy over MCP using ChatGPT OAuth. The workflow saves a candidate, reopens it to verify the saved record, then locks it with creator approval and verifies the lock. Studio Learn offers 81 lessons across 12 topics.
+
+Ask Elara for `Animation`, `MotionBrief`, `MotionReview`, `Emotion`, `Continuity`, or `Director` guidance. The motion skill adds twelve knowledge modules, provider-independent planning, and a supplemental animation lesson. Read the [skill](skills/plotpickle-animation-motion-v1/SKILL.md) and [supplement](skills/plotpickle-animation-motion-v1/learn.md).
+
+<details>
+<summary>37 plugin skills</summary>
+
+- [plotpickle-animatic](skills/plotpickle-animatic/SKILL.md)
+- [plotpickle-animation-motion-v1](skills/plotpickle-animation-motion-v1/SKILL.md)
+- [plotpickle-approval](skills/plotpickle-approval/SKILL.md)
+- [plotpickle-approval-truth](skills/plotpickle-approval-truth/SKILL.md)
+- [plotpickle-assets](skills/plotpickle-assets/SKILL.md)
+- [plotpickle-chat-first](skills/plotpickle-chat-first/SKILL.md)
+- [plotpickle-community](skills/plotpickle-community/SKILL.md)
+- [plotpickle-creative](skills/plotpickle-creative/SKILL.md)
+- [plotpickle-design](skills/plotpickle-design/SKILL.md)
+- [plotpickle-editor](skills/plotpickle-editor/SKILL.md)
+- [plotpickle-fal-player](skills/plotpickle-fal-player/SKILL.md)
+- [plotpickle-fal-production](skills/plotpickle-fal-production/SKILL.md)
+- [plotpickle-graphic-novel](skills/plotpickle-graphic-novel/SKILL.md)
+- [plotpickle-image-production](skills/plotpickle-image-production/SKILL.md)
+- [plotpickle-interactive-storyboard](skills/plotpickle-interactive-storyboard/SKILL.md)
+- [plotpickle-naming](skills/plotpickle-naming/SKILL.md)
+- [plotpickle-navigator](skills/plotpickle-navigator/SKILL.md)
+- [plotpickle-official-reader](skills/plotpickle-official-reader/SKILL.md)
+- [plotpickle-oss-radar](skills/plotpickle-oss-radar/SKILL.md)
+- [plotpickle-pitch-deck](skills/plotpickle-pitch-deck/SKILL.md)
+- [plotpickle-posters](skills/plotpickle-posters/SKILL.md)
+- [plotpickle-produce](skills/plotpickle-produce/SKILL.md)
+- [plotpickle-release-lock](skills/plotpickle-release-lock/SKILL.md)
+- [plotpickle-reports](skills/plotpickle-reports/SKILL.md)
+- [plotpickle-review](skills/plotpickle-review/SKILL.md)
+- [plotpickle-site-retirement](skills/plotpickle-site-retirement/SKILL.md)
+- [plotpickle-skin-v1](skills/plotpickle-skin-v1/SKILL.md)
+- [plotpickle-skin-v2](skills/plotpickle-skin-v2/SKILL.md)
+- [plotpickle-story-flow](skills/plotpickle-story-flow/SKILL.md)
+- [plotpickle-story-workspace](skills/plotpickle-story-workspace/SKILL.md)
+- [plotpickle-studio](skills/plotpickle-studio/SKILL.md)
+- [plotpickle-surface-library](skills/plotpickle-surface-library/SKILL.md)
+- [plotpickle-transfer](skills/plotpickle-transfer/SKILL.md)
+- [plotpickle-truth-gate](skills/plotpickle-truth-gate/SKILL.md)
+- [plotpickle-unified-application](skills/plotpickle-unified-application/SKILL.md)
+- [plotpickle-welcome](skills/plotpickle-welcome/SKILL.md)
+- [read-plotpickle-project](skills/read-plotpickle-project/SKILL.md)
+
+</details>
 
 ## Install in ChatGPT
 

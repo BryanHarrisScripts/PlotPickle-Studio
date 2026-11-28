@@ -1,0 +1,4 @@
+# Attribution
+Adapted from Dylan Tarre, Animation Principles Skill Marketplace, https://github.com/dylantarre/animation-principles (MIT). Copyright (c) 2024 Dylan Tarre. See LICENSE-MIT.txt.
+Selected source documents under docs/: 03-by-role-persona/filmmaker.md and creative-director.md; 02-by-thinking-style/emotional-narrative.md, naturalistic-motion.md, character-appeal.md, anticipation-payoff.md, attention-direction.md, rhythm-pacing.md, spatial-thinking.md; 11-by-principle-focus/solid-drawing-mastery.md and secondary-action-mastery.md; 12-by-problem-type/emotional-disconnect.md.
+Foundational principles credited to Frank Thomas and Ollie Johnston, The Illusion of Life: Disney Animation (1981). No Disney affiliation or endorsement implied. Adaptation is provider-neutral and excludes Claude installation instructions and UI-specific timing prescriptions.

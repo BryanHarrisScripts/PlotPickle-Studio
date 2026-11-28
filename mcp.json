@@ -1,0 +1,21 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  "mcpServers": {
+    "plotpickle-studio": {
+      "type": "streamable-http",
+      "url": "https://plotpickle.avairis.chatgpt.site/mcp",
+      "extensions": {
+        "com.openai": {
+          "auth": {
+            "type": "oauth",
+            "baseScopes": [
+              "openid",
+              "resource.invoke",
+              "email"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

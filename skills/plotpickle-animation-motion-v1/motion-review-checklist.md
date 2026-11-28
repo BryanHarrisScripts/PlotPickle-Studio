@@ -1,0 +1,4 @@
+# MotionReview
+Proposed conversational command. Inspect actual accessible media and approved references before making claims. If frames only are available, temporal checks are unknown. Compare start/middle/end and adjacent shots where accessible.
+Mark PASS / NEEDS REDO / UNKNOWN / NOT APPLICABLE for: story beat fidelity; identity and geometry; physical motion; staging; emotional performance; timing; secondary action; camera/eyelines; sound/dialogue; unwanted artifacts.
+A material story or continuity failure warrants REDO recommendation, not automatic rejection or overwrite. Unknown source identity prevents verified continuity approval. Return observed evidence, smallest correction and revised brief. Human chooses approval; use existing Save then Lock only with authorization and readback. Never equate an AI review with a human lock.
