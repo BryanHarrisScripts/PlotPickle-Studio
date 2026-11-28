@@ -41,6 +41,10 @@ Use Python 3 standard library; no external services, GitHub or Windows app neede
 
 All write paths are *new output files only*; do not overwrite existing files. `.ppf.json` remains unchanged. Exact project id/revision/SHA and screenplay passage IDs are included in profiles and layouts. The generated HTML contains **IMAGE PENDING** slots; it does not invent image URLs, run a provider or save anything inside the project. For staging output use the host's durable file workflow separately.
 
+## Character, world and shot continuity
+
+Use stable source entity IDs in Character Builder and World Builder. Preserve established identity anchors across looks. In Shot Truth Cards and Review, read `studio_get_shot_continuity` using the exact pinned PPF hash and registered Studio shot number when the tool is available. Report applicable rules, source references, unresolved conflicts and missing evidence using the returned receipt. Keep early design proposals separate from accepted rules. For a legacy PPF, continue the existing evidence workflow without inferring accepted continuity records.
+
 ## Consistency, authorship, and approvals
 
 At every step keep separate: source text, extracted source ID/hash, writer-approved choice, suggested visual interpretation, generated candidate, file verification, author approval and native Save/Lock. Profiles do not become screenplay truth because they were rendered in a sheet. A regenerated face must preserve accepted identity anchors and inherited traits unless explicitly changed. If an author requests new garments/props/world details, treat those as proposals for the chosen design variant; existing approved shots remain unaffected until a reviewed supersession operation occurs.
