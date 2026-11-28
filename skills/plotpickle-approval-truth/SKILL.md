@@ -7,6 +7,10 @@ description: "MANDATORY for any PlotPickle user approval, approve-all, Save, Loc
 
 This is a procedure for **all users**, not a record containing any creator's personal project. It must be applied alongside `../plotpickle-truth-gate/SKILL.md`, `../plotpickle-approval/SKILL.md`, and `../read-plotpickle-project/references/default-save-lock.md` before any project/shot status claim or modification. This skill is a deterministic local audit, not a hosted backend repair or substitute for native Save → Lock.
 
+## Studio working-copy Save → Lock (2.0.59)
+
+For a Studio working-copy request, use the signed-in Studio review editor or `studio_apply_action` with `operation: approve-lock`, `kind: image`, current Studio revision, source PPF SHA, shot position, and original image SHA. Confirm “Saved and locked in Studio” only when the working-copy receipt confirms both hashes and the lock. After reopening the project in a fresh session, call `studio_verify_working_copy_lock` with the same shot and hashes. Record Studio and original Space file status independently. The native-source requirements below apply to explicit original-file writes and native-source claims.
+
 ## Fundamental invariant
 
 **Creator approval is not a lock; a file is not a shot; a filename is not evidence; a prior lock marker is not a current verified native lock.** A user's approval of a full scope is valid authorization covering exactly the named shot positions. Never lose or repeatedly solicit that authorization merely because a file or write is missing. Equally, never count a missing, DRIFTED, or mismapped image as a completed/locked original. Keep authorization and the verified production state separate.

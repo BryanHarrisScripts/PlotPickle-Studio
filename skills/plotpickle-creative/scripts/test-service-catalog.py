@@ -5,7 +5,7 @@ mod=importlib.util.module_from_spec(spec);spec.loader.exec_module(mod)
 class TestServiceCatalog(unittest.TestCase):
  def setUp(self):self.registry=mod.load_registry()
  def test_two_connected_services(self):
-  self.assertEqual([x['name'] for x in mod.catalog(self.registry)['services']],['PlotPickle Studio','ChatGPT Library'])
+  self.assertEqual([x['name'] for x in mod.catalog(self.registry)['services']],['PlotPickle Studio','ChatGPT Space'])
   self.assertFalse(mod.catalog(self.registry)['liveConnectionChecked'])
  def test_fal_not_connected_in_static_catalogue(self):
   s=next(x for x in self.registry['services'] if x['id']=='fal')

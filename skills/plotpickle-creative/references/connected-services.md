@@ -1,6 +1,6 @@
 # Connected Services
 
-HOME → Connected Services lists **PlotPickle Studio** and **ChatGPT Library**. Select project files and original media in your ChatGPT conversation. Manage optional providers through your own ChatGPT plugins.
+HOME → Connected Services lists **PlotPickle Studio** and **ChatGPT Space**. Select project files and original media in your ChatGPT conversation. Manage optional providers through your own ChatGPT plugins.
 
 For an explicit request involving a user-managed Suno or fal plugin, legacy brief helpers support: **Prepare Music Brief / Open Suno** and **Prepare Motion Brief / Open fal**. A brief uses the existing PlotPickle story evidence and enters an ordinary chat workflow without spending provider credits. **Open Suno** opens `https://suno.com/` and **Open fal** opens `https://fal.ai/dashboard` directly in the host browser through a URL-opening action. These two Open actions must not invoke a chat conversation or tool that writes the story. The actual login, account, pricing and purchases occur on the provider's own website, not inside PlotPickle. No usernames or passwords are collected or stored by PlotPickle.
 

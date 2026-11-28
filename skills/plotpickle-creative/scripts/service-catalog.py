@@ -32,7 +32,7 @@ def catalog(reg):
         'liveConnectionChecked': False,
         'services': [
             {'id': 'studio', 'name': 'PlotPickle Studio', 'status': 'Check Studio for current availability', 'actions': []},
-            {'id': 'library', 'name': 'ChatGPT Library', 'status': 'Select project files in your ChatGPT conversation', 'actions': []},
+            {'id': 'library', 'name': 'ChatGPT Space', 'status': 'Select project files in your ChatGPT conversation', 'actions': []},
         ],
         'hostInstructions': 'Manage optional creative providers through your own ChatGPT plugins.',
     }
