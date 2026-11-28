@@ -36,10 +36,12 @@ class ReleaseLockTests(unittest.TestCase):
 
     def test_append_new_draft(self):
         x = {k:v for k,v in self.idx['releases'][0].items() if k != 'recordDigest'}
-        x.update(version='2.0.42', state='DRAFT')
+        major, minor, patch = map(int, self.idx['currentVersion'].split('.'))
+        version = f'{major}.{minor}.{patch + 1}'
+        x.update(version=version, state='DRAFT')
         updated = append(self.idx,x)
-        self.assertEqual(updated['currentVersion'],'2.0.42')
-        self.assertEqual(len(updated['releases']),2)
+        self.assertEqual(updated['currentVersion'], version)
+        self.assertEqual(updated['releases'][:-1], self.idx['releases'])
         self.assertEqual(updated['releases'][0], self.idx['releases'][0])
         self.assertTrue(validate(updated))
 

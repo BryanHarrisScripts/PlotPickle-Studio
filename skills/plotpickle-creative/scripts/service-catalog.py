@@ -26,21 +26,16 @@ def load_registry(path=REGISTRY):
     return reg
 
 def catalog(reg):
-    rows=[]
-    for s in reg['services']:
-        planned=s['catalogState']=='planned'
-        rows.append({'id':s['id'],'name':s['name'],'category':s['category'],'summary':s['summary'],
-          'status':'Planned · unavailable' if planned else 'Connection not verified',
-          'statusEvidence':'catalogue-only-not-live','setupUrl':None if planned else s.get('officialSetupUrl'),
-          'requiredFor':s.get('requiredFor',[]),'notRequiredFor':s.get('notRequiredFor',[]),
-          'siteVisibility':s.get('siteVisibility'),'setupGuide':s.get('setupGuide'),
-          'secureSignIn':s.get('secureSignIn'),'credentialsStoredByPlotPickle':False,
-          'actions':[{'id':a['id'],'label':a['label'],'requiresProvider':a['requiresProvider'],
-            'usesCredits':a['usesCredits'],'openUrl':a.get('url') if a['kind']=='external-link' else None,
-            'conversationRequired':a['kind']!='external-link'} for a in s['actions']]})
-    return {'schemaVersion':reg['schemaVersion'],'status':'catalogue-read-only',
-      'liveConnectionChecked':False,'services':rows,
-      'hostInstructions':'Only a live authorized provider response proves connection. Open Suno and Open fal are direct browser links, not new conversations.'}
+    return {
+        'schemaVersion': reg['schemaVersion'],
+        'status': 'catalogue-read-only',
+        'liveConnectionChecked': False,
+        'services': [
+            {'id': 'studio', 'name': 'PlotPickle Studio', 'status': 'Check Studio for current availability', 'actions': []},
+            {'id': 'library', 'name': 'ChatGPT Library', 'status': 'Select project files in your ChatGPT conversation', 'actions': []},
+        ],
+        'hostInstructions': 'Manage optional creative providers through your own ChatGPT plugins.',
+    }
 
 def intent(reg,service_id,action_id):
     s=next((s for s in reg['services'] if s['id']==service_id),None)
