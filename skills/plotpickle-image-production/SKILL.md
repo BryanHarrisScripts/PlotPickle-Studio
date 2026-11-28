@@ -20,6 +20,12 @@ This routes ALL visual production requests through `../plotpickle-truth-gate/SKI
 7. Present image(s) for creator review. For explicit approval/lock, retain exact candidate ID+SHA, then attempt the **real native PPF Save/Lock** using available guarded writer and independent readback. If writer lacks authenticated PPF/Library access, store only an approval receipt/independently verified bytes in the creator's private Library and report `NATIVE_PPF_LOCK_PENDING`, not success. Studio import is another independently verified step; never claim it because the files are in Library.
 8. Show concise shot checklist and *exact next missing address*. Five requested frames are not complete until five separately created, verified and reviewed candidates exist. No public publication or paid provider calls without existing release/spend gates.
 
+## Shot continuity preflight
+
+For a continuity-configured PPF, call `studio_get_shot_continuity` with the current registered Studio shot number and exact `ppfSha256`. Use the returned address, source revision, screenplay links and entity IDs in the shot brief. Stop before generation when continuity is unresolved or any required reference is missing. Keep legacy projects on their existing source and reference checks when the receipt reports `configured: false`.
+
+A verified reference in the receipt has been reopened from Studio. Pass the exact approved original to the image host and retain evidence of actual delivery. Keep visual review, creator approval, Save and Lock separate. Continuity resolution alone grants none of those states.
+
 ## Send approved originals to ChatGPT Images
 
 1. Resolve the required visual roles from the shot card. Use the creator-authorized source revision to pin each approved asset/variation and SHA-256. For a matching Studio project, reopen `studio_get_reference_approvals` and check the project, source hash, approval scope, and saved/locked status. If Studio has only part of the reference set, use the matching canonical approval records from the selected source for the remaining roles.
