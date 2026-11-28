@@ -4,25 +4,30 @@ Show a read-only release and operational health report. Use the coordinated targ
 
 ## Production version register
 
-Use one row per surface with columns for live version, candidate version, target, evidence and next action. Use **Unverified** when access or version readback is missing. Record backend, rendered UI, Git revision and deployment state separately.
+Use one row per surface with columns for live version, candidate version, target, evidence and next action. Use **Unverified** when access or version readback is missing. Record backend, rendered UI, Git revision and deployment state separately. Group the Surface column under **Chat**, **Web**, and **Work/Codex**, in that order.
 
 | Surface | Readback required |
 |---|---|
+| **Chat** | |
 | ChatGPT plugin | Current Plugin Creator release ID and both manifests. Verify the active Chat installation separately. |
-| PlotPickle.com | Rendered homepage footer, release link, Sites deployment and source commit. |
-| Studio HOME in Chat | Tool response, five-card order and rendered panel version when a panel is requested. |
+| Studio HOME in Chat | Tool response, five-card order and rendered panel version when requested. |
+| **Web** | |
+| PlotPickle.com | Rendered homepage footer and release link. |
 | Studio HOME on the web | Signed-in rendered version and intended hostname. |
 | Studio Editor on the web | Signed-in rendered version, six-track editor and intended hostname. |
-| MCP | Configured endpoint, authenticated initialize server version and Studio core version. Verify any branded alias separately. |
-| Meet Elara on the web | Verify the public entry link and intended route. Confirm the release marker wherever this page inherits the shared site footer. |
+| Meet Elara on the web | Public entry link, intended route and shared footer version where applicable. |
+| **Work/Codex** | |
+| Sites deployment | Live deployment, hosting revision and source commit. |
 | GitHub main and README | Both checked-in manifests, documented release and deployed source mapping. |
 | GitHub tag and Release | Exact source commit, published status, ZIP manifests and asset checksums. |
+
+Show shared connections and storage in **Connections and diagnostics**. List Studio MCP once and verify its configured endpoint, authenticated initialize version, Studio core version and any branded alias. Label the Studio working-copy storage row **PlotPickle Studio Space** and show its readback and data revision. Keep **ChatGPT Space** as its own connection row. List the two unused development tunnels with their last reported versions in diagnostics.
 
 The hosting revision and Studio, source PPF and editorial revisions are separate identifiers. ChatGPT Space has its own lifecycle. If present, list the Test Tunnel and Factory MCP Tunnel as development connections with independently observed versions and no coordinated production target.
 
 ## Studio surface inventory
 
-Check the rendered or signed-in surface using its normal entry point. The active release may be shown in a shared shell or footer. Avoid adding individual version constants to these views.
+List each Studio surface under Chat or Web according to its supported entry points. Check the rendered or signed-in surface using its normal entry point. The active release may be shown in a shared shell or footer. Avoid adding individual version constants to these views.
 
 - HOME (Skin V2), Meet Elara, Learn (12 topics and 81 baseline lessons, plus the animation supplement), Storyboard, REEL, ONCE, Library / Your Stories and Connected Services.
 - Story Map, Shot Grid, Review, six-track Editor, Pitch Edit, Reports, Pitch Package and System Records.
